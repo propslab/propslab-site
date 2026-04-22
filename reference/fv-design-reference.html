@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Props Lab — FV 3パターン比較</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Shippori+Mincho:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Archivo+Black&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #2a2a2a; color: #fff; font-family: -apple-system, sans-serif; }
+
+  .label {
+    padding: 24px 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #999;
+    border-bottom: 1px solid #444;
+  }
+  .label strong { color: #fff; font-weight: 700; }
+  .label .desc { color: #999; margin-top: 6px; display: block; font-size: 10px; letter-spacing: 0.1em; }
+
+  /* ===================================================
+     PATTERN A: EDITORIAL / REFINED
+     外資出身の知性・別格感
+     =================================================== */
+  .pattern-a {
+    background: #F5F0E8;
+    color: #0F1419;
+    min-height: 100vh;
+    padding: 48px 32px 64px;
+    font-family: 'Cormorant Garamond', serif;
+    position: relative;
+    overflow: hidden;
+  }
+  .pattern-a .a-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .pattern-a .a-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #0F1419;
+  }
+  .pattern-a .a-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .pattern-a .a-logo span { color: #8B7355; }
+  .pattern-a .a-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #5a5550;
+  }
+  .pattern-a .a-issue {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8B7355;
+    margin-bottom: 16px;
+  }
+  .pattern-a .a-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(40px, 8vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: #0F1419;
+    margin-bottom: 32px;
+  }
+  .pattern-a .a-headline em {
+    font-style: italic;
+    font-weight: 500;
+    color: #8B7355;
+  }
+  .pattern-a .a-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: end;
+    padding-top: 48px;
+    border-top: 1px solid #c4b8a8;
+  }
+  @media (min-width: 768px) {
+    .pattern-a .a-body {
+      grid-template-columns: 1.5fr 1fr;
+    }
+  }
+  .pattern-a .a-lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #2a2520;
+  }
+  .pattern-a .a-lead::first-letter {
+    font-family: 'Fraunces', serif;
+    font-size: 64px;
+    line-height: 0.8;
+    font-weight: 700;
+    float: left;
+    margin-right: 12px;
+    margin-top: 8px;
+    color: #8B7355;
+  }
+  .pattern-a .a-cta {
+    text-align: right;
+  }
+  .pattern-a .a-cta-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #0F1419;
+    text-decoration: none;
+    border-bottom: 1px solid #0F1419;
+    padding-bottom: 4px;
+  }
+  .pattern-a .a-byline {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #8B7355;
+    margin-top: 16px;
+  }
+  .pattern-a .a-decoration {
+    position: absolute;
+    top: 50%;
+    right: -100px;
+    font-family: 'Fraunces', serif;
+    font-size: 400px;
+    color: rgba(139, 115, 85, 0.06);
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  /* ===================================================
+     PATTERN B: ORGANIC / WARM / BEPPU
+     地域密着、温かみ、長期関係
+     =================================================== */
+  .pattern-b {
+    background: #FAF7F2;
+    color: #1A1A1A;
+    min-height: 100vh;
+    padding: 32px 24px 64px;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  .pattern-b::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      radial-gradient(ellipse 800px 400px at 80% 20%, rgba(200, 75, 49, 0.08), transparent),
+      radial-gradient(ellipse 600px 300px at 10% 80%, rgba(45, 90, 74, 0.06), transparent);
+    pointer-events: none;
+  }
+  .pattern-b .b-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.4;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.4 0 0 0 0 0.3 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .pattern-b .b-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .pattern-b .b-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 64px;
+  }
+  .pattern-b .b-logo {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+  }
+  .pattern-b .b-logo .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #C84B31;
+    border-radius: 50%;
+    margin: 0 4px 4px 0;
+    vertical-align: middle;
+  }
+  .pattern-b .b-tagline-en {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #5a5450;
+  }
+  .pattern-b .b-kicker {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #C84B31;
+    margin-bottom: 32px;
+    padding: 8px 16px;
+    border: 1px solid #C84B31;
+    border-radius: 100px;
+  }
+  .pattern-b .b-headline {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 600;
+    font-size: clamp(36px, 7vw, 72px);
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    margin-bottom: 40px;
+  }
+  .pattern-b .b-headline .accent {
+    color: #C84B31;
+    position: relative;
+  }
+  .pattern-b .b-headline .underline {
+    position: relative;
+    display: inline-block;
+  }
+  .pattern-b .b-headline .underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: rgba(200, 75, 49, 0.2);
+    z-index: -1;
+  }
+  .pattern-b .b-sub {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #3a3530;
+    max-width: 560px;
+    margin-bottom: 48px;
+  }
+  .pattern-b .b-cta-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .pattern-b .b-cta-primary {
+    background: #1A1A1A;
+    color: #FAF7F2;
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+  .pattern-b .b-cta-secondary {
+    color: #1A1A1A;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid #1A1A1A;
+    padding-bottom: 4px;
+  }
+  .pattern-b .b-stamp {
+    position: absolute;
+    top: 80px;
+    right: 32px;
+    width: 110px;
+    height: 110px;
+    border: 2px solid #2D5A4A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-12deg);
+    color: #2D5A4A;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.4;
+    padding: 12px;
+  }
+  @media (max-width: 600px) {
+    .pattern-b .b-stamp {
+      width: 80px;
+      height: 80px;
+      font-size: 9px;
+      top: 60px;
+      right: 16px;
+    }
+  }
+
+  /* ===================================================
+     PATTERN C: TECHNICAL / MODERN / BRUTALIST
+     若い起業家、テック感、攻め
+     =================================================== */
+  .pattern-c {
+    background: #0a0a0a;
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+    overflow: hidden;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .pattern-c .c-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #2a2a2a;
+    padding-bottom: 16px;
+    margin-bottom: 64px;
+    font-size: 11px;
+    color: #888;
+  }
+  .pattern-c .c-top .logo {
+    color: #00ff88;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+  }
+  .pattern-c .c-top .right {
+    text-align: right;
+    line-height: 1.6;
+  }
+  .pattern-c .c-top .blink {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #00ff88;
+    border-radius: 50%;
+    margin-right: 6px;
+    animation: blink 1.5s infinite;
+  }
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.2; }
+  }
+  .pattern-c .c-main {
+    max-width: 1200px;
+  }
+  .pattern-c .c-line-num {
+    color: #444;
+    margin-right: 16px;
+    font-size: 11px;
+    user-select: none;
+  }
+  .pattern-c .c-comment {
+    color: #555;
+    font-size: 12px;
+    margin-bottom: 24px;
+  }
+  .pattern-c .c-comment .hash { color: #00ff88; }
+  .pattern-c .c-headline {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(48px, 11vw, 140px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .pattern-c .c-headline .green { color: #00ff88; }
+  .pattern-c .c-headline .stroke {
+    -webkit-text-stroke: 2px #ffffff;
+    -webkit-text-fill-color: transparent;
+  }
+  .pattern-c .c-tagline {
+    font-size: 14px;
+    color: #aaa;
+    margin: 32px 0 48px;
+    max-width: 600px;
+    line-height: 1.7;
+  }
+  .pattern-c .c-tagline .bracket { color: #00ff88; }
+  .pattern-c .c-status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+    border: 1px solid #2a2a2a;
+    padding: 20px;
+  }
+  .pattern-c .c-status-item {
+    font-size: 11px;
+  }
+  .pattern-c .c-status-key {
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+    font-size: 10px;
+  }
+  .pattern-c .c-status-val {
+    color: #fff;
+    font-size: 13px;
+  }
+  .pattern-c .c-status-val.live { color: #00ff88; }
+  .pattern-c .c-cta {
+    display: inline-block;
+    background: #00ff88;
+    color: #0a0a0a;
+    padding: 16px 24px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: none;
+    transition: all 0.2s;
+  }
+  .pattern-c .c-cta:hover {
+    background: #fff;
+  }
+  .pattern-c .c-cta::before {
+    content: '> ';
+  }
+  .pattern-c .c-cta::after {
+    content: ' _';
+    animation: blink 1s infinite;
+  }
+  .pattern-c .c-secondary {
+    margin-left: 16px;
+    color: #888;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .pattern-c .c-secondary::before { content: '['; color: #444; }
+  .pattern-c .c-secondary::after { content: ']'; color: #444; }
+</style>
+</head>
+<body>
+
+<!-- ========== PATTERN A ========== -->
+<div class="label">
+  <strong>パターン A：エディトリアル / 知性</strong>
+  <span class="desc">外資出身、別格感、雑誌のような落ち着き — クライアントが旅館の老舗オーナー層</span>
+</div>
+<section class="pattern-a">
+  <div class="a-decoration">P</div>
+  <div class="a-grid">
+    <div class="a-nav">
+      <div class="a-logo">Props<span>·</span>Lab</div>
+      <div class="a-meta">Beppu — Est. 2026</div>
+    </div>
+
+    <div>
+      <div class="a-issue">No. 01 — Independent IT Counsel</div>
+      <h1 class="a-headline">
+        中小企業の隣に、<br>
+        <em>もう一人の経営者を。</em>
+      </h1>
+    </div>
+
+    <div class="a-body">
+      <p class="a-lead">
+        ITを「外注先」ではなく「社内の意思決定」に。別府の事業者と月額契約で並走する、社外IT担当役員という選択肢。元外資・大手メーカー出身の視点で、ホームページ制作から日々の業務改善まで、経営に効く一手を共に設計します。
+      </p>
+      <div class="a-cta">
+        <a href="#" class="a-cta-link">Read Service →</a>
+        <div class="a-byline">Hayama / Founder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PATTERN B ========== -->
+<div class="label">
+  <strong>パターン B：温かみ / 別府らしさ</strong>
+  <span class="desc">地域密着、長期関係、親しみやすさ — クライアントが地元の小規模事業者・飲食</span>
+</div>
+<section class="pattern-b">
+  <div class="b-noise"></div>
+  <div class="b-stamp">別府発<br>令和8年<br>創業</div>
+  <div class="b-content">
+    <div class="b-nav">
+      <div class="b-logo"><span class="dot"></span>Props Lab</div>
+      <div class="b-tagline-en">For Beppu Businesses</div>
+    </div>
+
+    <div class="b-kicker">● 月額制 IT顧問</div>
+
+    <h1 class="b-headline">
+      別府の事業者と、<br>
+      <span class="underline">長く歩く</span>、<br>
+      <span class="accent">IT顧問。</span>
+    </h1>
+
+    <p class="b-sub">
+      ホームページを作って終わり、ではなく。日々の問い合わせ、予約サイトの設定、新しい仕組みの選び方。「ちょっと聞ける人」が社内にいる安心を、月額制でお届けします。
+    </p>
+
+    <div class="b-cta-row">
+      <a href="#" class="b-cta-primary">サービスを見る →</a>
+      <a href="#" class="b-cta-secondary">無料相談はこちら</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PATTERN C ========== -->
+<div class="label">
+  <strong>パターン C：テック / 攻め</strong>
+  <span class="desc">若い起業家・APU系・モダンな経営者 — テック感を全面に出して差別化最大化</span>
+</div>
+<section class="pattern-c">
+  <div class="c-top">
+    <div class="logo">[ PROPS_LAB ]</div>
+    <div class="right">
+      <div><span class="blink"></span>SYSTEM ONLINE</div>
+      <div>BEPPU / OITA / JP</div>
+    </div>
+  </div>
+
+  <div class="c-main">
+    <div class="c-comment">
+      <span class="hash">//</span> service.type = "fractional_CIO"
+    </div>
+
+    <h1 class="c-headline">
+      <span class="green">IT.</span>AI.<br>
+      <span class="stroke">OPS.</span>
+    </h1>
+
+    <p class="c-tagline">
+      <span class="bracket">{</span> 別府の中小企業のための、月額制テック顧問 <span class="bracket">}</span><br>
+      ホームページ制作から、業務AI導入、データ分析まで。
+    </p>
+
+    <div class="c-status-grid">
+      <div class="c-status-item">
+        <div class="c-status-key">FOUNDER</div>
+        <div class="c-status-val">Hayama / 26</div>
+      </div>
+      <div class="c-status-item">
+        <div class="c-status-key">PREVIOUS</div>
+        <div class="c-status-val">Otis Elevator</div>
+      </div>
+      <div class="c-status-item">
+        <div class="c-status-key">BASE</div>
+        <div class="c-status-val">Beppu, Oita</div>
+      </div>
+      <div class="c-status-item">
+        <div class="c-status-key">STATUS</div>
+        <div class="c-status-val live">● Accepting clients</div>
+      </div>
+    </div>
+
+    <a href="#" class="c-cta">init_consultation</a>
+    <a href="#" class="c-secondary">view services</a>
+  </div>
+</section>
+
+</body>
+</html>
