@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 # Claude Code local metadata
 .claude/
+
+# .company/ — secretary workspace
+# 骨格(CLAUDE.md)は追跡、日々の中身(todos/inbox/notes)は手元のみ
+.company/secretary/todos/
+.company/secretary/inbox/
+.company/secretary/notes/

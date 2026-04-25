@@ -1,43 +1,35 @@
-# Astro Starter Kit: Minimal
+# Props Lab — 公式サイト
+
+別府の宿泊施設に特化した IT・Web 運用支援サービス「Props Lab」の公式サイト。
+
+## 構成
+
+純粋な静的 HTML サイト。ビルドツール・フレームワーク不要。
+
+```
+/
+├── index.html       — トップ
+├── about.html       — わたしたちのこと
+├── service.html     — サービス
+├── pricing.html     — 料金
+├── contact.html     — お問い合わせ
+└── assets/
+    ├── favicon.svg / favicon-32.png / apple-touch-icon.png
+    ├── ogp.png
+    └── hero-japanese-room.png
+```
+
+- CSS は各 HTML の `<style>` ブロックにインライン
+- 外部依存は Google Fonts のみ（ランタイム読み込み）
+
+## ローカルプレビュー
 
 ```sh
-npm create astro@latest -- --template minimal
+python -m http.server 8000
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+ブラウザで `http://localhost:8000/` を開く。
 
-## 🚀 Project Structure
+## お問い合わせフォーム
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+`contact.html` のフォームは `mailto:` 送信方式。送信ボタン押下で入力内容を整形した本文付きでメールクライアントが起動する。デプロイ先が決まったタイミングで Formspree / Netlify Forms 等への差し替えを想定。
