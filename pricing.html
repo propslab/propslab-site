@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Props Lab — 料金のこと</title>
+<meta name="description" content="Props Labの料金。HP制作 FROM ¥300,000、月額プラン3段階。補助金活用のサポートも。" />
+<meta name="theme-color" content="#F5F1E8" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Props Lab — 料金のこと" />
+<meta property="og:description" content="HP制作 FROM ¥300,000、月額プラン3段階。補助金活用のサポートも。" />
+<meta property="og:url" content="https://props-lab.com/pricing.html" />
+<meta property="og:image" content="https://props-lab.com/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:site_name" content="Props Lab" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Props Lab — 料金のこと" />
+<meta name="twitter:description" content="HP制作 FROM ¥300,000、月額プラン3段階。" />
+<meta name="twitter:image" content="https://props-lab.com/assets/ogp.png" />
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #F5F1E8;
+    --bg-alt: #ECE6D8;
+    --bg-dark: #1A1614;
+    --text-primary: #3D2817;
+    --text-secondary: #7A7368;
+    --accent-red: #B8452F;
+    --hairline: rgba(61, 40, 23, 0.15);
+
+    --serif: "Noto Serif JP", "游明朝", "Yu Mincho", serif;
+    --sans:  "Noto Sans JP", "ヒラギノ角ゴ ProN", system-ui, sans-serif;
+    --label: "Inter", "Noto Sans JP", system-ui, sans-serif;
+    --didone:"Playfair Display", "Noto Serif JP", serif;
+
+    --gutter: clamp(20px, 4vw, 56px);
+    --max:    1280px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg-primary); color: var(--text-primary); font-family: var(--sans); font-weight: 400; font-size: 15px; line-height: 1.85; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+
+  .topbar { background: var(--bg-primary); border-bottom: 1px solid var(--hairline); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 22px var(--gutter); max-width: var(--max); margin: 0 auto; }
+  .brand { font-family: var(--label); font-weight: 600; letter-spacing: .22em; font-size: 14px; color: var(--text-primary); transition: color .2s; }
+  .brand:hover { color: var(--accent-red); }
+  .nav__links { display: flex; gap: 38px; font-family: var(--label); font-size: 12px; letter-spacing: .22em; color: var(--text-primary); }
+  .nav__links a { position: relative; padding: 6px 0; }
+  .nav__links a:hover { color: var(--accent-red); }
+  .nav__links a.is-active { color: var(--accent-red); }
+  .nav__links a.is-active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--accent-red); }
+
+  .sec-head { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .14em; color: var(--text-secondary); padding-top: 56px; padding-bottom: 28px; }
+  .sec-num { color: var(--accent-red); font-weight: 500; letter-spacing: .12em; }
+  .sec-num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .sec-jp { font-family: var(--sans); font-size: 12px; letter-spacing: .22em; color: var(--text-primary); font-weight: 500; }
+  .sec-en { font-family: var(--label); letter-spacing: .26em; color: var(--text-secondary); font-size: 10.5px; }
+  .sec-sep { flex: 1; height: 1px; background: var(--hairline); transform: translateY(-3px); }
+
+  .page-intro { padding-bottom: 48px; }
+  .page-intro__title { font-family: var(--serif); font-weight: 600; font-size: clamp(36px, 5.4vw, 60px); line-height: 1.4; letter-spacing: .04em; margin: 0 0 28px; }
+  .page-intro__title .accent { color: var(--accent-red); }
+  .page-intro__lead { font-family: var(--serif); font-weight: 400; font-size: clamp(15px, 1.6vw, 17px); line-height: 2.1; letter-spacing: .04em; color: var(--text-primary); max-width: 720px; margin: 0; }
+
+  /* Section markers */
+  .pri-sec-tag { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .26em; color: var(--text-secondary); padding-top: 12px; padding-bottom: 24px; }
+  .pri-sec-tag .num { color: var(--accent-red); font-weight: 500; }
+  .pri-sec-tag .num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .pri-sec-tag .jp { color: var(--text-primary); font-family: var(--sans); letter-spacing: .22em; font-size: 12px; }
+
+  /* §1 Website price block */
+  .website-block { padding: 36px 0 64px; border-top: 1px solid var(--hairline); }
+  .website-hero { display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: end; padding: 16px 0 36px; border-bottom: 1px solid var(--hairline); margin-bottom: 36px; }
+  .website-hero__h { font-family: var(--serif); font-weight: 600; font-size: clamp(24px, 3vw, 32px); letter-spacing: .04em; margin: 0 0 6px; }
+  .website-hero__sub { font-family: var(--sans); font-size: 13px; color: var(--text-secondary); letter-spacing: .04em; }
+  .website-hero__price { display: flex; align-items: baseline; gap: 14px; white-space: nowrap; }
+  .website-hero__price .from { font-family: var(--label); font-size: 11px; letter-spacing: .26em; color: var(--text-secondary); }
+  .website-hero__price .num { font-family: var(--didone); font-size: clamp(40px, 5vw, 56px); color: var(--accent-red); letter-spacing: .02em; line-height: 1; }
+  .website-hero__price .unit { font-family: var(--sans); font-size: 14px; color: var(--text-secondary); }
+
+  .website-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .col-card { border: 1px solid var(--hairline); padding: 24px 26px 28px; background: var(--bg-primary); }
+  .col-card__lab { font-family: var(--label); font-size: 10.5px; letter-spacing: .26em; color: var(--text-secondary); margin-bottom: 6px; }
+  .col-card__lab .pin { color: var(--accent-red); margin-right: 10px; }
+  .col-card__h { font-family: var(--serif); font-weight: 700; font-size: 18px; letter-spacing: .04em; margin: 0 0 16px; color: var(--text-primary); }
+  .col-card ul { list-style: none; padding: 0; margin: 0; font-family: var(--sans); font-size: 13px; line-height: 2.05; color: var(--text-primary); }
+  .col-card li { padding-left: 20px; position: relative; }
+  .col-card li::before { content: "／"; position: absolute; left: 0; top: 0; color: var(--text-secondary); font-size: 11px; }
+  .col-card.is-side ul li::before { content: "—"; color: var(--text-secondary); }
+
+  .website-note { margin-top: 24px; font-family: var(--sans); font-size: 13px; line-height: 2; color: var(--text-secondary); }
+
+  /* §2 Plans */
+  .plans-block { padding: 24px 0 64px; border-top: 1px solid var(--hairline); }
+  .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 12px 0 36px; }
+  .plan { border: 1px solid var(--hairline); padding: 26px 26px 28px; display: flex; flex-direction: column; background: var(--bg-primary); position: relative; }
+  .plan--feature { box-shadow: inset 0 0 0 2px var(--accent-red); border-color: transparent; }
+  .plan__tag-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .plan__tag { font-family: var(--label); font-size: 10.5px; letter-spacing: .26em; color: var(--text-secondary); }
+  .plan__tag .n { color: var(--accent-red); margin-right: 8px; }
+  .plan__badge { background: var(--accent-red); color: #FBF7EE; font-family: var(--sans); font-weight: 500; font-size: 10px; letter-spacing: .18em; padding: 4px 10px; border-radius: 1px; }
+  .plan__title { font-family: var(--serif); font-weight: 700; font-size: 22px; letter-spacing: .04em; margin: 0 0 10px; }
+  .plan__desc { font-family: var(--sans); font-size: 12.5px; line-height: 1.95; color: var(--text-primary); margin: 0 0 18px; min-height: 64px; }
+  .plan__price { display: flex; align-items: baseline; gap: 10px; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); padding: 16px 0; margin-bottom: 18px; flex-wrap: wrap; }
+  .plan__price .lab { font-family: var(--sans); font-size: 11.5px; color: var(--text-secondary); }
+  .plan__price .num { font-family: var(--didone); font-size: 28px; color: var(--text-primary); letter-spacing: .02em; line-height: 1; }
+  .plan__price .unit { font-family: var(--sans); font-size: 11.5px; color: var(--text-secondary); }
+  .plan__price .sep { color: var(--hairline); margin: 0 4px; }
+  .plan__list { list-style: none; padding: 0; margin: 0 0 22px; font-family: var(--sans); font-size: 12.5px; line-height: 1.9; color: var(--text-primary); }
+  .plan__list li { padding: 4px 0 4px 18px; position: relative; }
+  .plan__list li::before { content: ""; position: absolute; left: 0; top: 11px; width: 8px; height: 8px; border-top: 1.4px solid var(--accent-red); border-right: 1.4px solid var(--accent-red); transform: rotate(45deg); }
+  .plan__cta { margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 10px; padding: 13px 16px; font-family: var(--sans); font-size: 12.5px; letter-spacing: .12em; border: 1px solid var(--text-primary); color: var(--text-primary); transition: background .2s, color .2s; }
+  .plan__cta:hover { background: var(--text-primary); color: var(--bg-primary); }
+  .plan--feature .plan__cta { background: var(--accent-red); color: #FBF7EE; border-color: var(--accent-red); }
+  .plan--feature .plan__cta:hover { background: #9d3a28; border-color: #9d3a28; }
+
+  /* Comparison table */
+  .compare-h { font-family: var(--label); font-size: 11px; letter-spacing: .26em; color: var(--accent-red); margin: 18px 0 14px; font-weight: 500; }
+  .compare-h::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .compare-h .jp { color: var(--text-primary); font-family: var(--sans); margin-left: 16px; letter-spacing: .22em; font-size: 12px; }
+  .compare-table { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 12.5px; color: var(--text-primary); }
+  .compare-table th, .compare-table td { padding: 14px 14px; border-bottom: 1px solid var(--hairline); text-align: center; vertical-align: middle; }
+  .compare-table th { font-family: var(--label); font-weight: 500; font-size: 10.5px; letter-spacing: .22em; color: var(--text-secondary); padding: 18px 14px; border-bottom: 1px solid var(--text-primary); background: var(--bg-alt); }
+  .compare-table th.col-feature { color: var(--accent-red); }
+  .compare-table td:first-child, .compare-table th:first-child { text-align: left; padding-left: 20px; font-family: var(--sans); }
+  .compare-table .yes { color: var(--accent-red); font-size: 14px; }
+  .compare-table .no { color: var(--text-secondary); }
+
+  /* §3 Notes */
+  .notes-block { padding: 32px 0 64px; border-top: 1px solid var(--hairline); }
+  .notes-list { list-style: none; padding: 0; margin: 0; font-family: var(--sans); font-size: 13.5px; line-height: 2.1; color: var(--text-primary); column-count: 2; column-gap: 56px; }
+  .notes-list li { padding-left: 20px; position: relative; break-inside: avoid; }
+  .notes-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent-red); }
+
+  /* §4 SUBSIDY */
+  .subsidy-section { background: var(--bg-alt); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .subsidy-section__inner { padding-top: 24px; padding-bottom: 72px; }
+  .subsidy-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: end; padding-bottom: 40px; }
+  .subsidy-intro__h { font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 3.4vw, 36px); letter-spacing: .04em; margin: 0 0 14px; }
+  .subsidy-intro__h .accent { color: var(--accent-red); }
+  .subsidy-intro__p { font-family: var(--sans); font-size: 14px; line-height: 2.05; color: var(--text-primary); margin: 0; }
+
+  .subsidy-target { background: var(--bg-primary); border: 1px solid var(--hairline); padding: 28px 30px 30px; margin-bottom: 40px; }
+  .subsidy-target__lab { font-family: var(--label); font-size: 10.5px; letter-spacing: .26em; color: var(--accent-red); margin-bottom: 12px; }
+  .subsidy-target__lab::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .subsidy-target__h { font-family: var(--serif); font-weight: 700; font-size: 19px; letter-spacing: .04em; margin: 0 0 12px; }
+  .subsidy-target__p { font-family: var(--sans); font-size: 13.5px; line-height: 2; margin: 0 0 16px; }
+  .subsidy-target__note { font-family: var(--sans); font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--hairline); padding-top: 14px; margin: 0; }
+
+  .subsidy-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-left: 1px solid var(--hairline); border-top: 1px solid var(--hairline); margin-bottom: 32px; background: var(--bg-primary); }
+  .subsidy-step { padding: 22px 22px 26px; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .subsidy-step__n { font-family: var(--didone); font-size: 26px; color: var(--accent-red); line-height: 1; margin-bottom: 12px; }
+  .subsidy-step__h { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; margin: 0 0 8px; }
+  .subsidy-step__p { font-family: var(--sans); font-size: 12.5px; line-height: 1.85; color: var(--text-primary); margin: 0; }
+
+  .subsidy-caution { font-family: var(--sans); font-size: 12.5px; line-height: 2; color: var(--text-secondary); list-style: none; padding: 0; margin: 0; }
+  .subsidy-caution li { padding-left: 18px; position: relative; }
+  .subsidy-caution li::before { content: "※"; position: absolute; left: 0; color: var(--accent-red); }
+
+  /* CTA dark */
+  .cta-dark { background: var(--bg-dark); color: #EAE2D2; padding: 72px 0 64px; }
+  .cta-dark__head { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .22em; color: rgba(234,226,210,.55); justify-content: center; margin-bottom: 22px; }
+  .cta-dark__head .num { color: var(--accent-red); }
+  .cta-dark__head .num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .cta-dark__title { font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 3.6vw, 40px); line-height: 1.5; letter-spacing: .04em; text-align: center; margin: 0 0 18px; color: #FBF7EE; }
+  .cta-dark__title .accent { color: var(--accent-red); }
+  .cta-dark__lead { text-align: center; font-family: var(--sans); font-size: 14px; line-height: 2; color: rgba(234,226,210,.78); margin: 0 auto 36px; max-width: 640px; }
+  .cta-dark__row { display: flex; gap: 24px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+  .cta-dark__btn { display: inline-flex; align-items: center; gap: 16px; background: var(--accent-red); color: #FBF7EE; padding: 16px 32px; border-radius: 2px; font-family: var(--sans); font-size: 13.5px; letter-spacing: .12em; font-weight: 500; min-width: 360px; justify-content: center; }
+  .cta-dark__btn:hover { background: #9d3a28; }
+  .cta-dark__mail { font-family: var(--label); font-size: 14px; letter-spacing: .08em; color: #EAE2D2; border-bottom: 1px solid rgba(234,226,210,.35); padding-bottom: 3px; }
+  .cta-dark__note { text-align: center; font-family: var(--sans); font-size: 11.5px; color: rgba(234,226,210,.55); letter-spacing: .12em; margin-top: 18px; }
+
+  /* Footer */
+  .foot { background: var(--bg-dark); color: rgba(234,226,210,.7); border-top: 1px solid rgba(234,226,210,.1); padding: 48px 0 24px; }
+  .foot__inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .foot__top { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; padding-bottom: 28px; border-bottom: 1px solid rgba(234,226,210,.1); }
+  .foot__brand-block { display: flex; flex-direction: column; gap: 18px; }
+  .foot__brand { font-family: var(--label); font-weight: 600; letter-spacing: .22em; font-size: 13px; color: #FBF7EE; transition: color .2s; }
+  .foot__brand:hover { color: var(--accent-red); }
+  .foot__meta { font-family: var(--sans); font-size: 12px; line-height: 2; letter-spacing: .04em; color: rgba(234,226,210,.55); }
+  .foot__meta a { color: inherit; }
+  .foot__meta a:hover { color: #FBF7EE; }
+  .foot__nav { display: flex; flex-direction: column; gap: 14px; font-family: var(--label); font-size: 12px; letter-spacing: .22em; }
+  .foot__nav a { color: rgba(234,226,210,.7); transition: color .2s; }
+  .foot__nav a:hover { color: #FBF7EE; }
+  .foot__bottom { padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .foot__copy { font-family: var(--label); font-size: 11px; letter-spacing: .12em; color: rgba(234,226,210,.4); }
+  .foot__legal { font-family: var(--label); font-size: 10.5px; letter-spacing: .14em; color: rgba(234,226,210,.4); }
+
+  @media (max-width: 980px) {
+    .website-hero { grid-template-columns: 1fr; gap: 18px; align-items: start; }
+    .website-cols { grid-template-columns: 1fr; }
+    .plans-grid { grid-template-columns: 1fr; }
+    .compare-table { font-size: 11.5px; }
+    .compare-table th, .compare-table td { padding: 10px 6px; }
+    .notes-list { column-count: 1; }
+    .subsidy-intro { grid-template-columns: 1fr; gap: 18px; }
+    .subsidy-flow { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .nav__links { display: none; }
+    .subsidy-flow { grid-template-columns: 1fr; }
+    .foot__top { grid-template-columns: 1fr; gap: 28px; }
+    .foot__nav { flex-direction: row; flex-wrap: wrap; gap: 18px 24px; }
+    .foot__bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .cta-dark__btn { min-width: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <nav class="nav">
+    <a href="index.html" class="brand">PROPS LAB</a>
+    <div class="nav__links">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="service.html">SERVICE</a>
+      <a href="pricing.html" class="is-active">PRICING</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </nav>
+</div>
+
+<main class="wrap" data-screen-label="Pricing Page">
+
+  <div class="sec-head">
+    <span class="sec-num">PRICING</span>
+    <span class="sec-jp">料金のこと</span>
+    <span class="sec-en">— ALL PRICES OPEN</span>
+    <span class="sec-sep"></span>
+  </div>
+
+  <section class="page-intro">
+    <h1 class="page-intro__title">はじめやすく、<span class="accent">続けやすく。</span></h1>
+    <p class="page-intro__lead">
+      料金は、すべて公開しています。<br/>
+      事業の段階に合わせて、選べる構成にしました。
+    </p>
+  </section>
+
+  <!-- §1 WEBSITE -->
+  <section class="website-block">
+    <div class="pri-sec-tag">
+      <span class="num">01 / 04　WEBSITE</span>
+      <span class="jp">ホームページ制作</span>
+    </div>
+    <div class="website-hero">
+      <div>
+        <h2 class="website-hero__h">新規制作・リニューアル</h2>
+        <p class="website-hero__sub">取材・原稿・写真選定・公開作業まで一式</p>
+      </div>
+      <div class="website-hero__price">
+        <span class="from">FROM</span>
+        <span class="num">¥300,000</span>
+        <span class="unit">一式</span>
+      </div>
+    </div>
+
+    <div class="website-cols">
+      <article class="col-card">
+        <div class="col-card__lab"><span class="pin">●</span>INCLUDED — 含まれるもの</div>
+        <h3 class="col-card__h">ヒアリングから公開後3ヶ月の伴走まで</h3>
+        <ul>
+          <li>ヒアリング、設計、ワイヤー作成</li>
+          <li>デザイン、コーディング、実装</li>
+          <li>原稿作成・編集(既存原稿の活用も可)</li>
+          <li>写真選定(既存写真の活用 or フリー素材)</li>
+          <li>公開作業(ドメイン・サーバー設定)</li>
+          <li>Google連携(Googleビジネスプロフィール、Search Console、Analytics)</li>
+          <li>運用レクチャー</li>
+          <li>公開後3ヶ月の伴走</li>
+        </ul>
+      </article>
+      <article class="col-card is-side">
+        <div class="col-card__lab">EXTRA — 別料金になるもの</div>
+        <h3 class="col-card__h">別途見積もりとなる項目</h3>
+        <ul>
+          <li>プロカメラマンによる撮影</li>
+          <li>多言語翻訳(プロ翻訳が必要な場合)</li>
+          <li>予約システムの本格カスタマイズ</li>
+          <li>ドメイン・サーバーの実費</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="website-note">
+      ¥300,000はあくまで下限です。<br/>
+      ページ数、機能、取材の有無で変動します。お見積もりは無料です。
+    </p>
+  </section>
+
+  <!-- §2 PLANS -->
+  <section class="plans-block">
+    <div class="pri-sec-tag">
+      <span class="num">02 / 04　PLANS</span>
+      <span class="jp">公開後の月額プラン</span>
+    </div>
+
+    <div class="plans-grid">
+      <article class="plan">
+        <div class="plan__tag-row"><div class="plan__tag"><span class="n">01</span>LIGHT</div></div>
+        <h3 class="plan__title">HP月額保守プラン</h3>
+        <p class="plan__desc">公開後のサイトを「動く状態」で保つ、最小限の月額。</p>
+        <div class="plan__price">
+          <span class="lab">月額</span><span class="num">¥5,000</span><span class="unit">／月</span>
+        </div>
+        <ul class="plan__list">
+          <li>サーバー・ドメイン・SSL管理</li>
+          <li>軽微な文言修正(月1回まで)</li>
+          <li>不具合対応・相談窓口</li>
+        </ul>
+        <a href="contact.html" class="plan__cta">このプランで相談する →</a>
+      </article>
+
+      <article class="plan plan--feature">
+        <div class="plan__tag-row">
+          <div class="plan__tag"><span class="n">02</span>MONITOR</div>
+          <span class="plan__badge">おすすめ</span>
+        </div>
+        <h3 class="plan__title">IT顧問・モニター価格</h3>
+        <p class="plan__desc">1〜2社目限定／事例公開にご協力いただける場合。HP保守に加え、月1回の定例相談とチャット随時。</p>
+        <div class="plan__price">
+          <span class="lab">初期</span><span class="num">¥50,000</span>
+          <span class="sep">／</span>
+          <span class="lab">月額</span><span class="num">¥8,000</span><span class="unit">／月</span>
+        </div>
+        <ul class="plan__list">
+          <li>HP月額保守 一式</li>
+          <li>月1回の定例相談(対面 or オンライン)</li>
+          <li>チャット相談 随時</li>
+        </ul>
+        <a href="contact.html" class="plan__cta">このプランで相談する →</a>
+      </article>
+
+      <article class="plan">
+        <div class="plan__tag-row"><div class="plan__tag"><span class="n">03</span>STANDARD</div></div>
+        <h3 class="plan__title">IT顧問・標準価格</h3>
+        <p class="plan__desc">3社目以降／本格導入向け。IT顧問の通常契約。業務改善まで踏み込む標準プラン。</p>
+        <div class="plan__price">
+          <span class="lab">初期</span><span class="num">¥100,000</span>
+          <span class="sep">／</span>
+          <span class="lab">月額</span><span class="num">¥30,000</span><span class="unit">／月</span>
+        </div>
+        <ul class="plan__list">
+          <li>HP月額保守 一式</li>
+          <li>月1回の定例相談 ＋ チャット随時</li>
+          <li>業務改善・AI活用の提案</li>
+        </ul>
+        <a href="contact.html" class="plan__cta">このプランで相談する →</a>
+      </article>
+    </div>
+
+    <div class="compare-h">COMPARISON<span class="jp">比較表</span></div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>LIGHT</th>
+          <th class="col-feature">MONITOR</th>
+          <th>STANDARD</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>初期費用</td>
+          <td class="no">—</td>
+          <td>¥50,000</td>
+          <td>¥100,000</td>
+        </tr>
+        <tr>
+          <td>月額</td>
+          <td>¥5,000</td>
+          <td>¥8,000</td>
+          <td>¥30,000</td>
+        </tr>
+        <tr>
+          <td>HP保守</td>
+          <td class="yes">○</td>
+          <td class="yes">○</td>
+          <td class="yes">○</td>
+        </tr>
+        <tr>
+          <td>月1回 定例相談</td>
+          <td class="no">—</td>
+          <td class="yes">○</td>
+          <td class="yes">○</td>
+        </tr>
+        <tr>
+          <td>チャット相談</td>
+          <td class="no">—</td>
+          <td class="yes">○</td>
+          <td class="yes">○</td>
+        </tr>
+        <tr>
+          <td>業務改善・AI活用</td>
+          <td class="no">—</td>
+          <td class="no">—</td>
+          <td class="yes">○</td>
+        </tr>
+        <tr>
+          <td>推奨契約期間</td>
+          <td>制限なし</td>
+          <td>6ヶ月以上推奨</td>
+          <td>6ヶ月以上推奨</td>
+        </tr>
+        <tr>
+          <td>向いている方</td>
+          <td>公開後の維持を最小限にしたい方</td>
+          <td>事例公開にご協力いただける方(1〜2社目)</td>
+          <td>業務改善まで踏み込みたい方</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- §3 NOTES -->
+  <section class="notes-block">
+    <div class="pri-sec-tag">
+      <span class="num">03 / 04　NOTES</span>
+      <span class="jp">注記事項</span>
+    </div>
+    <ul class="notes-list">
+      <li>初回相談は無料です。</li>
+      <li>別府市・大分市・由布市は出張費込みです。それ以外の地域は実費精算となります。</li>
+      <li>値下げはお受けしません。ご予算に合わせて、スコープを調整します。</li>
+      <li>既存契約の値上げは行いません。</li>
+      <li>表示価格はすべて税抜です。</li>
+      <li>適格請求書発行事業者です(インボイス対応)。</li>
+    </ul>
+  </section>
+</main>
+
+<!-- §4 SUBSIDY -->
+<section class="subsidy-section">
+  <div class="wrap subsidy-section__inner">
+    <div class="sec-head" style="padding-top: 24px;">
+      <span class="sec-num">04 / 04　SUBSIDY</span>
+      <span class="sec-jp">補助金で、はじめる</span>
+      <span class="sec-en">— SUBSIDY SUPPORT</span>
+      <span class="sec-sep"></span>
+    </div>
+
+    <div class="subsidy-intro">
+      <h2 class="subsidy-intro__h">補助金を、<span class="accent">上手に使う。</span></h2>
+      <p class="subsidy-intro__p">
+        ホームページ制作も、月額顧問の導入も、国や自治体の補助金で実質的な負担を抑えられる場合があります。書類の書き方から、採択後の運用まで、ご相談に乗ります。
+      </p>
+    </div>
+
+    <article class="subsidy-target">
+      <div class="subsidy-target__lab">主な対象補助金</div>
+      <h3 class="subsidy-target__h">デジタル化・AI活用関連の補助金(年度ごとに公募)</h3>
+      <p class="subsidy-target__p">
+        中小企業のデジタル化やAI導入を支援する補助金が、毎年いくつか公募されています。ホームページ制作費、ITツール導入費、月額顧問契約の一部 などが対象になり得ます。
+      </p>
+      <p class="subsidy-target__note">
+        ※ 制度名、補助上限、締切、対象範囲は年度ごとに変わります。最新情報はご相談時にご案内します。
+      </p>
+    </article>
+
+    <div class="compare-h">FLOW<span class="jp">補助金を使った導入の流れ</span></div>
+    <div class="subsidy-flow">
+      <article class="subsidy-step">
+        <div class="subsidy-step__n">01</div>
+        <h3 class="subsidy-step__h">無料相談</h3>
+        <p class="subsidy-step__p">現状をうかがい、補助金の対象になるか整理します。</p>
+      </article>
+      <article class="subsidy-step">
+        <div class="subsidy-step__n">02</div>
+        <h3 class="subsidy-step__h">計画づくり</h3>
+        <p class="subsidy-step__p">事業計画書や申請書類の整理・記入を、ご一緒に進めます。</p>
+      </article>
+      <article class="subsidy-step">
+        <div class="subsidy-step__n">03</div>
+        <h3 class="subsidy-step__h">申請</h3>
+        <p class="subsidy-step__p">電子申請のサポート、または同行します。</p>
+      </article>
+      <article class="subsidy-step">
+        <div class="subsidy-step__n">04</div>
+        <h3 class="subsidy-step__h">採択後の実行</h3>
+        <p class="subsidy-step__p">HP制作・ツール導入・運用開始。報告書作成までお手伝いします。</p>
+      </article>
+    </div>
+
+    <ul class="subsidy-caution">
+      <li>補助金の採択は保証されるものではありません。</li>
+      <li>補助金は事業実施後の精算払いが基本です(一時的にご負担いただきます)。</li>
+      <li>制度の変更により、内容が変わる場合があります。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-dark">
+  <div class="wrap">
+    <div class="cta-dark__head">
+      <span class="num">INQUIRY</span>
+      <span style="color:#EAE2D2; letter-spacing:.18em;">お問い合わせ</span>
+    </div>
+    <h2 class="cta-dark__title">料金のこと、補助金のこと、<br/><span class="accent">まずは聞いてみる。</span></h2>
+    <p class="cta-dark__lead">
+      初回相談は無料です。
+    </p>
+    <div class="cta-dark__row">
+      <a href="contact.html" class="cta-dark__btn">フォームから問い合わせる <span>→</span></a>
+      <a href="mailto:hayama@props-lab.com" class="cta-dark__mail">hayama@props-lab.com</a>
+    </div>
+    <div class="cta-dark__note">24時間以内を目安にご返信します。</div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__top">
+      <div class="foot__brand-block">
+        <a href="index.html" class="foot__brand">PROPS LAB</a>
+        <div class="foot__meta">
+          <div>Props Lab(プロップス・ラボ)</div>
+          <div>代表　織田 隼舞</div>
+          <div>大分県別府市</div>
+          <div><a href="mailto:hayama@props-lab.com">hayama@props-lab.com</a></div>
+          <div><a href="tel:+81703611-0969">070-3611-0969</a></div>
+        </div>
+      </div>
+      <div class="foot__nav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="service.html">SERVICE</a>
+        <a href="pricing.html">PRICING</a>
+        <a href="contact.html">CONTACT</a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <div class="foot__copy">© 2026 PROPS LAB</div>
+      <div class="foot__legal">BEPPU, OITA / JAPAN</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

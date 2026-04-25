@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Props Lab — お問い合わせ</title>
+<meta name="description" content="Props Labへのお問い合わせ。初回相談は無料。別府市・大分市・由布市は出張、それ以外はオンラインで対応。" />
+<meta name="theme-color" content="#F5F1E8" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Props Lab — お問い合わせ" />
+<meta property="og:description" content="初回相談は無料。現状をお聞かせください。" />
+<meta property="og:url" content="https://props-lab.com/contact.html" />
+<meta property="og:image" content="https://props-lab.com/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:site_name" content="Props Lab" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Props Lab — お問い合わせ" />
+<meta name="twitter:description" content="初回相談は無料です。" />
+<meta name="twitter:image" content="https://props-lab.com/assets/ogp.png" />
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #F5F1E8;
+    --bg-alt: #ECE6D8;
+    --bg-dark: #1A1614;
+    --text-primary: #3D2817;
+    --text-secondary: #7A7368;
+    --accent-red: #B8452F;
+    --accent-green: #4A5D4E;
+    --accent-indigo: #6B7B8C;
+    --hairline: rgba(61, 40, 23, 0.15);
+
+    --serif: "Noto Serif JP", "游明朝", "Yu Mincho", serif;
+    --sans:  "Noto Sans JP", "ヒラギノ角ゴ ProN", system-ui, sans-serif;
+    --label: "Inter", "Noto Sans JP", system-ui, sans-serif;
+    --didone:"Playfair Display", "Noto Serif JP", serif;
+
+    --gutter: clamp(20px, 4vw, 56px);
+    --max:    1280px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg-primary); color: var(--text-primary); font-family: var(--sans); font-weight: 400; font-size: 15px; line-height: 1.85; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+
+  .topbar { background: var(--bg-primary); border-bottom: 1px solid var(--hairline); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 22px var(--gutter); max-width: var(--max); margin: 0 auto; }
+  .brand { font-family: var(--label); font-weight: 600; letter-spacing: .22em; font-size: 14px; color: var(--text-primary); transition: color .2s; }
+  .brand:hover { color: var(--accent-red); }
+  .nav__links { display: flex; gap: 38px; font-family: var(--label); font-size: 12px; letter-spacing: .22em; color: var(--text-primary); }
+  .nav__links a { position: relative; padding: 6px 0; }
+  .nav__links a:hover { color: var(--accent-red); }
+  .nav__links a.is-active { color: var(--accent-red); }
+  .nav__links a.is-active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--accent-red); }
+
+  .sec-head { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .14em; color: var(--text-secondary); padding-top: 56px; padding-bottom: 28px; }
+  .sec-num { color: var(--accent-red); font-weight: 500; letter-spacing: .12em; }
+  .sec-num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .sec-jp { font-family: var(--sans); font-size: 12px; letter-spacing: .22em; color: var(--text-primary); font-weight: 500; }
+  .sec-en { font-family: var(--label); letter-spacing: .26em; color: var(--text-secondary); font-size: 10.5px; }
+  .sec-sep { flex: 1; height: 1px; background: var(--hairline); transform: translateY(-3px); }
+
+  .page-intro { padding-bottom: 48px; }
+  .page-intro__title { font-family: var(--serif); font-weight: 600; font-size: clamp(36px, 5.4vw, 60px); line-height: 1.4; letter-spacing: .04em; margin: 0 0 28px; }
+  .page-intro__title .accent { color: var(--accent-red); }
+  .page-intro__lead { font-family: var(--serif); font-weight: 400; font-size: clamp(15px, 1.6vw, 17px); line-height: 2.1; letter-spacing: .04em; color: var(--text-primary); max-width: 720px; margin: 0; }
+
+  .pri-sec-tag { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .26em; color: var(--text-secondary); padding-top: 12px; padding-bottom: 24px; }
+  .pri-sec-tag .num { color: var(--accent-red); font-weight: 500; }
+  .pri-sec-tag .num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .pri-sec-tag .jp { color: var(--text-primary); font-family: var(--sans); letter-spacing: .22em; font-size: 12px; }
+
+  /* Form section block */
+  .contact-block { padding: 16px 0 64px; border-top: 1px solid var(--hairline); }
+  .contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; padding-top: 16px; }
+
+  /* Form */
+  .form { display: flex; flex-direction: column; gap: 22px; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field__label { font-family: var(--label); font-size: 11px; letter-spacing: .22em; color: var(--text-secondary); }
+  .field__label .ja { font-family: var(--sans); font-size: 12.5px; letter-spacing: .14em; color: var(--text-primary); font-weight: 500; margin-right: 12px; }
+  .field__label .req { color: var(--accent-red); margin-left: 6px; }
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field select,
+  .field textarea {
+    font-family: var(--sans); font-size: 14px;
+    background: var(--bg-primary);
+    border: 1px solid var(--hairline);
+    padding: 14px 16px;
+    color: var(--text-primary);
+    border-radius: 0;
+    transition: border-color .15s;
+    width: 100%;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--accent-red); }
+  .field textarea { min-height: 160px; resize: vertical; line-height: 1.85; }
+  .field--row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .field__radios { display: flex; gap: 22px; flex-wrap: wrap; padding: 4px 0; }
+  .field__radios label { display: flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 13.5px; color: var(--text-primary); cursor: pointer; }
+  .field__radios input { accent-color: var(--accent-red); }
+
+  .form__submit {
+    display: inline-flex; align-items: center; justify-content: center; gap: 14px;
+    background: var(--accent-red); color: #FBF7EE;
+    font-family: var(--sans); font-size: 14px; font-weight: 500; letter-spacing: .12em;
+    padding: 18px 32px; border: 0; cursor: pointer;
+    transition: background .2s;
+    align-self: flex-start; margin-top: 8px;
+    min-width: 280px;
+  }
+  .form__submit:hover { background: #9d3a28; }
+  .form__note { font-family: var(--sans); font-size: 12px; color: var(--text-secondary); letter-spacing: .04em; margin-top: 4px; }
+
+  /* Direct sidebar */
+  .direct {
+    background: var(--bg-alt); border: 1px solid var(--hairline);
+    padding: 32px 32px 36px;
+    display: flex; flex-direction: column; gap: 22px;
+    align-self: start; position: sticky; top: 24px;
+  }
+  .direct__lab { font-family: var(--label); font-size: 10.5px; letter-spacing: .26em; color: var(--accent-red); }
+  .direct__lab::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .direct__row { border-top: 1px solid var(--hairline); padding-top: 18px; }
+  .direct__row:first-of-type { border-top: 0; padding-top: 0; }
+  .direct__lab2 { font-family: var(--label); font-size: 10.5px; letter-spacing: .26em; color: var(--text-secondary); margin-bottom: 6px; }
+  .direct__val { font-family: var(--serif); font-weight: 600; font-size: 18px; letter-spacing: .04em; color: var(--text-primary); margin: 0; word-break: break-all; }
+  .direct__val a { border-bottom: 1px solid var(--hairline); padding-bottom: 2px; }
+  .direct__val a:hover { color: var(--accent-red); border-color: var(--accent-red); }
+  .direct__sub { font-family: var(--sans); font-size: 12px; line-height: 1.85; color: var(--text-secondary); margin: 6px 0 0; }
+
+  /* FLOW (4 cells) */
+  .cflow-block { background: var(--bg-alt); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); padding: 24px 0 64px; }
+  .cflow__grid { display: grid; grid-template-columns: repeat(4, 1fr); border-left: 1px solid var(--hairline); border-top: 1px solid var(--hairline); background: var(--bg-primary); }
+  .cflow__cell { padding: 26px 24px 30px; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .cflow__num { font-family: var(--didone); font-size: 28px; line-height: 1; color: var(--accent-red); margin-bottom: 14px; }
+  .cflow__h { font-family: var(--serif); font-weight: 700; font-size: 16px; letter-spacing: .04em; margin: 0 0 10px; color: var(--text-primary); }
+  .cflow__p { font-family: var(--sans); font-size: 12.5px; line-height: 1.9; color: var(--text-primary); margin: 0; }
+
+  /* FAQ */
+  .faq-block { padding: 24px 0 64px; border-top: 1px solid var(--hairline); }
+  .faq__list { border-top: 1px solid var(--hairline); margin-top: 8px; }
+  .faq__item { border-bottom: 1px solid var(--hairline); padding: 26px 0; display: grid; grid-template-columns: 76px 1fr; gap: 24px; align-items: start; }
+  .faq__mark { font-family: var(--didone); font-size: 22px; line-height: 1; color: var(--accent-red); letter-spacing: .02em; }
+  .faq__q { font-family: var(--serif); font-weight: 700; font-size: 16px; letter-spacing: .04em; margin: 2px 0 12px; color: var(--text-primary); }
+  .faq__a { font-family: var(--sans); font-size: 14px; line-height: 2; color: var(--text-primary); margin: 0; padding-left: 26px; position: relative; }
+  .faq__a::before { content: "A."; position: absolute; left: 0; top: 6px; font-family: var(--label); font-size: 11px; letter-spacing: .12em; color: var(--text-secondary); }
+
+  /* CTA dark */
+  .cta-dark { background: var(--bg-dark); color: #EAE2D2; padding: 72px 0 64px; }
+  .cta-dark__head { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .22em; color: rgba(234,226,210,.55); justify-content: center; margin-bottom: 22px; }
+  .cta-dark__head .num { color: var(--accent-red); }
+  .cta-dark__head .num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .cta-dark__title { font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 3.6vw, 40px); line-height: 1.5; letter-spacing: .04em; text-align: center; margin: 0 0 18px; color: #FBF7EE; }
+  .cta-dark__title .accent { color: var(--accent-red); }
+  .cta-dark__lead { text-align: center; font-family: var(--sans); font-size: 14px; line-height: 2; color: rgba(234,226,210,.78); margin: 0 auto 36px; max-width: 640px; }
+  .cta-dark__row { display: flex; gap: 24px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+  .cta-dark__btn { display: inline-flex; align-items: center; gap: 16px; background: var(--accent-red); color: #FBF7EE; padding: 16px 32px; border-radius: 2px; font-family: var(--sans); font-size: 13.5px; letter-spacing: .12em; font-weight: 500; min-width: 360px; justify-content: center; }
+  .cta-dark__btn:hover { background: #9d3a28; }
+  .cta-dark__mail { font-family: var(--label); font-size: 14px; letter-spacing: .08em; color: #EAE2D2; border-bottom: 1px solid rgba(234,226,210,.35); padding-bottom: 3px; }
+  .cta-dark__note { text-align: center; font-family: var(--sans); font-size: 11.5px; color: rgba(234,226,210,.55); letter-spacing: .12em; margin-top: 18px; }
+
+  /* Footer */
+  .foot { background: var(--bg-dark); color: rgba(234,226,210,.7); border-top: 1px solid rgba(234,226,210,.1); padding: 48px 0 24px; }
+  .foot__inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .foot__top { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; padding-bottom: 28px; border-bottom: 1px solid rgba(234,226,210,.1); }
+  .foot__brand-block { display: flex; flex-direction: column; gap: 18px; }
+  .foot__brand { font-family: var(--label); font-weight: 600; letter-spacing: .22em; font-size: 13px; color: #FBF7EE; transition: color .2s; }
+  .foot__brand:hover { color: var(--accent-red); }
+  .foot__meta { font-family: var(--sans); font-size: 12px; line-height: 2; letter-spacing: .04em; color: rgba(234,226,210,.55); }
+  .foot__meta a { color: inherit; }
+  .foot__meta a:hover { color: #FBF7EE; }
+  .foot__nav { display: flex; flex-direction: column; gap: 14px; font-family: var(--label); font-size: 12px; letter-spacing: .22em; }
+  .foot__nav a { color: rgba(234,226,210,.7); transition: color .2s; }
+  .foot__nav a:hover { color: #FBF7EE; }
+  .foot__bottom { padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .foot__copy { font-family: var(--label); font-size: 11px; letter-spacing: .12em; color: rgba(234,226,210,.4); }
+  .foot__legal { font-family: var(--label); font-size: 10.5px; letter-spacing: .14em; color: rgba(234,226,210,.4); }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .field--row { grid-template-columns: 1fr; }
+    .direct { position: static; }
+    .cflow__grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .nav__links { display: none; }
+    .cflow__grid { grid-template-columns: 1fr; }
+    .faq__item { grid-template-columns: 56px 1fr; gap: 14px; }
+    .foot__top { grid-template-columns: 1fr; gap: 28px; }
+    .foot__nav { flex-direction: row; flex-wrap: wrap; gap: 18px 24px; }
+    .foot__bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .cta-dark__btn { min-width: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <nav class="nav">
+    <a href="index.html" class="brand">PROPS LAB</a>
+    <div class="nav__links">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="service.html">SERVICE</a>
+      <a href="pricing.html">PRICING</a>
+      <a href="contact.html" class="is-active">CONTACT</a>
+    </div>
+  </nav>
+</div>
+
+<main class="wrap" data-screen-label="Contact Page">
+
+  <div class="sec-head">
+    <span class="sec-num">06 / 06</span>
+    <span class="sec-jp">CONTACT — お問い合わせ</span>
+    <span class="sec-en">— GET IN TOUCH</span>
+    <span class="sec-sep"></span>
+  </div>
+
+  <section class="page-intro">
+    <h1 class="page-intro__title">現状を、<span class="accent">お聞かせください。</span></h1>
+    <p class="page-intro__lead">
+      初回相談は無料です。<br/>
+      別府市・大分市・由布市は直接伺います。オンラインでも構いません。<br/>
+      相談のみで終わっていただいても、問題ありません。
+    </p>
+  </section>
+
+  <!-- §1 FORM + DIRECT -->
+  <section class="contact-block">
+    <div class="pri-sec-tag">
+      <span class="num">01 / 04　FORM</span>
+      <span class="jp">お問い合わせフォーム</span>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <form class="form" onsubmit="return submitContactForm(event)">
+          <div class="field--row">
+            <div class="field">
+              <label class="field__label" for="f-name"><span class="ja">お名前</span>NAME<span class="req">*</span></label>
+              <input id="f-name" type="text" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-company"><span class="ja">屋号・事業名</span>COMPANY</label>
+              <input id="f-company" type="text">
+            </div>
+          </div>
+
+          <div class="field--row">
+            <div class="field">
+              <label class="field__label" for="f-email"><span class="ja">メールアドレス</span>EMAIL<span class="req">*</span></label>
+              <input id="f-email" type="email" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-phone"><span class="ja">お電話番号</span>PHONE</label>
+              <input id="f-phone" type="tel">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-subject"><span class="ja">ご相談内容</span>SUBJECT<span class="req">*</span></label>
+            <select id="f-subject" required>
+              <option value="">選択してください</option>
+              <option>ホームページ制作について</option>
+              <option>月額IT顧問について</option>
+              <option>補助金について</option>
+              <option>その他</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-message"><span class="ja">詳細</span>MESSAGE<span class="req">*</span></label>
+            <textarea id="f-message" required placeholder="現状のお困りごと、ご希望などを、自由にお書きください。"></textarea>
+          </div>
+
+          <div class="field">
+            <span class="field__label"><span class="ja">ご希望の連絡方法</span>PREFERRED CONTACT</span>
+            <div class="field__radios">
+              <label><input type="radio" name="pref" checked> メール</label>
+              <label><input type="radio" name="pref"> 電話</label>
+              <label><input type="radio" name="pref"> どちらでも</label>
+            </div>
+          </div>
+
+          <button type="submit" class="form__submit">送信する <span>→</span></button>
+          <p class="form__note">24時間以内を目安にご返信します。</p>
+        </form>
+      </div>
+
+      <aside class="direct">
+        <div class="direct__lab">DIRECT — 直接のご連絡</div>
+        <div class="direct__row">
+          <div class="direct__lab2">EMAIL — メール</div>
+          <p class="direct__val"><a href="mailto:hayama@props-lab.com">hayama@props-lab.com</a></p>
+        </div>
+        <div class="direct__row">
+          <div class="direct__lab2">PHONE — 電話</div>
+          <p class="direct__val"><a href="tel:+81703611-0969">070-3611-0969</a></p>
+          <p class="direct__sub">平日 10:00–18:00<br/>不在時は折り返しご連絡します</p>
+        </div>
+        <div class="direct__row">
+          <div class="direct__lab2">AREA — 訪問エリア</div>
+          <p class="direct__val" style="font-size: 15px;">別府市・大分市・由布市</p>
+          <p class="direct__sub">出張費込み<br/>それ以外の地域もご相談に応じます</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<!-- §3 FLOW -->
+<section class="cflow-block">
+  <div class="wrap">
+    <div class="pri-sec-tag" style="padding-top: 24px;">
+      <span class="num">02 / 04　FLOW</span>
+      <span class="jp">ご相談の流れ</span>
+    </div>
+    <div class="cflow__grid">
+      <article class="cflow__cell">
+        <div class="cflow__num">01</div>
+        <h3 class="cflow__h">お問い合わせ</h3>
+        <p class="cflow__p">フォーム・メール・電話、いずれでも。</p>
+      </article>
+      <article class="cflow__cell">
+        <div class="cflow__num">02</div>
+        <h3 class="cflow__h">初回相談(無料)</h3>
+        <p class="cflow__p">60〜90分。対面 or オンライン。現状のお困りごと、ご要望をうかがいます。</p>
+      </article>
+      <article class="cflow__cell">
+        <div class="cflow__num">03</div>
+        <h3 class="cflow__h">ご提案・お見積もり</h3>
+        <p class="cflow__p">ご相談内容に応じて、ご提案書とお見積もりをお出しします。ここで「やめておく」も問題ありません。</p>
+      </article>
+      <article class="cflow__cell">
+        <div class="cflow__num">04</div>
+        <h3 class="cflow__h">ご契約・開始</h3>
+        <p class="cflow__p">内容にご納得いただけたら、契約書を取り交わし、お仕事スタート。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- §4 FAQ -->
+<main class="wrap">
+  <section class="faq-block">
+    <div class="pri-sec-tag">
+      <span class="num">03 / 04　FAQ</span>
+      <span class="jp">よくあるご質問</span>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <div class="faq__mark">Q.01</div>
+        <div>
+          <h3 class="faq__q">別府以外でも対応してもらえますか？</h3>
+          <p class="faq__a">はい。大分県内は出張で、それ以外の地域はオンライン中心で対応しています。</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__mark">Q.02</div>
+        <div>
+          <h3 class="faq__q">月額顧問だけ、HP制作だけ、でも依頼できますか？</h3>
+          <p class="faq__a">はい。両方セットで申し込む必要はありません。必要な部分だけお受けします。</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__mark">Q.03</div>
+        <div>
+          <h3 class="faq__q">既存サイトのリニューアルもお願いできますか？</h3>
+          <p class="faq__a">はい。新規制作と同じ料金体系で、リニューアルも承ります。現サイトの引継ぎ・移行作業も含みます。</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__mark">Q.04</div>
+        <div>
+          <h3 class="faq__q">補助金は必ず採択されますか？</h3>
+          <p class="faq__a">補助金の採択は保証されるものではありません。ただし、申請書類の精度を高めることで採択の可能性は上げられます。書類の整理・記入からサポートします。</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__mark">Q.05</div>
+        <div>
+          <h3 class="faq__q">契約は何ヶ月から？途中で解約できますか？</h3>
+          <p class="faq__a">LIGHTは契約期間の定めなし、MONITOR・STANDARDは6ヶ月以上のお付き合いを推奨しています。途中解約は30日前のご予告でお受けします。</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__mark">Q.06</div>
+        <div>
+          <h3 class="faq__q">相見積もりでも構いませんか？</h3>
+          <p class="faq__a">もちろん構いません。ご納得のうえでお選びください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="cta-dark">
+  <div class="wrap">
+    <div class="cta-dark__head">
+      <span class="num">INQUIRY</span>
+      <span style="color:#EAE2D2; letter-spacing:.18em;">フッターCTA</span>
+    </div>
+    <h2 class="cta-dark__title">IT・Webまわりを<br/><span class="accent">整える。</span></h2>
+    <p class="cta-dark__lead">まずは現状を、お聞かせください。<br/>初回相談は無料です。</p>
+    <div class="cta-dark__row">
+      <a href="#f-name" class="cta-dark__btn">フォームへ <span>→</span></a>
+      <a href="mailto:hayama@props-lab.com" class="cta-dark__mail">hayama@props-lab.com</a>
+    </div>
+    <div class="cta-dark__note">24時間以内を目安にご返信します。</div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__top">
+      <div class="foot__brand-block">
+        <a href="index.html" class="foot__brand">PROPS LAB</a>
+        <div class="foot__meta">
+          <div>Props Lab(プロップス・ラボ)</div>
+          <div>代表　織田 隼舞</div>
+          <div>大分県別府市</div>
+          <div><a href="mailto:hayama@props-lab.com">hayama@props-lab.com</a></div>
+          <div><a href="tel:+81703611-0969">070-3611-0969</a></div>
+        </div>
+      </div>
+      <div class="foot__nav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="service.html">SERVICE</a>
+        <a href="pricing.html">PRICING</a>
+        <a href="contact.html">CONTACT</a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <div class="foot__copy">© 2026 PROPS LAB</div>
+      <div class="foot__legal">BEPPU, OITA / JAPAN</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function submitContactForm(e) {
+    e.preventDefault();
+    const f = e.target;
+    const v = id => (f.querySelector('#' + id).value || '').trim();
+    const prefEl = f.querySelector('input[name="pref"]:checked');
+    const pref = prefEl ? prefEl.parentElement.textContent.trim() : '';
+
+    const subject = '[Props Lab お問い合わせ] ' + v('f-subject');
+    const body = [
+      'お名前: ' + v('f-name'),
+      '屋号・事業名: ' + v('f-company'),
+      'メールアドレス: ' + v('f-email'),
+      'お電話番号: ' + v('f-phone'),
+      'ご相談内容: ' + v('f-subject'),
+      'ご希望の連絡方法: ' + pref,
+      '',
+      '--- 詳細 ---',
+      v('f-message')
+    ].join('\n');
+
+    window.location.href = 'mailto:hayama@props-lab.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+    return false;
+  }
+</script>
+
+</body>
+</html>

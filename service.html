@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Props Lab — しごとのこと</title>
+<meta name="description" content="Props Labのサービス。ホームページ制作と月額IT顧問。別府の宿に絞った静かな伴走。" />
+<meta name="theme-color" content="#F5F1E8" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Props Lab — しごとのこと" />
+<meta property="og:description" content="ホームページ制作と月額IT顧問。別府の宿に絞った静かな伴走。" />
+<meta property="og:url" content="https://props-lab.com/service.html" />
+<meta property="og:image" content="https://props-lab.com/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:site_name" content="Props Lab" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Props Lab — しごとのこと" />
+<meta name="twitter:description" content="ホームページ制作と月額IT顧問。" />
+<meta name="twitter:image" content="https://props-lab.com/assets/ogp.png" />
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #F5F1E8;
+    --bg-alt: #ECE6D8;
+    --bg-dark: #1A1614;
+    --text-primary: #3D2817;
+    --text-secondary: #7A7368;
+    --accent-red: #B8452F;
+    --accent-green: #4A5D4E;
+    --accent-indigo: #6B7B8C;
+    --hairline: rgba(61, 40, 23, 0.15);
+
+    --serif: "Noto Serif JP", "游明朝", "Yu Mincho", serif;
+    --sans:  "Noto Sans JP", "ヒラギノ角ゴ ProN", system-ui, sans-serif;
+    --label: "Inter", "Noto Sans JP", system-ui, sans-serif;
+    --didone:"Playfair Display", "Noto Serif JP", serif;
+
+    --gutter: clamp(20px, 4vw, 56px);
+    --max:    1280px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg-primary); color: var(--text-primary); font-family: var(--sans); font-weight: 400; font-size: 15px; line-height: 1.85; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+
+  .topbar { background: var(--bg-primary); border-bottom: 1px solid var(--hairline); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 22px var(--gutter); max-width: var(--max); margin: 0 auto; }
+  .brand { font-family: var(--label); font-weight: 600; letter-spacing: .22em; font-size: 14px; color: var(--text-primary); transition: color .2s; }
+  .brand:hover { color: var(--accent-red); }
+  .nav__links { display: flex; gap: 38px; font-family: var(--label); font-size: 12px; letter-spacing: .22em; color: var(--text-primary); }
+  .nav__links a { position: relative; padding: 6px 0; }
+  .nav__links a:hover { color: var(--accent-red); }
+  .nav__links a.is-active { color: var(--accent-red); }
+  .nav__links a.is-active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--accent-red); }
+
+  .sec-head { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .14em; color: var(--text-secondary); padding-top: 56px; padding-bottom: 28px; }
+  .sec-num { color: var(--accent-red); font-weight: 500; letter-spacing: .12em; }
+  .sec-num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .sec-jp { font-family: var(--sans); font-size: 12px; letter-spacing: .22em; color: var(--text-primary); font-weight: 500; }
+  .sec-en { font-family: var(--label); letter-spacing: .26em; color: var(--text-secondary); font-size: 10.5px; }
+  .sec-sep { flex: 1; height: 1px; background: var(--hairline); transform: translateY(-3px); }
+
+  .page-intro { padding-bottom: 48px; }
+  .page-intro__title { font-family: var(--serif); font-weight: 600; font-size: clamp(36px, 5.4vw, 60px); line-height: 1.4; letter-spacing: .04em; margin: 0 0 28px; }
+  .page-intro__title .accent { color: var(--accent-red); }
+  .page-intro__lead { font-family: var(--serif); font-weight: 400; font-size: clamp(15px, 1.6vw, 17px); line-height: 2.1; letter-spacing: .04em; color: var(--text-primary); max-width: 720px; margin: 0; }
+
+  .pri-sec-tag { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .26em; color: var(--text-secondary); padding-top: 12px; padding-bottom: 24px; }
+  .pri-sec-tag .num { color: var(--accent-red); font-weight: 500; }
+  .pri-sec-tag .num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .pri-sec-tag .jp { color: var(--text-primary); font-family: var(--sans); letter-spacing: .22em; font-size: 12px; }
+
+  /* §1 LANE A */
+  .lane-block { padding: 24px 0 64px; border-top: 1px solid var(--hairline); }
+  .lane-hero { display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: end; padding: 16px 0 36px; border-bottom: 1px solid var(--hairline); margin-bottom: 36px; }
+  .lane-hero__h { font-family: var(--serif); font-weight: 600; font-size: clamp(24px, 3vw, 32px); letter-spacing: .04em; margin: 0 0 6px; }
+  .lane-hero__h .accent { color: var(--accent-red); }
+  .lane-hero__sub { font-family: var(--sans); font-size: 13px; color: var(--text-secondary); letter-spacing: .04em; }
+  .lane-hero__lab { font-family: var(--label); font-size: 11px; letter-spacing: .26em; color: var(--accent-red); }
+
+  .lane-overview { font-family: var(--sans); font-size: 14.5px; line-height: 2.05; max-width: 760px; margin: 0 0 36px; }
+
+  /* Steps (5 steps numbered) */
+  .steps-h { font-family: var(--label); font-size: 11px; letter-spacing: .26em; color: var(--accent-red); margin: 24px 0 18px; font-weight: 500; }
+  .steps-h::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .steps-h .jp { color: var(--text-primary); font-family: var(--sans); margin-left: 16px; letter-spacing: .22em; font-size: 12px; }
+  .steps { display: grid; grid-template-columns: 1fr; border-left: 1px solid var(--hairline); border-top: 1px solid var(--hairline); margin-bottom: 36px; background: var(--bg-primary); }
+  .step { display: grid; grid-template-columns: 90px 200px 1fr; padding: 22px 26px; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); gap: 28px; align-items: baseline; }
+  .step__n { font-family: var(--didone); font-size: 30px; color: var(--accent-red); line-height: 1; }
+  .step__h { font-family: var(--serif); font-weight: 700; font-size: 16px; letter-spacing: .04em; margin: 0; color: var(--text-primary); }
+  .step__p { font-family: var(--sans); font-size: 13.5px; line-height: 1.95; color: var(--text-primary); margin: 0; }
+
+  /* Capabilities grid */
+  .caps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-left: 1px solid var(--hairline); border-top: 1px solid var(--hairline); margin-bottom: 36px; background: var(--bg-primary); }
+  .cap { padding: 22px 24px 26px; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .cap__lab { font-family: var(--label); font-size: 10px; letter-spacing: .26em; color: var(--accent-red); margin-bottom: 8px; }
+  .cap__h { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; margin: 0 0 8px; }
+  .cap__p { font-family: var(--sans); font-size: 12.5px; line-height: 1.9; color: var(--text-primary); margin: 0; }
+
+  /* Cases (Before/After dummy) */
+  .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 24px; }
+  .case-card { border: 1px solid var(--hairline); padding: 20px 22px 22px; background: var(--bg-primary); display: flex; flex-direction: column; gap: 12px; min-height: 220px; }
+  .case-card__lab { font-family: var(--label); font-size: 10px; letter-spacing: .26em; color: var(--text-secondary); }
+  .case-card__lab .n { color: var(--accent-red); margin-right: 8px; }
+  .case-thumb { aspect-ratio: 4 / 3; background: repeating-linear-gradient(135deg, var(--bg-alt) 0 8px, var(--bg-primary) 8px 16px); border: 1px solid var(--hairline); display: flex; align-items: center; justify-content: center; font-family: var(--label); font-size: 10.5px; letter-spacing: .22em; color: var(--text-secondary); }
+  .case-card__note { font-family: var(--sans); font-size: 12px; color: var(--text-secondary); line-height: 1.8; margin: 0; }
+  .cases-note { font-family: var(--sans); font-size: 12.5px; color: var(--text-secondary); margin: 0; padding-left: 18px; position: relative; }
+  .cases-note::before { content: "※"; position: absolute; left: 0; color: var(--accent-red); }
+
+  /* Lane B section */
+  .laneb-block { background: var(--bg-alt); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .laneb-block__inner { padding-top: 24px; padding-bottom: 72px; }
+
+  .examples-h { font-family: var(--label); font-size: 11px; letter-spacing: .26em; color: var(--accent-red); margin: 24px 0 14px; font-weight: 500; }
+  .examples-h::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .examples-h .jp { color: var(--text-primary); font-family: var(--sans); margin-left: 16px; letter-spacing: .22em; font-size: 12px; }
+  .examples { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; }
+  .examples li { font-family: var(--serif); font-size: 14.5px; line-height: 2; color: var(--text-primary); padding: 14px 0 14px 22px; border-bottom: 1px solid var(--hairline); position: relative; }
+  .examples li::before { content: "「"; position: absolute; left: 0; color: var(--accent-red); font-family: var(--serif); }
+  .examples li::after { content: "」"; color: var(--accent-red); margin-left: 4px; font-family: var(--serif); }
+
+  /* §3 Combine flow */
+  .flow-block { padding: 24px 0 64px; border-top: 1px solid var(--hairline); }
+  .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-left: 1px solid var(--hairline); border-top: 1px solid var(--hairline); margin: 24px 0 24px; background: var(--bg-primary); }
+  .flow-step { padding: 22px 22px 26px; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); position: relative; }
+  .flow-step__n { font-family: var(--didone); font-size: 26px; color: var(--accent-red); line-height: 1; margin-bottom: 12px; }
+  .flow-step__h { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; margin: 0 0 8px; }
+  .flow-step__p { font-family: var(--sans); font-size: 12.5px; line-height: 1.85; color: var(--text-primary); margin: 0; }
+  .flow-note { font-family: var(--sans); font-size: 13px; line-height: 2; color: var(--text-secondary); max-width: 760px; margin: 0; }
+
+  /* CTA dark */
+  .cta-dark { background: var(--bg-dark); color: #EAE2D2; padding: 72px 0 64px; }
+  .cta-dark__head { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .22em; color: rgba(234,226,210,.55); justify-content: center; margin-bottom: 22px; }
+  .cta-dark__head .num { color: var(--accent-red); }
+  .cta-dark__head .num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .cta-dark__title { font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 3.6vw, 40px); line-height: 1.5; letter-spacing: .04em; text-align: center; margin: 0 0 18px; color: #FBF7EE; }
+  .cta-dark__title .accent { color: var(--accent-red); }
+  .cta-dark__lead { text-align: center; font-family: var(--sans); font-size: 14px; line-height: 2; color: rgba(234,226,210,.78); margin: 0 auto 36px; max-width: 640px; }
+  .cta-dark__row { display: flex; gap: 24px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+  .cta-dark__btn { display: inline-flex; align-items: center; gap: 16px; background: var(--accent-red); color: #FBF7EE; padding: 16px 32px; border-radius: 2px; font-family: var(--sans); font-size: 13.5px; letter-spacing: .12em; font-weight: 500; min-width: 360px; justify-content: center; }
+  .cta-dark__btn:hover { background: #9d3a28; }
+  .cta-dark__mail { font-family: var(--label); font-size: 14px; letter-spacing: .08em; color: #EAE2D2; border-bottom: 1px solid rgba(234,226,210,.35); padding-bottom: 3px; }
+  .cta-dark__note { text-align: center; font-family: var(--sans); font-size: 11.5px; color: rgba(234,226,210,.55); letter-spacing: .12em; margin-top: 18px; }
+
+  /* Footer */
+  .foot { background: var(--bg-dark); color: rgba(234,226,210,.7); border-top: 1px solid rgba(234,226,210,.1); padding: 48px 0 24px; }
+  .foot__inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .foot__top { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; padding-bottom: 28px; border-bottom: 1px solid rgba(234,226,210,.1); }
+  .foot__brand-block { display: flex; flex-direction: column; gap: 18px; }
+  .foot__brand { font-family: var(--label); font-weight: 600; letter-spacing: .22em; font-size: 13px; color: #FBF7EE; transition: color .2s; }
+  .foot__brand:hover { color: var(--accent-red); }
+  .foot__meta { font-family: var(--sans); font-size: 12px; line-height: 2; letter-spacing: .04em; color: rgba(234,226,210,.55); }
+  .foot__meta a { color: inherit; }
+  .foot__meta a:hover { color: #FBF7EE; }
+  .foot__nav { display: flex; flex-direction: column; gap: 14px; font-family: var(--label); font-size: 12px; letter-spacing: .22em; }
+  .foot__nav a { color: rgba(234,226,210,.7); transition: color .2s; }
+  .foot__nav a:hover { color: #FBF7EE; }
+  .foot__bottom { padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .foot__copy { font-family: var(--label); font-size: 11px; letter-spacing: .12em; color: rgba(234,226,210,.4); }
+  .foot__legal { font-family: var(--label); font-size: 10.5px; letter-spacing: .14em; color: rgba(234,226,210,.4); }
+
+  @media (max-width: 980px) {
+    .lane-hero { grid-template-columns: 1fr; gap: 18px; align-items: start; }
+    .step { grid-template-columns: 60px 1fr; gap: 16px; }
+    .step__h { grid-column: 2; }
+    .step__p { grid-column: 2; }
+    .caps { grid-template-columns: 1fr 1fr; }
+    .cases { grid-template-columns: 1fr; }
+    .examples { grid-template-columns: 1fr; }
+    .flow { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .nav__links { display: none; }
+    .caps { grid-template-columns: 1fr; }
+    .flow { grid-template-columns: 1fr; }
+    .foot__top { grid-template-columns: 1fr; gap: 28px; }
+    .foot__nav { flex-direction: row; flex-wrap: wrap; gap: 18px 24px; }
+    .foot__bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .cta-dark__btn { min-width: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <nav class="nav">
+    <a href="index.html" class="brand">PROPS LAB</a>
+    <div class="nav__links">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="service.html" class="is-active">SERVICE</a>
+      <a href="pricing.html">PRICING</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </nav>
+</div>
+
+<main class="wrap" data-screen-label="Service Page">
+
+  <div class="sec-head">
+    <span class="sec-num">03 / 06</span>
+    <span class="sec-jp">SERVICE — しごとのこと</span>
+    <span class="sec-en">— TWO LANES</span>
+    <span class="sec-sep"></span>
+  </div>
+
+  <section class="page-intro">
+    <h1 class="page-intro__title">主力は、HP制作。<br/>続きは、<span class="accent">月額顧問。</span></h1>
+    <p class="page-intro__lead">
+      ホームページを、事業に合った形でつくります。<br/>
+      公開後も運用・改善を続けるなら、月額のIT顧問をひとつの線で続けられます。<br/>
+      もちろんHPだけ、顧問だけ、のご依頼も承ります。
+    </p>
+  </section>
+
+  <!-- §1 LANE A -->
+  <section class="lane-block">
+    <div class="pri-sec-tag">
+      <span class="num">01 / 03　LANE A</span>
+      <span class="jp">ホームページ制作</span>
+    </div>
+
+    <div class="lane-hero">
+      <div>
+        <span class="lane-hero__lab">LANE A — WEBSITE</span>
+        <h2 class="lane-hero__h" style="margin-top:8px;">宿の、<span class="accent">公式予約を育てるWebに。</span></h2>
+        <p class="lane-hero__sub">新規制作・リニューアル／別府の宿に特化</p>
+      </div>
+    </div>
+
+    <p class="lane-overview">
+      新規制作も、既存サイトのリニューアルも。別府の宿に特化した公式予約導線、スマホ対応、多言語対応、Googleビジネス連携まで一式。OTA任せにせず、公式予約も育てるWebに整えます。
+    </p>
+
+    <div class="steps-h">5 STEPS<span class="jp">工程</span></div>
+    <div class="steps">
+      <article class="step">
+        <div class="step__n">01</div>
+        <h3 class="step__h">ヒアリング</h3>
+        <p class="step__p">宿の現状、強み、お困りごとを、じっくり聞きます。<br/>所要：1〜2時間。対面 or オンライン。無料。</p>
+      </article>
+      <article class="step">
+        <div class="step__n">02</div>
+        <h3 class="step__h">設計</h3>
+        <p class="step__p">サイト構造、ページ数、必要な機能、原稿の書き方を、ひとつずつ決めます。<br/>画面設計図(ワイヤーフレーム)を作って、合意してから次に進みます。</p>
+      </article>
+      <article class="step">
+        <div class="step__n">03</div>
+        <h3 class="step__h">制作</h3>
+        <p class="step__p">デザイン、コーディング、原稿作成、写真選定。<br/>取材が必要な場合は、宿に伺います。</p>
+      </article>
+      <article class="step">
+        <div class="step__n">04</div>
+        <h3 class="step__h">公開</h3>
+        <p class="step__p">ドメイン・サーバー設定、Google系の連携、運用レクチャー。<br/>オーナー自身でも更新できる範囲を、お伝えします。</p>
+      </article>
+      <article class="step">
+        <div class="step__n">05</div>
+        <h3 class="step__h">引き渡し／伴走移行</h3>
+        <p class="step__p">公開後3ヶ月は、制作費に伴走サポートが含まれます。<br/>4ヶ月目から、月額のIT顧問プランを選べます。</p>
+      </article>
+    </div>
+
+    <div class="steps-h">CAPABILITIES<span class="jp">できること</span></div>
+    <div class="caps">
+      <article class="cap">
+        <div class="cap__lab">01 — STRUCTURE</div>
+        <h3 class="cap__h">構造設計</h3>
+        <p class="cap__p">ページ構成、導線設計、情報整理</p>
+      </article>
+      <article class="cap">
+        <div class="cap__lab">02 — CONTENT</div>
+        <h3 class="cap__h">コンテンツ</h3>
+        <p class="cap__p">原稿作成、取材、写真選定、リライト</p>
+      </article>
+      <article class="cap">
+        <div class="cap__lab">03 — BOOKING</div>
+        <h3 class="cap__h">予約導線</h3>
+        <p class="cap__p">公式予約の整備、OTA連携、空室カレンダー</p>
+      </article>
+      <article class="cap">
+        <div class="cap__lab">04 — LANGUAGES</div>
+        <h3 class="cap__h">多言語対応</h3>
+        <p class="cap__p">英語・中国語・韓国語の翻訳、自動翻訳の運用</p>
+      </article>
+      <article class="cap">
+        <div class="cap__lab">05 — SEO / GBP</div>
+        <h3 class="cap__h">SEO・Googleビジネス</h3>
+        <p class="cap__p">検索対策、Googleビジネスプロフィール整備、口コミ運用</p>
+      </article>
+      <article class="cap">
+        <div class="cap__lab">06 — MOBILE</div>
+        <h3 class="cap__h">スマホ対応</h3>
+        <p class="cap__p">レスポンシブ実装、表示速度改善、フォーム最適化</p>
+      </article>
+    </div>
+
+    <div class="steps-h">CASE<span class="jp">事例</span></div>
+    <div class="cases">
+      <article class="case-card">
+        <div class="case-card__lab"><span class="n">01</span>BEFORE / AFTER</div>
+        <div class="case-thumb">CASE 01</div>
+        <p class="case-card__note">現在準備中</p>
+      </article>
+      <article class="case-card">
+        <div class="case-card__lab"><span class="n">02</span>BEFORE / AFTER</div>
+        <div class="case-thumb">CASE 02</div>
+        <p class="case-card__note">現在準備中</p>
+      </article>
+      <article class="case-card">
+        <div class="case-card__lab"><span class="n">03</span>BEFORE / AFTER</div>
+        <div class="case-thumb">CASE 03</div>
+        <p class="case-card__note">現在準備中</p>
+      </article>
+    </div>
+    <p class="cases-note">事例は順次公開していきます。公開可能な事例ができ次第、差し替えます。</p>
+  </section>
+</main>
+
+<!-- §2 LANE B -->
+<section class="laneb-block">
+  <div class="wrap laneb-block__inner">
+    <div class="pri-sec-tag" style="padding-top: 24px;">
+      <span class="num">02 / 03　LANE B</span>
+      <span class="jp">月額IT顧問</span>
+    </div>
+
+    <div class="lane-hero" style="border-bottom-color: var(--hairline);">
+      <div>
+        <span class="lane-hero__lab">LANE B — ADVISORY</span>
+        <h2 class="lane-hero__h" style="margin-top:8px;">静かな伴走で、<span class="accent">宿のIT・予約まわりを整える。</span></h2>
+        <p class="lane-hero__sub">公開後の運用・保守・改善を月額で支援</p>
+      </div>
+    </div>
+
+    <p class="lane-overview">
+      公開後の運用・保守・改善を月額で支援。日々の更新、導線改善、予約導線、問い合わせ整備、ちいさな業務改善まで。派手な提案より、実際に効く提案を続けます。
+    </p>
+
+    <div class="steps-h">SERVICES<span class="jp">提供内容</span></div>
+    <div class="caps">
+      <article class="cap">
+        <div class="cap__lab">01 — UPDATES</div>
+        <h3 class="cap__h">サイト更新対応</h3>
+        <p class="cap__p">文言修正、写真差し替え、お知らせ追加、季節情報の更新</p>
+      </article>
+      <article class="cap">
+        <div class="cap__lab">02 — MONTHLY</div>
+        <h3 class="cap__h">月1回の定例相談</h3>
+        <p class="cap__p">対面 or オンラインで60〜90分。直近の課題を、その場で整理します。</p>
+      </article>
+      <article class="cap">
+        <div class="cap__lab">03 — CHAT</div>
+        <h3 class="cap__h">チャット相談</h3>
+        <p class="cap__p">随時。困ったときに、聞ける相手がいる状態をつくります。</p>
+      </article>
+      <article class="cap">
+        <div class="cap__lab">04 — OPS</div>
+        <h3 class="cap__h">簡易な業務改善</h3>
+        <p class="cap__p">予約管理、勤怠、経理、SaaSの導入・整理</p>
+      </article>
+      <article class="cap">
+        <div class="cap__lab">05 — AI</div>
+        <h3 class="cap__h">AI活用の壁打ち</h3>
+        <p class="cap__p">原稿作成、翻訳、業務効率化のアイデア出し</p>
+      </article>
+      <article class="cap">
+        <div class="cap__lab">06 — ETC</div>
+        <h3 class="cap__h">その他、何でも</h3>
+        <p class="cap__p">ITまわりで困ったとき、まず聞ける相手として。</p>
+      </article>
+    </div>
+
+    <div class="examples-h">VOICES<span class="jp">こういう相談が来ます</span></div>
+    <ul class="examples">
+      <li>予約サイトの管理画面、わからない項目がある</li>
+      <li>Googleの口コミに、どう返したらいいか</li>
+      <li>補助金の書類、書き方が合っているか見てほしい</li>
+      <li>外国人ゲストへの返信、英語で迷っている</li>
+      <li>経理ソフト変えたいけど、何がいいか</li>
+      <li>ChatGPTを業務で使いたいが、どう始めたらいいか</li>
+    </ul>
+  </div>
+</section>
+
+<!-- §3 FLOW -->
+<main class="wrap">
+  <section class="flow-block">
+    <div class="pri-sec-tag">
+      <span class="num">03 / 03　FLOW</span>
+      <span class="jp">二つを組み合わせる流れ</span>
+    </div>
+    <div class="flow">
+      <article class="flow-step">
+        <div class="flow-step__n">01</div>
+        <h3 class="flow-step__h">HP制作</h3>
+        <p class="flow-step__p">ヒアリングから設計・制作まで。事業に合ったWebに整える。</p>
+      </article>
+      <article class="flow-step">
+        <div class="flow-step__n">02</div>
+        <h3 class="flow-step__h">公開</h3>
+        <p class="flow-step__p">ドメイン・サーバー設定、Google連携、運用レクチャー。</p>
+      </article>
+      <article class="flow-step">
+        <div class="flow-step__n">03</div>
+        <h3 class="flow-step__h">公開後3ヶ月 伴走込み</h3>
+        <p class="flow-step__p">制作費に含まれる伴走期間。運用が回るまでサポート。</p>
+      </article>
+      <article class="flow-step">
+        <div class="flow-step__n">04</div>
+        <h3 class="flow-step__h">月額顧問へ移行</h3>
+        <p class="flow-step__p">4ヶ月目から、月額プランを選べます。長くお付き合い。</p>
+      </article>
+    </div>
+    <p class="flow-note">
+      3ヶ月の伴走で、運用が回ってきたタイミングで、月額顧問プランに切り替えられます。そのまま、長くお付き合いいただくことが多いです。
+    </p>
+  </section>
+</main>
+
+<section class="cta-dark">
+  <div class="wrap">
+    <div class="cta-dark__head">
+      <span class="num">INQUIRY</span>
+      <span style="color:#EAE2D2; letter-spacing:.18em;">お問い合わせ</span>
+    </div>
+    <h2 class="cta-dark__title">HPだけ、顧問だけ、<br/><span class="accent">のご依頼も歓迎です。</span></h2>
+    <p class="cta-dark__lead">
+      まずは現状を、お聞かせください。<br/>初回相談は無料です。
+    </p>
+    <div class="cta-dark__row">
+      <a href="contact.html" class="cta-dark__btn">フォームから問い合わせる <span>→</span></a>
+      <a href="mailto:hayama@props-lab.com" class="cta-dark__mail">hayama@props-lab.com</a>
+    </div>
+    <div class="cta-dark__note">24時間以内を目安にご返信します。</div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__top">
+      <div class="foot__brand-block">
+        <a href="index.html" class="foot__brand">PROPS LAB</a>
+        <div class="foot__meta">
+          <div>Props Lab(プロップス・ラボ)</div>
+          <div>代表　織田 隼舞</div>
+          <div>大分県別府市</div>
+          <div><a href="mailto:hayama@props-lab.com">hayama@props-lab.com</a></div>
+          <div><a href="tel:+81703611-0969">070-3611-0969</a></div>
+        </div>
+      </div>
+      <div class="foot__nav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="service.html">SERVICE</a>
+        <a href="pricing.html">PRICING</a>
+        <a href="contact.html">CONTACT</a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <div class="foot__copy">© 2026 PROPS LAB</div>
+      <div class="foot__legal">BEPPU, OITA / JAPAN</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Props Lab — 別府の宿泊施設のためのIT・Web運用支援</title>
+<meta name="description" content="別府の宿泊施設に特化したIT・Web運用支援。ホームページ制作と月額IT顧問で、公開後も長く伴走します。" />
+<meta name="theme-color" content="#F5F1E8" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Props Lab — 作って終わらない、ホームページを。" />
+<meta property="og:description" content="別府の宿泊施設に特化したIT・Web運用支援。ホームページ制作と月額IT顧問で、公開後も長く伴走します。" />
+<meta property="og:url" content="https://props-lab.com/" />
+<meta property="og:image" content="https://props-lab.com/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:site_name" content="Props Lab" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Props Lab — 作って終わらない、ホームページを。" />
+<meta name="twitter:description" content="別府の宿泊施設に特化したIT・Web運用支援。" />
+<meta name="twitter:image" content="https://props-lab.com/assets/ogp.png" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #F5F1E8;
+    --bg-alt: #ECE6D8;
+    --bg-dark: #1A1614;
+    --text-primary: #3D2817;
+    --text-secondary: #7A7368;
+    --accent-red: #B8452F;
+    --accent-green: #4A5D4E;
+    --accent-indigo: #6B7B8C;
+    --hairline: rgba(61, 40, 23, 0.15);
+
+    --serif: "Noto Serif JP", "游明朝", "Yu Mincho", serif;
+    --sans:  "Noto Sans JP", "ヒラギノ角ゴ ProN", system-ui, sans-serif;
+    --label: "Inter", "Noto Sans JP", system-ui, sans-serif;
+    --didone:"Playfair Display", "Noto Serif JP", serif;
+
+    --gutter: clamp(20px, 4vw, 56px);
+    --max:    1280px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+
+  /* Section header */
+  .sec-head {
+    display: flex; align-items: baseline; gap: 18px;
+    font-family: var(--label);
+    font-size: 11px;
+    letter-spacing: .14em;
+    color: var(--text-secondary);
+    padding-top: 56px;
+    padding-bottom: 28px;
+  }
+  .sec-num { color: var(--accent-red); font-weight: 500; letter-spacing: .12em; }
+  .sec-num::before {
+    content: ""; display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--accent-red);
+    margin-right: 10px; transform: translateY(-2px);
+  }
+  .sec-jp { font-family: var(--sans); font-size: 12px; letter-spacing: .22em; color: var(--text-primary); font-weight: 500; }
+  .sec-en { font-family: var(--label); letter-spacing: .26em; color: var(--text-secondary); font-size: 10.5px; }
+  .sec-sep { flex: 1; height: 1px; background: var(--hairline); transform: translateY(-3px); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 720px;
+    height: 78vh;
+    max-height: 880px;
+    overflow: hidden;
+    background: #2a221c;
+  }
+  .hero__img {
+    position: absolute; inset: 0;
+    background-image: url("assets/hero-japanese-room.png");
+    background-size: cover;
+    background-position: center 38%;
+  }
+  .hero__veil {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(245,241,232,0.92) 0%, rgba(245,241,232,0.62) 38%, rgba(245,241,232,0) 62%),
+      linear-gradient(180deg, rgba(245,241,232,0.55) 0%, rgba(245,241,232,0) 28%);
+  }
+  .nav {
+    position: relative; z-index: 3;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 26px var(--gutter) 0;
+    max-width: var(--max); margin: 0 auto;
+  }
+  .brand { font-family: var(--label); font-weight: 600; letter-spacing: .22em; font-size: 14px; color: var(--text-primary); transition: color .2s; }
+  .brand:hover { color: var(--accent-red); }
+  .nav__links { display: flex; gap: 38px; font-family: var(--label); font-size: 12px; letter-spacing: .22em; color: var(--text-primary); }
+  .nav__links a { position: relative; padding: 6px 0; }
+  .nav__links a:hover { color: var(--accent-red); }
+  .nav__links a.is-active { color: var(--accent-red); }
+  .nav__links a.is-active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -2px;
+    height: 1px; background: var(--accent-red);
+  }
+
+  .hero__inner {
+    position: relative; z-index: 2;
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 84px var(--gutter) 0;
+  }
+  .hero__meta { font-family: var(--label); font-size: 11px; letter-spacing: .22em; color: var(--text-secondary); margin-bottom: 18px; }
+  .hero__meta .dot { display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 12px; transform: translateY(-2px); }
+  .hero__era { font-family: var(--serif); font-size: 12px; letter-spacing: .35em; color: var(--text-secondary); margin: 0 0 32px; }
+  .hero__title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(34px, 5.6vw, 64px);
+    line-height: 1.32;
+    letter-spacing: .04em;
+    color: var(--text-primary);
+    margin: 0 0 28px;
+    max-width: 620px;
+  }
+  .hero__title .accent { color: var(--accent-red); }
+  .hero__lead {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 2;
+    color: var(--text-primary);
+    max-width: 460px;
+    margin: 0 0 38px;
+  }
+  .hero__lead .strong { font-weight: 500; }
+
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    padding: 14px 22px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .btn .arr { font-family: var(--label); font-weight: 400; }
+  .btn--primary { background: var(--accent-red); color: #FBF7EE; }
+  .btn--primary:hover { background: #9d3a28; }
+  .btn--ghost { background: transparent; color: var(--text-primary); border-color: var(--text-primary); }
+  .btn--ghost:hover { background: var(--text-primary); color: var(--bg-primary); }
+
+  .scroll-hint {
+    position: absolute; right: 28px; bottom: 110px; z-index: 3;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: var(--label);
+    font-size: 10.5px;
+    letter-spacing: .42em;
+    color: var(--text-primary);
+    opacity: .82;
+  }
+  .scroll-hint::after {
+    content: ""; display: block;
+    width: 1px; height: 64px; background: var(--text-primary);
+    margin: 16px auto 0;
+    opacity: .55;
+  }
+
+  /* Topics */
+  .topics { border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); background: var(--bg-primary); }
+  .topics__inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); display: flex; align-items: stretch; overflow-x: auto; }
+  .topics__inner::-webkit-scrollbar { display: none; }
+  .topics__item {
+    flex: 1 0 auto;
+    padding: 18px 22px;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    letter-spacing: .08em;
+    color: var(--text-primary);
+    border-right: 1px solid var(--hairline);
+    white-space: nowrap;
+    text-align: center;
+  }
+  .topics__item:first-child { border-left: 1px solid var(--hairline); }
+  .topics__label::before, .topics__end::after {
+    content: ""; display: inline-block; width: 6px; height: 6px;
+    background: var(--accent-red); transform: translateY(-2px);
+  }
+  .topics__label::before { margin-right: 10px; }
+  .topics__end::after { margin-left: 10px; }
+
+  /* TWO LANES */
+  .twolanes { background: var(--bg-primary); }
+  .twolanes__title { font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.5; letter-spacing: .03em; margin: 0 0 14px; }
+  .twolanes__title .accent { color: var(--accent-red); }
+  .twolanes__lead { font-family: var(--sans); font-size: 14px; color: var(--text-primary); max-width: 760px; margin: 0 0 48px; line-height: 2; }
+  .lanes-grid { display: grid; grid-template-columns: 1fr 64px 1fr; gap: 0; align-items: stretch; padding-bottom: 64px; }
+  .lane { border: 1px solid var(--hairline); padding: 28px 28px 30px; background: var(--bg-primary); position: relative; }
+  .lane__tag { font-family: var(--label); font-size: 10.5px; letter-spacing: .26em; color: var(--text-secondary); margin-bottom: 14px; }
+  .lane__tag .pin { color: var(--accent-red); margin-right: 8px; }
+  .lane__title { font-family: var(--serif); font-weight: 700; font-size: 26px; letter-spacing: .04em; margin: 0 0 14px; }
+  .lane__desc { font-family: var(--sans); font-size: 13px; line-height: 1.95; color: var(--text-primary); margin: 0 0 18px; }
+  .lane__list { list-style: none; padding: 0; margin: 0 0 22px; font-family: var(--sans); font-size: 12.5px; color: var(--text-primary); line-height: 1.95; }
+  .lane__list li { display: flex; gap: 10px; }
+  .lane__list li::before { content: "／"; color: var(--text-secondary); font-size: 11px; flex: 0 0 auto; }
+  .lane__list li:first-child::before { content: "・"; }
+  .lane__price { border-top: 1px solid var(--hairline); padding-top: 16px; display: flex; align-items: baseline; gap: 12px; }
+  .lane__price .from { font-family: var(--label); font-size: 10.5px; letter-spacing: .2em; color: var(--text-secondary); }
+  .lane__price .num { font-family: var(--didone); font-weight: 400; font-size: 30px; letter-spacing: .02em; color: var(--text-primary); }
+  .lane__price .unit { font-family: var(--sans); font-size: 12px; color: var(--text-secondary); }
+  .lane__bridge {
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    color: var(--text-secondary);
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: .25em;
+    writing-mode: vertical-rl;
+    padding: 0 4px;
+    position: relative;
+  }
+  .lane__bridge::before, .lane__bridge::after { content: ""; flex: 1; width: 1px; min-height: 28px; background: var(--hairline); }
+  .lane__bridge span { padding: 14px 0; color: var(--text-primary); }
+  .lane__more { margin-top: 18px; display: flex; justify-content: flex-end; font-family: var(--label); font-size: 11.5px; letter-spacing: .14em; color: var(--text-secondary); }
+  .lane__more a { color: var(--text-primary); border-bottom: 1px solid var(--hairline); padding-bottom: 2px; }
+  .lane__more a:hover { border-color: var(--accent-red); color: var(--accent-red); }
+
+  /* ADVISORY */
+  .advisory { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg-alt); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .advisory__img {
+    background:
+      linear-gradient(120deg, rgba(26,22,20,.55), rgba(26,22,20,.25)),
+      repeating-linear-gradient(45deg, #4a3a2c 0 24px, #3d2f24 24px 48px);
+    min-height: 420px;
+    position: relative;
+    overflow: hidden;
+  }
+  .advisory__img::after {
+    content: "// still life — desk · book · pen";
+    position: absolute; left: 22px; bottom: 18px;
+    font-family: var(--label);
+    font-size: 10.5px;
+    letter-spacing: .12em;
+    color: rgba(245,241,232,.6);
+  }
+  .advisory__body { padding: 56px clamp(24px, 4vw, 60px) 56px; display: flex; flex-direction: column; justify-content: center; }
+  .advisory__head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 22px; font-family: var(--label); font-size: 11px; letter-spacing: .22em; color: var(--text-secondary); }
+  .advisory__num { color: var(--accent-red); }
+  .advisory__num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .advisory__title { font-family: var(--serif); font-weight: 600; font-size: clamp(24px, 2.8vw, 32px); line-height: 1.55; letter-spacing: .04em; margin: 0 0 18px; }
+  .advisory__lead { font-family: var(--sans); font-size: 14px; line-height: 2; color: var(--text-primary); margin: 0 0 28px; max-width: 520px; }
+  .advisory__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 30px; font-family: var(--sans); font-size: 13.5px; color: var(--text-primary); }
+  .advisory__grid li { list-style: none; padding: 6px 0 6px 22px; position: relative; }
+  .advisory__grid li::before { content: ""; position: absolute; left: 0; top: 13px; width: 12px; height: 12px; border: 1px solid var(--accent-red); border-radius: 50%; }
+  .advisory__grid li::after { content: ""; position: absolute; left: 3px; top: 16px; width: 6px; height: 3px; border-left: 1.5px solid var(--accent-red); border-bottom: 1.5px solid var(--accent-red); transform: rotate(-45deg); }
+
+  /* PLANS */
+  .plans { background: var(--bg-primary); }
+  .plans__lead { font-family: var(--sans); font-size: 14px; color: var(--text-primary); margin: 0 0 36px; max-width: 760px; line-height: 2; }
+  .plans__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding-bottom: 60px; }
+  .plan { border: 1px solid var(--hairline); padding: 24px 24px 26px; display: flex; flex-direction: column; background: var(--bg-primary); position: relative; }
+  .plan--feature { border-color: var(--accent-red); border-width: 1px; box-shadow: inset 0 0 0 1px var(--accent-red); }
+  .plan__tag { display: flex; align-items: center; justify-content: space-between; font-family: var(--label); font-size: 10.5px; letter-spacing: .26em; color: var(--text-secondary); margin-bottom: 8px; }
+  .plan__badge { background: var(--accent-red); color: #FBF7EE; font-family: var(--sans); font-weight: 500; font-size: 10px; letter-spacing: .18em; padding: 3px 10px; border-radius: 1px; }
+  .plan__title { font-family: var(--serif); font-weight: 700; font-size: 21px; letter-spacing: .04em; margin: 0 0 12px; }
+  .plan__desc { font-family: var(--sans); font-size: 12.5px; line-height: 1.9; color: var(--text-primary); margin: 0 0 18px; min-height: 64px; }
+  .plan__price { display: flex; align-items: baseline; gap: 10px; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); padding: 14px 0; margin-bottom: 16px; flex-wrap: wrap; }
+  .plan__price .lab { font-family: var(--sans); font-size: 11.5px; color: var(--text-secondary); }
+  .plan__price .num { font-family: var(--didone); font-size: 26px; color: var(--text-primary); letter-spacing: .02em; }
+  .plan__price .unit { font-family: var(--sans); font-size: 11.5px; color: var(--text-secondary); }
+  .plan__price .sep { color: var(--hairline); margin: 0 6px; }
+  .plan__list { list-style: none; padding: 0; margin: 0 0 20px; font-family: var(--sans); font-size: 12.5px; line-height: 1.85; color: var(--text-primary); }
+  .plan__list li { padding: 4px 0 4px 18px; position: relative; }
+  .plan__list li::before { content: ""; position: absolute; left: 0; top: 11px; width: 8px; height: 8px; border-top: 1.4px solid var(--accent-red); border-right: 1.4px solid var(--accent-red); transform: rotate(45deg); }
+  .plan__cta { margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 10px; padding: 13px 16px; font-family: var(--sans); font-size: 12.5px; letter-spacing: .12em; border: 1px solid var(--text-primary); color: var(--text-primary); transition: background .2s, color .2s; }
+  .plan__cta:hover { background: var(--text-primary); color: var(--bg-primary); }
+  .plan--feature .plan__cta { background: var(--accent-red); color: #FBF7EE; border-color: var(--accent-red); }
+  .plan--feature .plan__cta:hover { background: #9d3a28; border-color: #9d3a28; }
+
+  /* FOR WHOM */
+  .forwhom { background: var(--bg-primary); border-top: 1px solid var(--hairline); }
+  .forwhom__title { font-family: var(--serif); font-weight: 600; font-size: clamp(22px, 3vw, 32px); line-height: 1.55; letter-spacing: .03em; margin: 0 0 38px; }
+  .forwhom__title .accent { color: var(--accent-red); }
+  .fw-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-left: 1px solid var(--hairline); border-top: 1px solid var(--hairline); margin-bottom: 64px; }
+  .fw { padding: 24px 24px 28px; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); display: grid; grid-template-columns: 1fr 56px; gap: 14px; align-items: start; }
+  .fw__lab { font-family: var(--label); font-size: 10.5px; letter-spacing: .26em; color: var(--text-secondary); margin-bottom: 10px; }
+  .fw__h { font-family: var(--serif); font-weight: 600; font-size: 16px; letter-spacing: .04em; margin: 4px 0 10px; }
+  .fw__p { font-family: var(--sans); font-size: 12px; line-height: 1.85; color: var(--text-primary); margin: 0; }
+  .fw__icon { width: 48px; height: 48px; border: 1px solid var(--hairline); display: grid; place-items: center; color: var(--text-secondary); align-self: start; justify-self: end; }
+  .fw__icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.2; }
+
+  /* CTA dark */
+  .cta-dark { background: var(--bg-dark); color: #EAE2D2; padding: 72px 0 64px; }
+  .cta-dark__head { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .22em; color: rgba(234,226,210,.55); justify-content: center; margin-bottom: 22px; }
+  .cta-dark__head .num { color: var(--accent-red); }
+  .cta-dark__head .num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .cta-dark__title { font-family: var(--serif); font-weight: 600; font-size: clamp(28px, 4vw, 44px); line-height: 1.5; letter-spacing: .04em; text-align: center; margin: 0 0 18px; color: #FBF7EE; }
+  .cta-dark__title .accent { color: var(--accent-red); }
+  .cta-dark__lead { text-align: center; font-family: var(--sans); font-size: 14px; line-height: 2; color: rgba(234,226,210,.78); margin: 0 auto 36px; max-width: 640px; }
+  .cta-dark__row { display: flex; gap: 24px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+  .cta-dark__btn { display: inline-flex; align-items: center; gap: 16px; background: var(--accent-red); color: #FBF7EE; padding: 16px 32px; border-radius: 2px; font-family: var(--sans); font-size: 13.5px; letter-spacing: .12em; font-weight: 500; min-width: 360px; justify-content: center; }
+  .cta-dark__btn:hover { background: #9d3a28; }
+  .cta-dark__mail { font-family: var(--label); font-size: 14px; letter-spacing: .08em; color: #EAE2D2; border-bottom: 1px solid rgba(234,226,210,.35); padding-bottom: 3px; }
+  .cta-dark__note { text-align: center; font-family: var(--sans); font-size: 11.5px; color: rgba(234,226,210,.55); letter-spacing: .12em; margin-top: 18px; }
+
+  /* Footer */
+  .foot { background: var(--bg-dark); color: rgba(234,226,210,.7); border-top: 1px solid rgba(234,226,210,.1); padding: 48px 0 24px; }
+  .foot__inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .foot__top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: start;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(234,226,210,.1);
+  }
+  .foot__brand-block { display: flex; flex-direction: column; gap: 18px; }
+  .foot__brand { font-family: var(--label); font-weight: 600; letter-spacing: .22em; font-size: 13px; color: #FBF7EE; transition: color .2s; }
+  .foot__brand:hover { color: var(--accent-red); }
+  .foot__meta { font-family: var(--sans); font-size: 12px; line-height: 2; letter-spacing: .04em; color: rgba(234,226,210,.55); }
+  .foot__meta a { color: inherit; }
+  .foot__meta a:hover { color: #FBF7EE; }
+  .foot__nav { display: flex; flex-direction: column; gap: 14px; font-family: var(--label); font-size: 12px; letter-spacing: .22em; }
+  .foot__nav a { color: rgba(234,226,210,.7); transition: color .2s; }
+  .foot__nav a:hover { color: #FBF7EE; }
+  .foot__bottom {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .foot__copy { font-family: var(--label); font-size: 11px; letter-spacing: .12em; color: rgba(234,226,210,.4); }
+  .foot__legal { font-family: var(--label); font-size: 10.5px; letter-spacing: .14em; color: rgba(234,226,210,.4); }
+
+  @media (max-width: 980px) {
+    .lanes-grid { grid-template-columns: 1fr; }
+    .lane__bridge { writing-mode: horizontal-tb; flex-direction: row; padding: 6px 0; }
+    .lane__bridge::before, .lane__bridge::after { width: auto; height: 1px; min-height: 1px; flex: 1; }
+    .advisory { grid-template-columns: 1fr; }
+    .advisory__img { min-height: 280px; }
+    .plans__grid { grid-template-columns: 1fr; }
+    .fw-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .nav__links { display: none; }
+    .hero { min-height: 600px; height: auto; padding-bottom: 56px; }
+    .hero__inner { padding-top: 56px; }
+    .scroll-hint { display: none; }
+    .fw-grid { grid-template-columns: 1fr; }
+    .foot__top { grid-template-columns: 1fr; gap: 28px; }
+    .foot__nav { flex-direction: row; flex-wrap: wrap; gap: 18px 24px; }
+    .foot__bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .cta-dark__btn { min-width: 0; width: 100%; }
+    .advisory__grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero" data-screen-label="01 Hero">
+  <div class="hero__img" aria-hidden="true"></div>
+  <div class="hero__veil" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <a href="index.html" class="brand">PROPS LAB</a>
+    <div class="nav__links">
+      <a href="index.html" class="is-active">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="service.html">SERVICE</a>
+      <a href="pricing.html">PRICING</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </nav>
+
+  <div class="hero__inner">
+    <div class="hero__meta"><span class="dot"></span>ISSUE 001 &nbsp;&nbsp;—&nbsp;&nbsp; 別府 大分 / BEPPU, OITA</div>
+    <p class="hero__era">令和八年 　創業</p>
+
+    <h1 class="hero__title">作って終わらない、<br/>ホームページを。</h1>
+    <p class="hero__lead">
+      <span class="strong">公開後も、月額で伴走するIT顧問つき。</span><br/>
+      別府の小さな事業と、長く歩きます。<br/>
+      設計から制作・リニューアル、公開後の運用・改善まで、<br/>
+      ひとつの関係の中で続けます。
+    </p>
+
+    <div class="btn-row">
+      <a class="btn btn--primary" href="service.html">HP制作を見る <span class="arr">→</span></a>
+      <a class="btn btn--ghost" href="contact.html">無料相談をする <span class="arr">→</span></a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">SCROLL</div>
+</header>
+
+<div class="topics">
+  <div class="topics__inner">
+    <div class="topics__item topics__label">扱い分野</div>
+    <div class="topics__item">ホームページ制作</div>
+    <div class="topics__item">制作後の月額保守</div>
+    <div class="topics__item">月額 IT顧問</div>
+    <div class="topics__item topics__end">業務改善・AI活用</div>
+  </div>
+</div>
+
+<section class="twolanes" id="service" data-screen-label="02 Two Lanes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03 / 06</span>
+      <span class="sec-jp">二つの、しごと</span>
+      <span class="sec-en">— TWO LANES</span>
+      <span class="sec-sep"></span>
+    </div>
+
+    <h2 class="twolanes__title">主力は、HP制作。<span style="color:var(--text-secondary); margin:0 14px;">／</span>続きは、<span class="accent">月額顧問</span>。</h2>
+    <p class="twolanes__lead">
+      まずホームページを、事業に合った形でつくります。公開後も運用・改善を続けるなら、月額のIT顧問をひとつの線で続けられます。もちろんHPだけ、顧問だけ、のご依頼も承ります。
+    </p>
+
+    <div class="lanes-grid">
+      <article class="lane">
+        <div class="lane__tag"><span class="pin">●</span>MAIN LANE A &nbsp;—&nbsp; 主力</div>
+        <h3 class="lane__title">ホームページ制作</h3>
+        <p class="lane__desc">
+          新規制作も、既存サイトのリニューアルも。別府の宿に特化した公式予約導線、スマホ対応、多言語対応、Googleビジネス連携まで一式。OTA任せにせず、公式予約も育てるWebに整えます。
+        </p>
+        <ul class="lane__list">
+          <li>設計・ワイヤー</li>
+          <li>制作・実装</li>
+          <li>取材・原稿</li>
+          <li>多言語対応</li>
+          <li>予約導線</li>
+          <li>運用レクチャー</li>
+        </ul>
+        <div class="lane__price">
+          <span class="from">FROM</span>
+          <span class="num">¥300,000</span>
+          <span class="unit">一式</span>
+        </div>
+        <div class="lane__more">
+          <a href="service.html">サービス詳細を読む &nbsp;&nbsp; Read more  →</a>
+        </div>
+      </article>
+
+      <div class="lane__bridge">
+        <span>公開後へ →</span>
+      </div>
+
+      <article class="lane">
+        <div class="lane__tag"><span class="pin">●</span>CONTINUATION LANE B &nbsp;—&nbsp; 伴走</div>
+        <h3 class="lane__title">月額 IT顧問</h3>
+        <p class="lane__desc">
+          公開後の運用・保守・改善を月額で支援。<br/>
+          月1回の定例相談、随時のチャット相談。
+        </p>
+        <div class="lane__price">
+          <span class="from">FROM</span>
+          <span class="num">¥5,000</span>
+          <span class="unit">〜／月</span>
+        </div>
+        <div class="lane__more">
+          <a href="service.html">サービス詳細を読む &nbsp;&nbsp; Read more  →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="advisory" id="advisory" data-screen-label="03 Advisory">
+  <div class="advisory__img" role="img" aria-label="顧問サービスの静物イメージ"></div>
+  <div class="advisory__body">
+    <div class="advisory__head">
+      <span class="advisory__num">02 / 06</span>
+      <span style="color:var(--text-primary); font-family: var(--sans); font-weight:500; letter-spacing:.18em;">顧問サービス内容</span>
+      <span style="font-family: var(--label); letter-spacing:.26em;">— ADVISORY</span>
+    </div>
+    <h2 class="advisory__title">静かな伴走で、宿のIT・予約まわりを整える。</h2>
+    <p class="advisory__lead">
+      日々の更新、導線改善、予約導線、問い合わせ整備、<br/>
+      ちいさな業務改善まで。派手な提案より、実際に効く提案を続けます。
+    </p>
+    <ul class="advisory__grid">
+      <li>サイト更新対応</li>
+      <li>簡易な業務改善</li>
+      <li>月1回の定例相談</li>
+      <li>AI活用の壁打ち</li>
+      <li>チャット相談</li>
+    </ul>
+  </div>
+</section>
+
+<section class="plans" id="pricing" data-screen-label="04 Plans">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02 / 03</span>
+      <span class="sec-jp">公開後の月額プラン</span>
+      <span class="sec-en">— CONTINUATION PLANS</span>
+      <span class="sec-sep"></span>
+    </div>
+
+    <p class="plans__lead">
+      制作が終わってからが本番です。どこまで伴走するか、事業のフェーズに合わせて3段階から選べます。
+    </p>
+
+    <div class="plans__grid">
+
+      <article class="plan">
+        <div class="plan__tag"><span>LIGHT</span></div>
+        <h3 class="plan__title">HP月額保守プラン</h3>
+        <p class="plan__desc">
+          公開後のサイトを「動く状態」で保つ、最小限の月額。
+        </p>
+        <div class="plan__price">
+          <span class="lab">月額</span>
+          <span class="num">¥5,000</span>
+          <span class="unit">／月</span>
+        </div>
+        <ul class="plan__list">
+          <li>サーバー・ドメイン・SSL管理</li>
+          <li>軽微な文言修正(月1回まで)</li>
+          <li>不具合対応・相談窓口</li>
+        </ul>
+        <a href="contact.html" class="plan__cta">このプランで相談する →</a>
+      </article>
+
+      <article class="plan plan--feature">
+        <div class="plan__tag"><span>MONITOR</span><span class="plan__badge">おすすめ</span></div>
+        <h3 class="plan__title">IT顧問・モニター価格</h3>
+        <p class="plan__desc">
+          1〜2社目限定／事例公開にご協力いただける場合。HP保守に加え、月1回の定例相談とチャット随時。
+        </p>
+        <div class="plan__price">
+          <span class="lab">初期</span><span class="num">¥50,000</span>
+          <span class="sep">／</span>
+          <span class="lab">月額</span><span class="num">¥8,000</span>
+          <span class="unit">／月</span>
+        </div>
+        <ul class="plan__list">
+          <li>HP月額保守 一式</li>
+          <li>月1回の定例相談(対面 or オンライン)</li>
+          <li>チャット相談 随時</li>
+        </ul>
+        <a href="contact.html" class="plan__cta">このプランで相談する →</a>
+      </article>
+
+      <article class="plan">
+        <div class="plan__tag"><span>STANDARD</span></div>
+        <h3 class="plan__title">IT顧問・標準価格</h3>
+        <p class="plan__desc">
+          3社目以降／本格導入／6ヶ月継続から。IT顧問の通常契約。業務改善まで踏み込む標準プラン。
+        </p>
+        <div class="plan__price">
+          <span class="lab">初期</span><span class="num">¥100,000</span>
+          <span class="sep">／</span>
+          <span class="lab">月額</span><span class="num">¥30,000</span>
+          <span class="unit">／月</span>
+        </div>
+        <ul class="plan__list">
+          <li>HP月額保守 一式</li>
+          <li>月1回の定例相談 ＋ チャット随時</li>
+          <li>業務改善・AI活用の提案</li>
+        </ul>
+        <a href="contact.html" class="plan__cta">このプランで相談する →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="forwhom" id="forwhom" data-screen-label="05 For Whom">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">04 / 06</span>
+      <span class="sec-jp">こんな方へ</span>
+      <span class="sec-en">— FOR WHOM</span>
+      <span class="sec-sep"></span>
+    </div>
+
+    <h2 class="forwhom__title">IT周りの「<span class="accent">誰に聞けばいいか分からない</span>」を、引き受けます。</h2>
+
+    <div class="fw-grid">
+      <article class="fw">
+        <div>
+          <div class="fw__lab">01</div>
+          <div class="fw__h">旅館・民泊</div>
+          <p class="fw__p">公式サイトはあるけど、予約は予約サイト頼り。スマホ表示も外国人対応も中途半端。</p>
+        </div>
+        <div class="fw__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>
+        </div>
+      </article>
+      <article class="fw">
+        <div>
+          <div class="fw__lab">02</div>
+          <div class="fw__h">飲食・カフェ</div>
+          <p class="fw__p">SNSも、Googleも、結局どこから手をつければいいのか分からない。</p>
+        </div>
+        <div class="fw__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 8h13a3 3 0 0 1 0 6h-1M4 8v8a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-2M7 4v2M11 4v2"/></svg>
+        </div>
+      </article>
+      <article class="fw">
+        <div>
+          <div class="fw__lab">03</div>
+          <div class="fw__h">地場中小</div>
+          <p class="fw__p">社内にIT担当がいない。社員を雇うほどじゃないけれど、相談相手が欲しい。</p>
+        </div>
+        <div class="fw__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+        </div>
+      </article>
+      <article class="fw">
+        <div>
+          <div class="fw__lab">04</div>
+          <div class="fw__h">外国人経営者</div>
+          <p class="fw__p">日本語の補助金書類、英語の方針書、両方を見てくれる人がいない。</p>
+        </div>
+        <div class="fw__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 9h18M3 15h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>
+        </div>
+      </article>
+      <article class="fw">
+        <div>
+          <div class="fw__lab">05</div>
+          <div class="fw__h">APU関連スタートアップ</div>
+          <p class="fw__p">立ち上げ直後のIT周り一式を、まとめて整備したい。</p>
+        </div>
+        <div class="fw__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 19l3-3M9 15l4-4 4 4-4 4-4-4zM13 11l3-3a3 3 0 1 1 0 6l-3-3zM6 14l-2 5 5-2"/></svg>
+        </div>
+      </article>
+      <article class="fw">
+        <div>
+          <div class="fw__lab">06</div>
+          <div class="fw__h">創業期</div>
+          <p class="fw__p">AIを使ってみたいが、何から始めるのが正解か分からない。</p>
+        </div>
+        <div class="fw__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 21V5a2 2 0 0 1 2-2h7l5 5v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2zM14 3v5h5M9 13h6M9 17h6"/></svg>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-dark" id="contact" data-screen-label="06 Contact">
+  <div class="wrap">
+    <div class="cta-dark__head">
+      <span class="num">06 / 06</span>
+      <span style="color:#EAE2D2; letter-spacing:.18em;">お問い合わせ</span>
+    </div>
+    <h2 class="cta-dark__title">現状を、<span class="accent">お聞かせください。</span></h2>
+    <p class="cta-dark__lead">
+      初回相談は無料です。別府市・大分市・由布市は直接伺います。<br/>
+      オンラインでも構いません。相談のみで終わっていただいても問題ありません。
+    </p>
+    <div class="cta-dark__row">
+      <a href="contact.html" class="cta-dark__btn">フォームから問い合わせる <span>→</span></a>
+      <a href="mailto:hayama@props-lab.com" class="cta-dark__mail">hayama@props-lab.com</a>
+    </div>
+    <div class="cta-dark__note">24時間以内を目安にご返信します。</div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__top">
+      <div class="foot__brand-block">
+        <a href="index.html" class="foot__brand">PROPS LAB</a>
+        <div class="foot__meta">
+          <div>Props Lab(プロップス・ラボ)</div>
+          <div>代表　織田 隼舞</div>
+          <div>大分県別府市</div>
+          <div><a href="mailto:hayama@props-lab.com">hayama@props-lab.com</a></div>
+          <div><a href="tel:+81703611-0969">070-3611-0969</a></div>
+        </div>
+      </div>
+      <div class="foot__nav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="service.html">SERVICE</a>
+        <a href="pricing.html">PRICING</a>
+        <a href="contact.html">CONTACT</a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <div class="foot__copy">© 2026 PROPS LAB</div>
+      <div class="foot__legal">BEPPU, OITA / JAPAN</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

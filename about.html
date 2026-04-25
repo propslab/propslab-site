@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Props Lab — わたしたちのこと</title>
+<meta name="description" content="Props Lab(プロップス・ラボ)について。別府の宿に絞って、長く伴走するIT・Webの仕事をしています。" />
+<meta name="theme-color" content="#F5F1E8" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Props Lab — わたしたちのこと" />
+<meta property="og:description" content="別府の宿に絞って、長く伴走するIT・Webの仕事をしています。" />
+<meta property="og:url" content="https://props-lab.com/about.html" />
+<meta property="og:image" content="https://props-lab.com/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:site_name" content="Props Lab" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Props Lab — わたしたちのこと" />
+<meta name="twitter:description" content="別府の宿に絞って、長く伴走するIT・Webの仕事をしています。" />
+<meta name="twitter:image" content="https://props-lab.com/assets/ogp.png" />
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #F5F1E8;
+    --bg-alt: #ECE6D8;
+    --bg-dark: #1A1614;
+    --text-primary: #3D2817;
+    --text-secondary: #7A7368;
+    --accent-red: #B8452F;
+    --accent-green: #4A5D4E;
+    --accent-indigo: #6B7B8C;
+    --hairline: rgba(61, 40, 23, 0.15);
+
+    --serif: "Noto Serif JP", "游明朝", "Yu Mincho", serif;
+    --sans:  "Noto Sans JP", "ヒラギノ角ゴ ProN", system-ui, sans-serif;
+    --label: "Inter", "Noto Sans JP", system-ui, sans-serif;
+    --didone:"Playfair Display", "Noto Serif JP", serif;
+
+    --gutter: clamp(20px, 4vw, 56px);
+    --max:    1280px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg-primary); color: var(--text-primary); font-family: var(--sans); font-weight: 400; font-size: 15px; line-height: 1.85; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+
+  .topbar { background: var(--bg-primary); border-bottom: 1px solid var(--hairline); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 22px var(--gutter); max-width: var(--max); margin: 0 auto; }
+  .brand { font-family: var(--label); font-weight: 600; letter-spacing: .22em; font-size: 14px; color: var(--text-primary); transition: color .2s; }
+  .brand:hover { color: var(--accent-red); }
+  .nav__links { display: flex; gap: 38px; font-family: var(--label); font-size: 12px; letter-spacing: .22em; color: var(--text-primary); }
+  .nav__links a { position: relative; padding: 6px 0; }
+  .nav__links a:hover { color: var(--accent-red); }
+  .nav__links a.is-active { color: var(--accent-red); }
+  .nav__links a.is-active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--accent-red); }
+
+  .sec-head { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .14em; color: var(--text-secondary); padding-top: 56px; padding-bottom: 28px; }
+  .sec-num { color: var(--accent-red); font-weight: 500; letter-spacing: .12em; }
+  .sec-num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .sec-jp { font-family: var(--sans); font-size: 12px; letter-spacing: .22em; color: var(--text-primary); font-weight: 500; }
+  .sec-en { font-family: var(--label); letter-spacing: .26em; color: var(--text-secondary); font-size: 10.5px; }
+  .sec-sep { flex: 1; height: 1px; background: var(--hairline); transform: translateY(-3px); }
+
+  .page-intro { padding-bottom: 48px; }
+  .page-intro__title { font-family: var(--serif); font-weight: 600; font-size: clamp(36px, 5.4vw, 60px); line-height: 1.4; letter-spacing: .04em; margin: 0 0 28px; color: var(--text-primary); }
+  .page-intro__title .accent { color: var(--accent-red); }
+  .page-intro__lead { font-family: var(--serif); font-weight: 400; font-size: clamp(15px, 1.6vw, 17px); line-height: 2.1; letter-spacing: .04em; color: var(--text-primary); max-width: 720px; margin: 0; }
+
+  /* About body — quiet vertical typography */
+  .about-body { padding-bottom: 64px; }
+  .about-block { padding: 56px 0; border-top: 1px solid var(--hairline); display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: start; }
+  .about-block__num { font-family: var(--label); font-size: 11px; letter-spacing: .26em; color: var(--accent-red); font-weight: 500; }
+  .about-block__num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .about-block__num-jp { display: block; margin-top: 10px; font-family: var(--sans); font-size: 11.5px; letter-spacing: .22em; color: var(--text-primary); }
+  .about-block__h { font-family: var(--serif); font-weight: 600; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.6; letter-spacing: .04em; margin: 0 0 22px; color: var(--text-primary); }
+  .about-block__p { font-family: var(--sans); font-size: 14.5px; line-height: 2.05; color: var(--text-primary); margin: 0 0 18px; max-width: 620px; }
+  .about-block__p:last-child { margin-bottom: 0; }
+
+  /* Credo (How we work) — section §4 */
+  .credo { background: var(--bg-alt); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .credo__inner { padding-top: 24px; padding-bottom: 72px; }
+  .credo__title { font-family: var(--serif); font-weight: 600; font-size: clamp(24px, 3vw, 32px); letter-spacing: .04em; margin: 0 0 40px; }
+  .credo__title .accent { color: var(--accent-red); }
+  .credo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-left: 1px solid var(--hairline); border-top: 1px solid var(--hairline); }
+  .credo-card { padding: 32px 32px 36px; border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); background: var(--bg-primary); }
+  .credo-card__num { font-family: var(--label); font-size: 10.5px; letter-spacing: .26em; color: var(--accent-red); margin-bottom: 14px; }
+  .credo-card__h { font-family: var(--serif); font-weight: 700; font-size: 22px; letter-spacing: .04em; margin: 0 0 14px; color: var(--text-primary); }
+  .credo-card__p { font-family: var(--sans); font-size: 13.5px; line-height: 2; color: var(--text-primary); margin: 0; }
+
+  /* CTA dark */
+  .cta-dark { background: var(--bg-dark); color: #EAE2D2; padding: 72px 0 64px; }
+  .cta-dark__head { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .22em; color: rgba(234,226,210,.55); justify-content: center; margin-bottom: 22px; }
+  .cta-dark__head .num { color: var(--accent-red); }
+  .cta-dark__head .num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .cta-dark__title { font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 3.6vw, 40px); line-height: 1.5; letter-spacing: .04em; text-align: center; margin: 0 0 18px; color: #FBF7EE; }
+  .cta-dark__title .accent { color: var(--accent-red); }
+  .cta-dark__lead { text-align: center; font-family: var(--sans); font-size: 14px; line-height: 2; color: rgba(234,226,210,.78); margin: 0 auto 36px; max-width: 640px; }
+  .cta-dark__row { display: flex; gap: 24px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+  .cta-dark__btn { display: inline-flex; align-items: center; gap: 16px; background: var(--accent-red); color: #FBF7EE; padding: 16px 32px; border-radius: 2px; font-family: var(--sans); font-size: 13.5px; letter-spacing: .12em; font-weight: 500; min-width: 360px; justify-content: center; }
+  .cta-dark__btn:hover { background: #9d3a28; }
+  .cta-dark__mail { font-family: var(--label); font-size: 14px; letter-spacing: .08em; color: #EAE2D2; border-bottom: 1px solid rgba(234,226,210,.35); padding-bottom: 3px; }
+  .cta-dark__note { text-align: center; font-family: var(--sans); font-size: 11.5px; color: rgba(234,226,210,.55); letter-spacing: .12em; margin-top: 18px; }
+
+  /* Footer */
+  .foot { background: var(--bg-dark); color: rgba(234,226,210,.7); border-top: 1px solid rgba(234,226,210,.1); padding: 48px 0 24px; }
+  .foot__inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .foot__top { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; padding-bottom: 28px; border-bottom: 1px solid rgba(234,226,210,.1); }
+  .foot__brand-block { display: flex; flex-direction: column; gap: 18px; }
+  .foot__brand { font-family: var(--label); font-weight: 600; letter-spacing: .22em; font-size: 13px; color: #FBF7EE; transition: color .2s; }
+  .foot__brand:hover { color: var(--accent-red); }
+  .foot__meta { font-family: var(--sans); font-size: 12px; line-height: 2; letter-spacing: .04em; color: rgba(234,226,210,.55); }
+  .foot__meta a { color: inherit; }
+  .foot__meta a:hover { color: #FBF7EE; }
+  .foot__nav { display: flex; flex-direction: column; gap: 14px; font-family: var(--label); font-size: 12px; letter-spacing: .22em; }
+  .foot__nav a { color: rgba(234,226,210,.7); transition: color .2s; }
+  .foot__nav a:hover { color: #FBF7EE; }
+  .foot__bottom { padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .foot__copy { font-family: var(--label); font-size: 11px; letter-spacing: .12em; color: rgba(234,226,210,.4); }
+  .foot__legal { font-family: var(--label); font-size: 10.5px; letter-spacing: .14em; color: rgba(234,226,210,.4); }
+
+  @media (max-width: 980px) {
+    .about-block { grid-template-columns: 1fr; gap: 22px; padding: 44px 0; }
+    .credo-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .nav__links { display: none; }
+    .foot__top { grid-template-columns: 1fr; gap: 28px; }
+    .foot__nav { flex-direction: row; flex-wrap: wrap; gap: 18px 24px; }
+    .foot__bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .cta-dark__btn { min-width: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <nav class="nav">
+    <a href="index.html" class="brand">PROPS LAB</a>
+    <div class="nav__links">
+      <a href="index.html">HOME</a>
+      <a href="about.html" class="is-active">ABOUT</a>
+      <a href="service.html">SERVICE</a>
+      <a href="pricing.html">PRICING</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </nav>
+</div>
+
+<main class="wrap" data-screen-label="About Page">
+
+  <div class="sec-head">
+    <span class="sec-num">05 / 06</span>
+    <span class="sec-jp">ABOUT — わたしたちのこと</span>
+    <span class="sec-en">— ABOUT</span>
+    <span class="sec-sep"></span>
+  </div>
+
+  <section class="page-intro">
+    <h1 class="page-intro__title">脇役で、<span class="accent">いる。</span></h1>
+    <p class="page-intro__lead">
+      事業の主役は、宿。<br/>
+      わたしたちは、その隣で道具を整える側でいたい。
+    </p>
+  </section>
+
+  <section class="about-body">
+
+    <div class="about-block">
+      <div class="about-block__num">
+        01 / 04
+        <span class="about-block__num-jp">屋号のこと</span>
+      </div>
+      <div>
+        <h2 class="about-block__h">舞台に欠かせない、小道具のように。</h2>
+        <p class="about-block__p">
+          PROPS LAB(プロップス・ラボ)の "props" は、舞台の小道具のこと。<br/>
+          主役じゃない。けれど、舞台に欠かせない役割。
+        </p>
+        <p class="about-block__p">
+          宿の毎日に、ホームページ、予約システム、業務まわりの道具を、そっと揃えていく。<br/>
+          そういう仕事のしかたを、屋号に込めました。
+        </p>
+      </div>
+    </div>
+
+    <div class="about-block">
+      <div class="about-block__num">
+        02 / 04
+        <span class="about-block__num-jp">別府で、やる</span>
+      </div>
+      <div>
+        <h2 class="about-block__h">近くにいて、それぞれの事情に合わせる。</h2>
+        <p class="about-block__p">
+          別府は、小さな宿が密集する街です。<br/>
+          旅館、民泊、ゲストハウス。家族で営むところ、夫婦で営むところ。<br/>
+          それぞれが固有の事情を抱えていて、ひとつの正解はありません。
+        </p>
+        <p class="about-block__p">
+          近くにいて、それぞれの事情に合わせる。<br/>
+          電話一本、車があれば届く距離。<br/>
+          そういう距離で、仕事をしています。
+        </p>
+      </div>
+    </div>
+
+    <div class="about-block">
+      <div class="about-block__num">
+        03 / 04
+        <span class="about-block__num-jp">宿に、絞る</span>
+      </div>
+      <div>
+        <h2 class="about-block__h">ひとつの業種で、深く役に立つ。</h2>
+        <p class="about-block__p">
+          ITの仕事は、業種を選ばなければ、いくらでも増えます。<br/>
+          それでも、宿泊業に絞ることにしました。
+        </p>
+        <p class="about-block__p">
+          予約、客室、価格、季節、口コミ。<br/>
+          宿には、宿だけの仕組みがあります。
+        </p>
+        <p class="about-block__p">
+          浅く広く扱うより、ひとつの業種で深く役に立てる人でいたい。<br/>
+          そう決めました。
+        </p>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<section class="credo">
+  <div class="wrap credo__inner">
+    <div class="sec-head" style="padding-top: 24px;">
+      <span class="sec-num">04 / 04　HOW WE WORK</span>
+      <span class="sec-jp">しごとの流儀</span>
+      <span class="sec-en">— FOUR ATTITUDES</span>
+      <span class="sec-sep"></span>
+    </div>
+    <h2 class="credo__title">四つの、<span class="accent">姿勢。</span></h2>
+    <div class="credo-grid">
+      <article class="credo-card">
+        <div class="credo-card__num">01 — QUIET</div>
+        <h3 class="credo-card__h">静かな伴走</h3>
+        <p class="credo-card__p">派手な提案より、実際に効く提案を。日々の改善を、続けます。</p>
+      </article>
+      <article class="credo-card">
+        <div class="credo-card__num">02 — LONG WALK</div>
+        <h3 class="credo-card__h">長く歩く</h3>
+        <p class="credo-card__p">一度きりの納品ではなく、公開後も同じ関係の中で続けます。</p>
+      </article>
+      <article class="credo-card">
+        <div class="credo-card__num">03 — SCOPE</div>
+        <h3 class="credo-card__h">スコープで、対応する</h3>
+        <p class="credo-card__p">値下げで応じるのではなく、本当に必要なものを一緒に見きわめます。</p>
+      </article>
+      <article class="credo-card">
+        <div class="credo-card__num">04 — FLEXIBLE</div>
+        <h3 class="credo-card__h">HPだけ、顧問だけ、でも</h3>
+        <p class="credo-card__p">全部セットでなくても構いません。必要な部分から、お受けします。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-dark">
+  <div class="wrap">
+    <div class="cta-dark__head">
+      <span class="num">INQUIRY</span>
+      <span style="color:#EAE2D2; letter-spacing:.18em;">お問い合わせ</span>
+    </div>
+    <h2 class="cta-dark__title">現状を、<span class="accent">お聞かせください。</span></h2>
+    <p class="cta-dark__lead">
+      初回相談は無料です。
+    </p>
+    <div class="cta-dark__row">
+      <a href="contact.html" class="cta-dark__btn">フォームから問い合わせる <span>→</span></a>
+      <a href="mailto:hayama@props-lab.com" class="cta-dark__mail">hayama@props-lab.com</a>
+    </div>
+    <div class="cta-dark__note">24時間以内を目安にご返信します。</div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__top">
+      <div class="foot__brand-block">
+        <a href="index.html" class="foot__brand">PROPS LAB</a>
+        <div class="foot__meta">
+          <div>Props Lab(プロップス・ラボ)</div>
+          <div>代表　織田 隼舞</div>
+          <div>大分県別府市</div>
+          <div><a href="mailto:hayama@props-lab.com">hayama@props-lab.com</a></div>
+          <div><a href="tel:+81703611-0969">070-3611-0969</a></div>
+        </div>
+      </div>
+      <div class="foot__nav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="service.html">SERVICE</a>
+        <a href="pricing.html">PRICING</a>
+        <a href="contact.html">CONTACT</a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <div class="foot__copy">© 2026 PROPS LAB</div>
+      <div class="foot__legal">BEPPU, OITA / JAPAN</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
