@@ -251,32 +251,42 @@
 
     <div class="contact-grid">
       <div>
-        <form class="form" onsubmit="return submitContactForm(event)">
+        <div id="form-success" style="display:none; background:#EAF1EA; color:#2D4A35; padding:1rem 1.25rem; border-left:4px solid #4A5D4E; margin-bottom:1.5rem; font-size:0.95rem; line-height:1.7;">
+          ✓ お問い合わせを受け付けました。24時間以内を目安にご返信します。
+        </div>
+
+        <form class="form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="d839df8e-bfe1-4b4f-b5df-944bef5e1df2">
+          <input type="hidden" name="subject" value="[Props Lab] お問い合わせ">
+          <input type="hidden" name="from_name" value="Props Lab お問い合わせフォーム">
+          <input type="hidden" name="redirect" value="https://props-lab.com/contact?sent=1">
+          <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+
           <div class="field--row">
             <div class="field">
               <label class="field__label" for="f-name"><span class="ja">お名前</span>NAME<span class="req">*</span></label>
-              <input id="f-name" type="text" required>
+              <input id="f-name" name="お名前" type="text" required>
             </div>
             <div class="field">
               <label class="field__label" for="f-company"><span class="ja">屋号・事業名</span>COMPANY</label>
-              <input id="f-company" type="text">
+              <input id="f-company" name="屋号・事業名" type="text">
             </div>
           </div>
 
           <div class="field--row">
             <div class="field">
               <label class="field__label" for="f-email"><span class="ja">メールアドレス</span>EMAIL<span class="req">*</span></label>
-              <input id="f-email" type="email" required>
+              <input id="f-email" name="email" type="email" required>
             </div>
             <div class="field">
               <label class="field__label" for="f-phone"><span class="ja">お電話番号</span>PHONE</label>
-              <input id="f-phone" type="tel">
+              <input id="f-phone" name="お電話番号" type="tel">
             </div>
           </div>
 
           <div class="field">
             <label class="field__label" for="f-subject"><span class="ja">ご相談内容</span>SUBJECT<span class="req">*</span></label>
-            <select id="f-subject" required>
+            <select id="f-subject" name="ご相談内容" required>
               <option value="">選択してください</option>
               <option>ホームページ制作について</option>
               <option>月額IT顧問について</option>
@@ -287,15 +297,15 @@
 
           <div class="field">
             <label class="field__label" for="f-message"><span class="ja">詳細</span>MESSAGE<span class="req">*</span></label>
-            <textarea id="f-message" required placeholder="現状のお困りごと、ご希望などを、自由にお書きください。"></textarea>
+            <textarea id="f-message" name="message" required placeholder="現状のお困りごと、ご希望などを、自由にお書きください。"></textarea>
           </div>
 
           <div class="field">
             <span class="field__label"><span class="ja">ご希望の連絡方法</span>PREFERRED CONTACT</span>
             <div class="field__radios">
-              <label><input type="radio" name="pref" checked> メール</label>
-              <label><input type="radio" name="pref"> 電話</label>
-              <label><input type="radio" name="pref"> どちらでも</label>
+              <label><input type="radio" name="ご希望の連絡方法" value="メール" checked> メール</label>
+              <label><input type="radio" name="ご希望の連絡方法" value="電話"> 電話</label>
+              <label><input type="radio" name="ご希望の連絡方法" value="どちらでも"> どちらでも</label>
             </div>
           </div>
 
@@ -456,30 +466,12 @@
 </footer>
 
 <script>
-  function submitContactForm(e) {
-    e.preventDefault();
-    const f = e.target;
-    const v = id => (f.querySelector('#' + id).value || '').trim();
-    const prefEl = f.querySelector('input[name="pref"]:checked');
-    const pref = prefEl ? prefEl.parentElement.textContent.trim() : '';
-
-    const subject = '[Props Lab お問い合わせ] ' + v('f-subject');
-    const body = [
-      'お名前: ' + v('f-name'),
-      '屋号・事業名: ' + v('f-company'),
-      'メールアドレス: ' + v('f-email'),
-      'お電話番号: ' + v('f-phone'),
-      'ご相談内容: ' + v('f-subject'),
-      'ご希望の連絡方法: ' + pref,
-      '',
-      '--- 詳細 ---',
-      v('f-message')
-    ].join('\n');
-
-    window.location.href = 'mailto:hayama@props-lab.com'
-      + '?subject=' + encodeURIComponent(subject)
-      + '&body=' + encodeURIComponent(body);
-    return false;
+  if (new URLSearchParams(window.location.search).get('sent') === '1') {
+    const msg = document.getElementById('form-success');
+    if (msg) {
+      msg.style.display = 'block';
+      msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }
 </script>
 
