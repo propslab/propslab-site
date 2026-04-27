@@ -300,19 +300,11 @@
   .advisory { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg-alt); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
   .advisory__img {
     background:
-      linear-gradient(120deg, rgba(26,22,20,.55), rgba(26,22,20,.25)),
-      repeating-linear-gradient(45deg, #4a3a2c 0 24px, #3d2f24 24px 48px);
+      linear-gradient(120deg, rgba(26,22,20,.20), rgba(26,22,20,.05)),
+      url('assets/advisory-still-life.jpg') center/cover no-repeat;
     min-height: 420px;
     position: relative;
     overflow: hidden;
-  }
-  .advisory__img::after {
-    content: "// still life — desk · book · pen";
-    position: absolute; left: 22px; bottom: 18px;
-    font-family: var(--label);
-    font-size: 10.5px;
-    letter-spacing: .12em;
-    color: rgba(245,241,232,.6);
   }
   .advisory__body { padding: 56px clamp(24px, 4vw, 60px) 56px; display: flex; flex-direction: column; justify-content: center; }
   .advisory__head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 22px; font-family: var(--label); font-size: 11px; letter-spacing: .22em; color: var(--text-secondary); }
@@ -540,7 +532,7 @@
 </section>
 
 <section class="advisory" id="advisory" data-screen-label="03 Advisory">
-  <div class="advisory__img" role="img" aria-label="顧問サービスの静物イメージ"></div>
+  <div class="advisory__img" role="img" aria-label="明るい机での執筆風景 — ノートに書く手、ラップトップ、観葉植物、本が並ぶ静かな伴走のイメージ"></div>
   <div class="advisory__body">
     <div class="advisory__head">
       <span class="advisory__num">02 / 06</span>
