@@ -437,6 +437,17 @@
     }
     .hero__inner { padding-top: 56px; }
     .scroll-hint { display: none; }
+    .topics__inner { flex-direction: column; padding: 0; overflow-x: visible; }
+    .topics__item {
+      flex: 1 0 auto;
+      padding: 12px 18px;
+      font-size: 12.5px;
+      border-right: 0;
+      border-bottom: 1px solid var(--hairline);
+      text-align: left;
+    }
+    .topics__item:first-child { border-left: 0; }
+    .topics__item:last-child { border-bottom: 0; }
     .fw-grid { grid-template-columns: 1fr; }
     .foot__top { grid-template-columns: 1fr; gap: 28px; }
     .foot__nav { flex-direction: row; flex-wrap: wrap; gap: 18px 24px; }
@@ -533,7 +544,7 @@
         <div class="lane__price">
           <span class="from">FROM</span>
           <span class="num">¥300,000</span>
-          <span class="unit">一式</span>
+          <span class="unit">〜</span>
         </div>
         <div class="lane__more">
           <a href="service.html">サービス詳細を読む &nbsp;&nbsp; Read more  →</a>
