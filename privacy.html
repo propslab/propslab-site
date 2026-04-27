@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Props Lab — プライバシーポリシー</title>
+<meta name="description" content="Props Lab のプライバシーポリシー。取得する個人情報、利用目的、第三者送信、保存期間、開示請求等の窓口について記載しています。" />
+<meta name="theme-color" content="#F5F1E8" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Props Lab — プライバシーポリシー" />
+<meta property="og:description" content="個人情報の取扱いについて。" />
+<meta property="og:url" content="https://props-lab.com/privacy" />
+<link rel="canonical" href="https://props-lab.com/privacy" />
+<meta property="og:image" content="https://props-lab.com/assets/ogp.jpg" />
+<meta property="og:image:alt" content="Props Lab — 別府の宿泊・観光事業者のためのIT・Web伴走" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:site_name" content="Props Lab" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Props Lab — プライバシーポリシー" />
+<meta name="twitter:description" content="個人情報の取扱いについて。" />
+<meta name="twitter:image" content="https://props-lab.com/assets/ogp.jpg" />
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #F5F1E8;
+    --bg-alt: #ECE6D8;
+    --bg-dark: #1A1614;
+    --text-primary: #3D2817;
+    --text-secondary: #7A7368;
+    --accent-red: #B8452F;
+    --accent-green: #4A5D4E;
+    --accent-indigo: #6B7B8C;
+    --hairline: rgba(61, 40, 23, 0.15);
+
+    --serif: "Noto Serif JP", "游明朝", "Yu Mincho", serif;
+    --sans:  "Noto Sans JP", "ヒラギノ角ゴ ProN", system-ui, sans-serif;
+    --label: "Inter", "Noto Sans JP", system-ui, sans-serif;
+    --didone:"Playfair Display", "Noto Serif JP", serif;
+
+    --gutter: clamp(20px, 4vw, 56px);
+    --max:    1280px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg-primary); color: var(--text-primary); font-family: var(--sans); font-weight: 400; font-size: 15px; line-height: 1.85; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+
+  .topbar { background: var(--bg-primary); border-bottom: 1px solid var(--hairline); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 22px var(--gutter); max-width: var(--max); margin: 0 auto; }
+  .brand { font-family: var(--label); font-weight: 600; letter-spacing: .22em; font-size: 14px; color: var(--text-primary); transition: color .2s; }
+  .brand:hover { color: var(--accent-red); }
+  .nav__links { display: flex; gap: 38px; font-family: var(--label); font-size: 12px; letter-spacing: .22em; color: var(--text-primary); }
+  .nav__links a { position: relative; padding: 6px 0; }
+  .nav__links a:hover { color: var(--accent-red); }
+  .nav__links a.is-active { color: var(--accent-red); }
+  .nav__links a.is-active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--accent-red); }
+
+  .sec-head { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .14em; color: var(--text-secondary); padding-top: 56px; padding-bottom: 28px; }
+  .sec-num { color: var(--accent-red); font-weight: 500; letter-spacing: .12em; }
+  .sec-num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .sec-jp { font-family: var(--sans); font-size: 12px; letter-spacing: .22em; color: var(--text-primary); font-weight: 500; }
+  .sec-en { font-family: var(--label); letter-spacing: .26em; color: var(--text-secondary); font-size: 10.5px; }
+  .sec-sep { flex: 1; height: 1px; background: var(--hairline); transform: translateY(-3px); }
+
+  .page-intro { padding-bottom: 24px; }
+  .page-intro__title { font-family: var(--serif); font-weight: 600; font-size: clamp(36px, 5.4vw, 60px); line-height: 1.4; letter-spacing: .04em; margin: 0 0 28px; }
+  .page-intro__title .accent { color: var(--accent-red); }
+  .page-intro__lead { font-family: var(--serif); font-weight: 400; font-size: clamp(15px, 1.6vw, 17px); line-height: 2.1; letter-spacing: .04em; color: var(--text-primary); max-width: 720px; margin: 0; }
+
+  .pri-sec-tag { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .26em; color: var(--text-secondary); padding-top: 12px; padding-bottom: 18px; }
+  .pri-sec-tag .num { color: var(--accent-red); font-weight: 500; }
+  .pri-sec-tag .num::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 10px; transform: translateY(-2px); }
+  .pri-sec-tag .jp { color: var(--text-primary); font-family: var(--sans); letter-spacing: .22em; font-size: 12px; }
+
+  /* Privacy body */
+  .pp-block { padding: 8px 0 48px; border-top: 1px solid var(--hairline); }
+  .pp-block:first-of-type { border-top: 0; }
+  .pp-grid { display: grid; grid-template-columns: 1fr; max-width: 880px; }
+  .pp-h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(20px, 2.4vw, 26px); letter-spacing: .04em; margin: 0 0 18px; color: var(--text-primary); }
+  .pp-p { font-family: var(--sans); font-size: 14.5px; line-height: 2; color: var(--text-primary); margin: 0 0 14px; }
+  .pp-p .accent { color: var(--accent-red); }
+  .pp-list { font-family: var(--sans); font-size: 14.5px; line-height: 2; color: var(--text-primary); margin: 0 0 14px; padding-left: 1.4em; }
+  .pp-list li { margin-bottom: 4px; }
+  .pp-list li::marker { color: var(--accent-red); }
+
+  .pp-table { width: 100%; border-collapse: collapse; margin: 8px 0 18px; font-family: var(--sans); font-size: 13.5px; }
+  .pp-table th, .pp-table td { border: 1px solid var(--hairline); padding: 12px 14px; text-align: left; vertical-align: top; line-height: 1.7; }
+  .pp-table th { background: var(--bg-alt); font-weight: 600; color: var(--text-primary); font-family: var(--label); font-size: 11.5px; letter-spacing: .14em; }
+  .pp-table td { color: var(--text-primary); }
+
+  .pp-info { background: var(--bg-alt); border: 1px solid var(--hairline); padding: 22px 26px; margin: 8px 0 14px; }
+  .pp-info dl { display: grid; grid-template-columns: 120px 1fr; gap: 10px 18px; margin: 0; font-family: var(--sans); font-size: 14px; line-height: 1.85; }
+  .pp-info dt { font-family: var(--label); font-size: 10.5px; letter-spacing: .22em; color: var(--text-secondary); padding-top: 4px; }
+  .pp-info dd { margin: 0; color: var(--text-primary); }
+  .pp-info dd a { border-bottom: 1px solid var(--hairline); padding-bottom: 1px; }
+  .pp-info dd a:hover { color: var(--accent-red); border-color: var(--accent-red); }
+
+  .pp-meta { background: var(--bg-alt); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); padding: 28px 0 32px; margin-top: 16px; }
+  .pp-meta__row { display: flex; flex-wrap: wrap; gap: 32px 56px; font-family: var(--sans); font-size: 13.5px; color: var(--text-primary); }
+  .pp-meta__row dt { font-family: var(--label); font-size: 10.5px; letter-spacing: .22em; color: var(--text-secondary); margin-bottom: 4px; }
+  .pp-meta__row dd { margin: 0; font-family: var(--didone); font-size: 18px; letter-spacing: .04em; }
+
+  /* Footer */
+  .foot { background: var(--bg-dark); color: rgba(234,226,210,.7); border-top: 1px solid rgba(234,226,210,.1); padding: 48px 0 24px; }
+  .foot__inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .foot__top { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; padding-bottom: 28px; border-bottom: 1px solid rgba(234,226,210,.1); }
+  .foot__brand-block { display: flex; flex-direction: column; gap: 18px; }
+  .foot__brand { font-family: var(--label); font-weight: 600; letter-spacing: .22em; font-size: 13px; color: #FBF7EE; transition: color .2s; }
+  .foot__brand:hover { color: var(--accent-red); }
+  .foot__meta { font-family: var(--sans); font-size: 12px; line-height: 2; letter-spacing: .04em; color: rgba(234,226,210,.55); }
+  .foot__meta a { color: inherit; }
+  .foot__meta a:hover { color: #FBF7EE; }
+  .foot__nav { display: flex; flex-direction: column; gap: 14px; font-family: var(--label); font-size: 12px; letter-spacing: .22em; }
+  .foot__nav a { color: rgba(234,226,210,.7); transition: color .2s; }
+  .foot__nav a:hover { color: #FBF7EE; }
+  .foot__bottom { padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .foot__copy { font-family: var(--label); font-size: 11px; letter-spacing: .12em; color: rgba(234,226,210,.4); }
+  .foot__legal { font-family: var(--label); font-size: 10.5px; letter-spacing: .14em; color: rgba(234,226,210,.4); }
+
+  @media (max-width: 900px) {
+    .pp-info dl { grid-template-columns: 1fr; gap: 4px 0; }
+    .pp-info dt { padding-top: 12px; }
+    .pp-info dt:first-of-type { padding-top: 0; }
+  }
+  @media (max-width: 640px) {
+    .nav__links { display: none; }
+    .foot__top { grid-template-columns: 1fr; gap: 28px; }
+    .foot__nav { flex-direction: row; flex-wrap: wrap; gap: 18px 24px; }
+    .foot__bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .pp-table { font-size: 12.5px; }
+    .pp-table th, .pp-table td { padding: 10px 10px; }
+  }
+</style>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "00b5a440895e4bc289747bb5248a7182"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<div class="topbar">
+  <nav class="nav">
+    <a href="index.html" class="brand">PROPS LAB</a>
+    <div class="nav__links">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="service.html">SERVICE</a>
+      <a href="pricing.html">PRICING</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+  </nav>
+</div>
+
+<main class="wrap" data-screen-label="Privacy Policy">
+
+  <div class="sec-head">
+    <span class="sec-num">LEGAL</span>
+    <span class="sec-jp">PRIVACY POLICY — プライバシーポリシー</span>
+    <span class="sec-en">— PERSONAL DATA</span>
+    <span class="sec-sep"></span>
+  </div>
+
+  <section class="page-intro">
+    <h1 class="page-intro__title">個人情報の<span class="accent">取扱いについて。</span></h1>
+    <p class="page-intro__lead">
+      Props Lab(以下「当事業者」)は、お問い合わせいただいた皆さまの個人情報を、<br/>
+      適切に取り扱うため、以下のとおり方針を定めます。
+    </p>
+  </section>
+
+  <!-- §1 取扱事業者 -->
+  <section class="pp-block">
+    <div class="pri-sec-tag">
+      <span class="num">01 / 09</span>
+      <span class="jp">取扱事業者</span>
+    </div>
+    <div class="pp-grid">
+      <h2 class="pp-h2">取扱事業者</h2>
+      <p class="pp-p">本ポリシーにおいて個人情報を取り扱う事業者は、以下のとおりです。</p>
+      <div class="pp-info">
+        <dl>
+          <dt>NAME</dt>
+          <dd>Props Lab(プロップス・ラボ)</dd>
+          <dt>REPRESENTATIVE</dt>
+          <dd>代表　織田 隼舞</dd>
+          <dt>LOCATION</dt>
+          <dd>大分県別府市</dd>
+          <dt>EMAIL</dt>
+          <dd><a href="mailto:hayama@props-lab.com">hayama@props-lab.com</a></dd>
+          <dt>PHONE</dt>
+          <dd><a href="tel:+81-70-3611-0969">070-3611-0969</a>(平日 10:00–18:00)</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- §2 取得する情報 -->
+  <section class="pp-block">
+    <div class="pri-sec-tag">
+      <span class="num">02 / 09</span>
+      <span class="jp">取得する情報</span>
+    </div>
+    <div class="pp-grid">
+      <h2 class="pp-h2">取得する情報</h2>
+      <p class="pp-p">お問い合わせフォームを通じて、以下の情報を取得いたします。</p>
+      <ul class="pp-list">
+        <li>お名前(必須)</li>
+        <li>屋号・事業名(任意)</li>
+        <li>メールアドレス(必須)</li>
+        <li>お電話番号(任意)</li>
+        <li>ご相談内容の区分(必須)</li>
+        <li>詳細・ご質問内容(必須)</li>
+        <li>ご希望の連絡方法(必須)</li>
+      </ul>
+      <p class="pp-p">加えて、サイトの利用に伴い、以下の技術的情報を自動的に取得する場合があります。</p>
+      <ul class="pp-list">
+        <li>IPアドレス、ブラウザの種類・バージョン、参照元URL、訪問日時、閲覧ページ</li>
+      </ul>
+      <p class="pp-p">これらの技術的情報は Cloudflare Web Analytics により取得され、Cookie は使用しません。個人を特定する形では収集いたしません。</p>
+    </div>
+  </section>
+
+  <!-- §3 利用目的 -->
+  <section class="pp-block">
+    <div class="pri-sec-tag">
+      <span class="num">03 / 09</span>
+      <span class="jp">利用目的</span>
+    </div>
+    <div class="pp-grid">
+      <h2 class="pp-h2">利用目的</h2>
+      <p class="pp-p">取得した情報は、以下の目的でのみ利用いたします。</p>
+      <ul class="pp-list">
+        <li>お問い合わせへのご返信、ご相談対応</li>
+        <li>お見積もり・ご提案書の作成、契約準備、業務連絡</li>
+        <li>ご契約後の業務遂行、関連連絡</li>
+        <li>サイト改善のための統計的分析(個人を識別しない形で実施)</li>
+      </ul>
+      <p class="pp-p">これらの目的を超えて利用することはございません。営業目的のメールマガジン送信や、第三者への販売・提供は行いません。</p>
+    </div>
+  </section>
+
+  <!-- §4 第三者提供・外部送信 -->
+  <section class="pp-block">
+    <div class="pri-sec-tag">
+      <span class="num">04 / 09</span>
+      <span class="jp">第三者提供・外部送信</span>
+    </div>
+    <div class="pp-grid">
+      <h2 class="pp-h2">第三者提供・外部送信</h2>
+      <p class="pp-p">法令に基づく場合を除き、ご本人の同意なく個人情報を第三者に提供することはございません。</p>
+      <p class="pp-p">ただし、業務遂行のため以下の外部サービスを利用しており、データの一部はこれらのサービス提供者へ送信されます(個人情報保護法に基づき、ご利用者の同意のもと外国にある第三者へ提供されるものを含みます)。</p>
+      <table class="pp-table">
+        <thead>
+          <tr>
+            <th>サービス</th>
+            <th>提供者・所在地</th>
+            <th>用途・送信されるデータ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Web3Forms</td>
+            <td>Statichunt LLC<br/>(アメリカ合衆国)</td>
+            <td>お問い合わせフォームの送信処理。フォームに入力された全項目が送信され、当事業者のメールアドレスへ転送されます。</td>
+          </tr>
+          <tr>
+            <td>hCaptcha</td>
+            <td>Intuition Machines, Inc.<br/>(アメリカ合衆国)</td>
+            <td>フォーム送信時のスパム防止(Web3Forms 経由で利用)。IPアドレス、ブラウザ情報、Cookie 等が送信されます。</td>
+          </tr>
+          <tr>
+            <td>Cloudflare Web Analytics</td>
+            <td>Cloudflare, Inc.<br/>(アメリカ合衆国)</td>
+            <td>サイトのアクセス解析。匿名化されたアクセスデータのみ取得し、Cookie は使用しません。</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="pp-p">各サービス提供者は、所在国の個人情報保護に関する法令に従い情報を管理しています。各サービスのプライバシー方針については、それぞれの提供者の公式ページをご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- §5 保存期間 -->
+  <section class="pp-block">
+    <div class="pri-sec-tag">
+      <span class="num">05 / 09</span>
+      <span class="jp">保存期間</span>
+    </div>
+    <div class="pp-grid">
+      <h2 class="pp-h2">保存期間</h2>
+      <p class="pp-p">お問い合わせいただいた個人情報は、原則としてご返信・業務連絡が完了してから <span class="accent">2年間</span> 保管した後、削除いたします。</p>
+      <p class="pp-p">ご契約に至った場合は、契約期間中および契約終了後も、税務・会計その他の法令で求められる期間、または継続的なフォローアップに必要な期間、保管いたします。</p>
+    </div>
+  </section>
+
+  <!-- §6 安全管理措置 -->
+  <section class="pp-block">
+    <div class="pri-sec-tag">
+      <span class="num">06 / 09</span>
+      <span class="jp">安全管理措置</span>
+    </div>
+    <div class="pp-grid">
+      <h2 class="pp-h2">安全管理措置</h2>
+      <p class="pp-p">個人情報の漏えい、滅失、毀損を防ぐため、合理的な安全管理措置を講じます。</p>
+      <ul class="pp-list">
+        <li>受信用メールアカウントへのアクセス制限・二要素認証の設定</li>
+        <li>サイト全体での暗号化通信(HTTPS)の利用</li>
+        <li>外部サービス利用時のアクセスキー・認証情報の適切な管理</li>
+        <li>個人情報を業務目的を超えて閲覧・利用しないこと</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- §7 開示・訂正・削除 -->
+  <section class="pp-block">
+    <div class="pri-sec-tag">
+      <span class="num">07 / 09</span>
+      <span class="jp">開示・訂正・削除のご請求</span>
+    </div>
+    <div class="pp-grid">
+      <h2 class="pp-h2">ご本人からの請求</h2>
+      <p class="pp-p">当事業者が保有する個人情報について、開示・訂正・追加・削除・利用停止のご請求を受け付けております。下記までご連絡ください。</p>
+      <div class="pp-info">
+        <dl>
+          <dt>CONTACT</dt>
+          <dd><a href="mailto:hayama@props-lab.com">hayama@props-lab.com</a></dd>
+        </dl>
+      </div>
+      <p class="pp-p">ご本人であることを確認のうえ、合理的な期間内に対応いたします。なりすまし防止のため、確認のため追加情報をお伺いする場合があります。</p>
+    </div>
+  </section>
+
+  <!-- §8 Cookie -->
+  <section class="pp-block">
+    <div class="pri-sec-tag">
+      <span class="num">08 / 09</span>
+      <span class="jp">Cookie について</span>
+    </div>
+    <div class="pp-grid">
+      <h2 class="pp-h2">Cookie について</h2>
+      <p class="pp-p">当サイトでは、フォーム送信時のスパム防止のため、hCaptcha が Cookie を使用する場合があります。</p>
+      <p class="pp-p">アクセス解析に利用している Cloudflare Web Analytics は、Cookie を使用しません。</p>
+      <p class="pp-p">ブラウザの設定により Cookie を無効にすることもできますが、その場合、フォーム送信が正常に動作しないことがあります。</p>
+    </div>
+  </section>
+
+  <!-- §9 改定 -->
+  <section class="pp-block">
+    <div class="pri-sec-tag">
+      <span class="num">09 / 09</span>
+      <span class="jp">改定</span>
+    </div>
+    <div class="pp-grid">
+      <h2 class="pp-h2">改定</h2>
+      <p class="pp-p">本ポリシーは、法令の改正やサービス内容の変更に応じて改定することがあります。重要な変更を行う場合は、本ページにて告知いたします。</p>
+      <p class="pp-p">改定後のポリシーは、本ページに掲載した時点から効力を生じます。</p>
+    </div>
+  </section>
+
+</main>
+
+<section class="pp-meta">
+  <div class="wrap">
+    <dl class="pp-meta__row">
+      <div>
+        <dt>ESTABLISHED</dt>
+        <dd>2026.04.27</dd>
+      </div>
+      <div>
+        <dt>LAST UPDATED</dt>
+        <dd>2026.04.27</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__top">
+      <div class="foot__brand-block">
+        <a href="index.html" class="foot__brand">PROPS LAB</a>
+        <div class="foot__meta">
+          <div>Props Lab(プロップス・ラボ)</div>
+          <div>代表　織田 隼舞</div>
+          <div>大分県別府市</div>
+          <div><a href="mailto:hayama@props-lab.com">hayama@props-lab.com</a></div>
+          <div><a href="tel:+81-70-3611-0969">070-3611-0969</a></div>
+        </div>
+      </div>
+      <div class="foot__nav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="service.html">SERVICE</a>
+        <a href="pricing.html">PRICING</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="privacy.html">PRIVACY</a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <div class="foot__copy">© 2026 PROPS LAB</div>
+      <div class="foot__legal">BEPPU, OITA / JAPAN</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
