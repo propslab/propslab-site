@@ -67,10 +67,10 @@
   .nav__links a.is-active { color: var(--accent-red); }
   .nav__links a.is-active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--accent-red); }
   .nav__toggle { display: none; position: relative; z-index: 1001; padding: 10px; margin: -10px; width: 44px; height: 44px; }
-  .nav__toggle span { display: block; width: 22px; height: 1px; background: var(--text-primary); margin: 5px auto; transition: transform .3s ease, opacity .2s ease; }
-  .nav__toggle.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav__toggle span { display: block; width: 24px; height: 2px; background: var(--bg-dark); margin: 5px auto; transition: transform .3s ease, opacity .2s ease; }
+  .nav__toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav__toggle.is-open span:nth-child(2) { opacity: 0; }
-  .nav__toggle.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .nav__toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .sec-head { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .14em; color: var(--text-secondary); padding-top: 56px; padding-bottom: 28px; }
   .sec-num { color: var(--accent-red); font-weight: 500; letter-spacing: .12em; }
