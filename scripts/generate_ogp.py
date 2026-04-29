@@ -51,23 +51,14 @@ def main():
     img = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(img)
 
-    # Subtle paper grain via alt-color band on right
-    band = Image.new("RGB", (380, H), BG_ALT)
-    img.paste(band, (W - 380, 0))
-
-    # Vertical hairline separator between the two zones
-    d.line([(W - 380, 60), (W - 380, H - 60)], fill=HAIRLINE, width=1)
-
     # ── Header row ────────────────────────────────────────
     f_label = font(F_SANS, 18)
-    f_label_sm = font(F_SANS, 14)
 
-    # Top-left: brand
-    # Red dot
+    # Top-left: brand with red dot
     d.ellipse([(80, 84), (92, 96)], fill=ACCENT_RED)
     draw_spaced(d, (104, 80), "PROPS LAB", f_label, TEXT_MAIN, spacing=4)
 
-    # Top-right (in the alt band): issue tag
+    # Top-right: issue tag (on cream)
     issue_text = "ISSUE 001"
     place_text = "別府 大分 / BEPPU, OITA"
     fr = font(F_SANS, 13)
@@ -107,56 +98,6 @@ def main():
     sub_y = rule_y + 24
     d.text((headline_x, sub_y), "IT担当者を雇うほどじゃない、でも誰かに頼みたい。", font=f_sub, fill=TEXT_MAIN)
     d.text((headline_x, sub_y + 30), "別府・大分の観光事業者と、ひとつの関係で長く伴走します。", font=f_sub, fill=TEXT_SUB)
-
-    # ── Right zone (alt band) typography ──────────────────
-    rzone_x = W - 380 + 50  # 870
-    f_jp_label = font(F_SANS, 13)
-    f_jp_pillar = font(F_SERIF, 32)
-    f_jp_pillar_sm = font(F_SERIF, 18)
-
-    # Vertical pillar: stacked Japanese typographic motif
-    # "月額制" (vertical-feel by stacking)
-    pillar_x = rzone_x + 40
-    pillar_y = 200
-    line_h = 44
-    for i, ch in enumerate(["月", "額", "制", "", "の", "I", "T", "顧", "問"]):
-        if not ch:
-            pillar_y += line_h // 2
-            continue
-        # Use serif for Japanese, smaller for IT
-        if ch in ("I", "T"):
-            f = font(F_SERIF, 30)
-            color = ACCENT_RED
-        else:
-            f = f_jp_pillar
-            color = TEXT_MAIN
-        bbox = d.textbbox((0, 0), ch, font=f)
-        ch_w = bbox[2] - bbox[0]
-        d.text((pillar_x - ch_w / 2, pillar_y), ch, font=f, fill=color)
-        pillar_y += line_h
-
-    # Right side small caption
-    cap_x = rzone_x + 90
-    cap_y = 220
-    f_cap = font(F_SANS, 14)
-    captions = [
-        ("ADVISORY", ACCENT_RED),
-        ("月額で伴走する", TEXT_MAIN),
-        ("社外IT担当。", TEXT_MAIN),
-        ("", TEXT_MAIN),
-        ("ホームページ制作", TEXT_SUB),
-        ("AI活用支援", TEXT_SUB),
-        ("補助金活用サポート", TEXT_SUB),
-    ]
-    for s, color in captions:
-        if s == "":
-            cap_y += 16
-            continue
-        if color == ACCENT_RED:
-            draw_spaced(d, (cap_x, cap_y), s, f_cap, color, spacing=3)
-        else:
-            d.text((cap_x, cap_y), s, font=f_cap, fill=color)
-        cap_y += 26
 
     # ── Footer row ────────────────────────────────────────
     f_foot = font(F_SANS, 14)
