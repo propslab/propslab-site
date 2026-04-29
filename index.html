@@ -211,7 +211,9 @@
   }
   .hero__lead .strong { font-weight: 700; }
 
-  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .btn-row__price { font-family: var(--label); font-size: 12px; letter-spacing: .14em; color: var(--text-secondary); margin-left: 4px; }
+  @media (max-width: 720px) { .btn-row__price { width: 100%; margin-left: 0; margin-top: 6px; font-size: 11px; letter-spacing: .12em; } }
   .btn {
     display: inline-flex; align-items: center; gap: 14px;
     font-family: var(--sans);
@@ -493,18 +495,19 @@
     <p class="hero__era">令和八年 　創業</p>
 
     <h1 class="hero__title">
-      <span class="hero__title-line">別府の宿に、</span>
-      <span class="hero__title-line">月額で伴走する<span class="accent">IT顧問</span>を。</span>
+      <span class="hero__title-line">事業のITを、まるっと。</span>
+      <span class="hero__title-line">別府発、月額の<span class="accent">社外IT担当</span>。</span>
     </h1>
     <p class="hero__lead">
-      ホームページ制作から、その先の運用・改善まで。<br/>
-      <span class="strong">別府の小さな事業の『誰に聞けばいいか分からない』を、月額制で引き受けます。</span><br/>
-      社外IT担当として、ひとつの関係で長く続けます。
+      <span class="strong">IT担当者を雇うほどじゃない、でも誰かに頼みたい。</span><br/>
+      ホームページ制作から日々のIT相談まで、月額制で引き受けます。<br/>
+      別府発、九州の観光事業者と、ひとつの関係で長く続けます。
     </p>
 
     <div class="btn-row">
       <a class="btn btn--primary" href="contact.html">無料相談をする <span class="arr">→</span></a>
       <a class="btn btn--ghost" href="service.html">サービスを見る <span class="arr">→</span></a>
+      <span class="btn-row__price">月額 ¥80,000〜　／　モニター価格 ¥8,000（6ヶ月限定・1〜2社）</span>
     </div>
   </div>
 

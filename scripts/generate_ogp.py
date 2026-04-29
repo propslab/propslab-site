@@ -78,36 +78,35 @@ def main():
     draw_spaced(d, (W - 80 - pw, 104), place_text, fr_jp, TEXT_SUB, spacing=2)
 
     # ── Main headline (left zone) ────────────────────────
-    # Two lines, large serif
-    f_h1 = font(F_SERIF, 88)
-    line1 = "宿の隣で、"
-    line2 = "月額のIT顧問。"
-
+    f_h1 = font(F_SERIF, 72)
     headline_x = 80
-    headline_y1 = 218
-    headline_y2 = headline_y1 + 110
+    headline_y1 = 210
 
-    d.text((headline_x, headline_y1), line1, font=f_h1, fill=TEXT_MAIN)
-    # Draw line2 with red accent on "IT顧問"
-    # Split: "月額の" + "IT顧問" + "。"
-    parts = [
-        ("月額の", TEXT_MAIN),
-        ("IT顧問", ACCENT_RED),
-        ("。",   TEXT_MAIN),
+    # Line 1: "事業のITを、まるっと。" with red on "まるっと"
+    parts1 = [
+        ("事業のITを、", TEXT_MAIN),
+        ("まるっと",   ACCENT_RED),
+        ("。",         TEXT_MAIN),
     ]
     cx = headline_x
-    for s, color in parts:
-        d.text((cx, headline_y2), s, font=f_h1, fill=color)
+    for s, color in parts1:
+        d.text((cx, headline_y1), s, font=f_h1, fill=color)
         cx += d.textlength(s, font=f_h1)
 
-    # Short red accent rule under the headline
-    rule_y = headline_y2 + 138
+    # Line 2: subhead "別府発、月額の社外IT担当。"
+    f_h2 = font(F_SERIF, 38)
+    headline_y2 = headline_y1 + 110
+    d.text((headline_x, headline_y2), "別府発、月額の社外IT担当。", font=f_h2, fill=TEXT_MAIN)
+
+    # Short red accent rule under the headline group
+    rule_y = headline_y2 + 70
     d.line([(headline_x, rule_y), (headline_x + 64, rule_y)], fill=ACCENT_RED, width=3)
 
-    # Sub-head (Japanese, sans)
-    f_sub = font(F_SANS, 22)
-    sub_y = rule_y + 28
-    d.text((headline_x, sub_y), "別府・大分の観光事業者と、ひとつの関係で長く伴走します。", font=f_sub, fill=TEXT_MAIN)
+    # Caption (sans)
+    f_sub = font(F_SANS, 20)
+    sub_y = rule_y + 24
+    d.text((headline_x, sub_y), "IT担当者を雇うほどじゃない、でも誰かに頼みたい。", font=f_sub, fill=TEXT_MAIN)
+    d.text((headline_x, sub_y + 30), "別府・大分の観光事業者と、ひとつの関係で長く伴走します。", font=f_sub, fill=TEXT_SUB)
 
     # ── Right zone (alt band) typography ──────────────────
     rzone_x = W - 380 + 50  # 870
@@ -143,7 +142,7 @@ def main():
     captions = [
         ("ADVISORY", ACCENT_RED),
         ("月額で伴走する", TEXT_MAIN),
-        ("社外IT顧問。", TEXT_MAIN),
+        ("社外IT担当。", TEXT_MAIN),
         ("", TEXT_MAIN),
         ("ホームページ制作", TEXT_SUB),
         ("AI活用支援", TEXT_SUB),
@@ -161,10 +160,10 @@ def main():
 
     # ── Footer row ────────────────────────────────────────
     f_foot = font(F_SANS, 14)
-    f_foot_jp = font(F_MINCHO, 16)
+    f_foot_jp = font(F_SERIF, 17)
 
     # Bottom-left: era + founded
-    d.text((80, H - 70), "令和八年　創業", font=f_foot_jp, fill=TEXT_SUB)
+    d.text((80, H - 71), "令和八年　創業", font=f_foot_jp, fill=TEXT_SUB)
 
     # Bottom-right (in alt band): URL
     url = "props-lab.com"
