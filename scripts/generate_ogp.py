@@ -69,35 +69,28 @@ def main():
     draw_spaced(d, (W - 80 - pw, 104), place_text, fr_jp, TEXT_SUB, spacing=2)
 
     # ── Main headline (left zone) ────────────────────────
-    f_h1 = font(F_SERIF, 72)
+    f_h1 = font(F_SERIF, 80)
     headline_x = 80
-    headline_y1 = 210
+    headline_y1 = 240
 
-    # Line 1: "事業のITを、まるっと。" with red on "まるっと"
-    parts1 = [
-        ("事業のITを、", TEXT_MAIN),
-        ("まるっと",   ACCENT_RED),
-        ("。",         TEXT_MAIN),
+    # Big headline: "別府発、月額の社外IT担当" with red on "社外IT担当"
+    parts = [
+        ("別府発、月額の", TEXT_MAIN),
+        ("社外IT担当",   ACCENT_RED),
     ]
     cx = headline_x
-    for s, color in parts1:
+    for s, color in parts:
         d.text((cx, headline_y1), s, font=f_h1, fill=color)
         cx += d.textlength(s, font=f_h1)
 
-    # Line 2: subhead "別府発、月額の社外IT担当。"
-    f_h2 = font(F_SERIF, 38)
-    headline_y2 = headline_y1 + 110
-    d.text((headline_x, headline_y2), "別府発、月額の社外IT担当。", font=f_h2, fill=TEXT_MAIN)
-
-    # Short red accent rule under the headline group
-    rule_y = headline_y2 + 70
+    # Short red accent rule under the headline
+    rule_y = headline_y1 + 130
     d.line([(headline_x, rule_y), (headline_x + 64, rule_y)], fill=ACCENT_RED, width=3)
 
-    # Caption (sans)
-    f_sub = font(F_SANS, 20)
-    sub_y = rule_y + 24
-    d.text((headline_x, sub_y), "IT担当者を雇うほどじゃない、でも誰かに頼みたい。", font=f_sub, fill=TEXT_MAIN)
-    d.text((headline_x, sub_y + 30), "別府・大分の観光事業者と、ひとつの関係で長く伴走します。", font=f_sub, fill=TEXT_SUB)
+    # Sub (痛点)
+    f_sub = font(F_SERIF, 34)
+    sub_y = rule_y + 32
+    d.text((headline_x, sub_y), "IT担当を雇うほどじゃない、でも頼みたい", font=f_sub, fill=TEXT_MAIN)
 
     # ── Footer row ────────────────────────────────────────
     f_foot = font(F_SANS, 14)
