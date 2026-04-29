@@ -81,8 +81,9 @@
   .sec-sep { flex: 1; height: 1px; background: var(--hairline); transform: translateY(-3px); }
 
   .page-intro { padding-bottom: 24px; }
-  .page-intro__title { font-family: var(--serif); font-weight: 600; font-size: clamp(36px, 5.4vw, 60px); line-height: 1.4; letter-spacing: .04em; margin: 0 0 28px; }
+  .page-intro__title { font-family: var(--serif); font-weight: 600; font-size: clamp(28px, 5.4vw, 60px); line-height: 1.4; letter-spacing: .04em; margin: 0 0 28px; }
   .page-intro__title .accent { color: var(--accent-red); }
+  .np { display: inline-block; white-space: nowrap; }
   .page-intro__lead { font-family: var(--serif); font-weight: 400; font-size: clamp(15px, 1.6vw, 17px); line-height: 2.1; letter-spacing: .04em; color: var(--text-primary); max-width: 720px; margin: 0; }
 
   .pri-sec-tag { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .26em; color: var(--text-secondary); padding-top: 12px; padding-bottom: 18px; }
@@ -193,7 +194,7 @@
   </div>
 
   <section class="page-intro">
-    <h1 class="page-intro__title">個人情報の<span class="accent">取扱いについて</span></h1>
+    <h1 class="page-intro__title"><span class="np">個人情報の</span><span class="np accent">取扱いについて</span></h1>
     <p class="page-intro__lead">
       Props Lab(以下「当事業者」)は、お問い合わせいただいた皆さまの個人情報を<br/>
       適切に取り扱うため、以下のとおり方針を定めます。
