@@ -184,9 +184,6 @@
     padding: 84px var(--gutter) 0;
     text-align: center;
   }
-  .hero__meta { font-family: var(--label); font-size: 11px; letter-spacing: .22em; color: #FBF7EE; margin-bottom: 18px; }
-  .hero__meta .dot { display: inline-block; width: 6px; height: 6px; background: var(--accent-red); margin-right: 12px; transform: translateY(-2px); }
-  .hero__era { font-family: var(--serif); font-size: 12px; letter-spacing: .35em; color: #FBF7EE; margin: 0 0 32px; }
   .hero__title {
     font-family: var(--serif);
     font-weight: 700;
@@ -247,23 +244,6 @@
     margin: 16px auto 0;
     opacity: .55;
   }
-
-  /* Topics */
-  .topics { border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); background: var(--bg-primary); }
-  .topics__inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); display: flex; align-items: stretch; overflow-x: auto; }
-  .topics__inner::-webkit-scrollbar { display: none; }
-  .topics__item {
-    flex: 1 0 auto;
-    padding: 18px 22px;
-    font-family: var(--sans);
-    font-size: 12.5px;
-    letter-spacing: .08em;
-    color: var(--text-primary);
-    border-right: 1px solid var(--hairline);
-    white-space: nowrap;
-    text-align: center;
-  }
-  .topics__item:first-child { border-left: 1px solid var(--hairline); }
 
   /* TWO LANES */
   .twolanes { background: var(--bg-primary); }
@@ -437,17 +417,6 @@
     }
     .hero__inner { padding-top: 56px; }
     .scroll-hint { display: none; }
-    .topics__inner { flex-direction: column; padding: 0; overflow-x: visible; }
-    .topics__item {
-      flex: 1 0 auto;
-      padding: 12px 18px;
-      font-size: 12.5px;
-      border-right: 0;
-      border-bottom: 1px solid var(--hairline);
-      text-align: left;
-    }
-    .topics__item:first-child { border-left: 0; }
-    .topics__item:last-child { border-bottom: 0; }
     .fw-grid { grid-template-columns: 1fr; }
     .foot__top { grid-template-columns: 1fr; gap: 28px; }
     .foot__nav { flex-direction: row; flex-wrap: wrap; gap: 18px 24px; }
@@ -485,9 +454,6 @@
   </nav>
 
   <div class="hero__inner">
-    <div class="hero__meta"><span class="dot"></span>ISSUE 001 &nbsp;&nbsp;—&nbsp;&nbsp; 別府 大分 / BEPPU, OITA</div>
-    <p class="hero__era">令和八年 　創業</p>
-
     <h1 class="hero__title">
       <span class="hero__title-line"><span class="np">別府発、月額の</span><span class="np accent">社外IT担当</span></span>
     </h1>
@@ -504,16 +470,6 @@
 
   <div class="scroll-hint">SCROLL</div>
 </header>
-
-<div class="topics">
-  <div class="topics__inner">
-    <div class="topics__item topics__label">扱い分野</div>
-    <div class="topics__item">月額 IT顧問</div>
-    <div class="topics__item">業務改善・AI活用</div>
-    <div class="topics__item">ホームページ制作</div>
-    <div class="topics__item topics__end">制作後の月額保守</div>
-  </div>
-</div>
 
 <section class="twolanes" id="service" data-screen-label="02 Two Lanes">
   <div class="wrap">
