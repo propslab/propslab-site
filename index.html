@@ -205,6 +205,18 @@
   .hero__title .accent { color: #E8765A; }
   .hero__title-line { display: block; white-space: nowrap; }
   .np { display: inline-block; white-space: nowrap; }
+  .hero__topics {
+    font-family: var(--label);
+    font-size: 12px;
+    letter-spacing: .14em;
+    color: #FBF7EE;
+    opacity: 0.92;
+    margin: 0 0 32px;
+    line-height: 2;
+    max-width: 800px;
+  }
+  .hero__topics-label { font-weight: 600; letter-spacing: .22em; margin-right: 4px; }
+  .hero__topics-sep { margin: 0 10px; opacity: 0.55; }
   .hero__lead {
     font-family: var(--sans);
     font-weight: 500;
@@ -424,6 +436,8 @@
         linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0) 60%);
     }
     .hero__inner { padding: 24px var(--gutter); }
+    .hero__topics { font-size: 10.5px; line-height: 1.95; margin-bottom: 22px; max-width: 100%; }
+    .hero__topics-sep { margin: 0 6px; }
     .scroll-hint { display: none; }
     .fw-grid { grid-template-columns: 1fr; }
     .foot__top { grid-template-columns: 1fr; gap: 28px; }
@@ -462,6 +476,10 @@
   </nav>
 
   <div class="hero__inner">
+    <p class="hero__topics">
+      <span class="hero__topics-label">扱い分野</span><span class="hero__topics-sep">—</span><span class="np">月額 IT顧問</span><span class="hero__topics-sep">／</span><span class="np">業務改善・AI活用</span><span class="hero__topics-sep">／</span><span class="np">ホームページ制作</span><span class="hero__topics-sep">／</span><span class="np">制作後の月額保守</span>
+    </p>
+
     <h1 class="hero__title">
       <span class="hero__title-line"><span class="np">別府発、月額の</span><span class="np accent">社外IT担当</span></span>
     </h1>
