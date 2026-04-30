@@ -31,3 +31,9 @@ pnpm-debug.log*
 .company/secretary/todos/
 .company/secretary/inbox/
 .company/secretary/notes/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
