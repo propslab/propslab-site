@@ -157,6 +157,106 @@
       radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0) 75%),
       linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 22%);
   }
+  .hero__grain {
+    position: absolute; inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.55;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.45 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  @keyframes hero-ken {
+    from { transform: scale(1.04) translateY(0); }
+    to   { transform: scale(1.12) translateY(-1.5%); }
+  }
+  .hero__img { animation: hero-ken 24s ease-in-out infinite alternate; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__img { animation: none; }
+  }
+
+  /* HERO chrome — 編集デザイン四隅クレジット */
+  .hero__chrome {
+    position: absolute; inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    font-family: var(--label);
+    font-size: 10.5px;
+    letter-spacing: .26em;
+    color: rgba(251, 247, 238, 0.62);
+  }
+  .hero__chrome > * {
+    position: absolute;
+    display: flex; align-items: center; gap: 14px;
+    white-space: nowrap;
+  }
+  .hero__chrome-tl { top: 92px; left: var(--gutter); }
+  .hero__chrome-tr { top: 92px; right: var(--gutter); }
+  .hero__chrome-bl { bottom: 30px; left: var(--gutter); }
+  .hero__chrome-num {
+    font-family: var(--didone); font-style: italic; font-weight: 400;
+    font-size: 15px; letter-spacing: .08em;
+    color: #FBF7EE;
+  }
+  .hero__chrome-rule {
+    display: inline-block; width: 28px; height: 1px;
+    background: rgba(251, 247, 238, 0.4);
+  }
+  .hero__chrome-dot {
+    display: inline-block; width: 4px; height: 4px;
+    border-radius: 50%; background: var(--accent-red);
+    margin: 0 4px;
+  }
+
+  /* HERO eyebrow — タイトル前の Didone ラベル */
+  .hero__eyebrow {
+    display: inline-flex; align-items: center; gap: 16px;
+    font-family: var(--didone); font-style: italic; font-weight: 400;
+    font-size: 14px; letter-spacing: .28em;
+    color: rgba(251, 247, 238, 0.72);
+    margin: 0 0 26px;
+    text-transform: uppercase;
+  }
+  .hero__eyebrow::before, .hero__eyebrow::after {
+    content: "";
+    width: 28px; height: 1px;
+    background: rgba(251, 247, 238, 0.45);
+  }
+
+  /* HERO アクセント下線 */
+  .hero__title .accent { position: relative; display: inline-block; }
+  .hero__title .accent::after {
+    content: "";
+    position: absolute; left: 0; bottom: -7px;
+    height: 1px; width: 0;
+    background: var(--accent-red);
+    animation: hero-line 1.6s 2.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes hero-line {
+    0%   { width: 0; opacity: 0.4; }
+    100% { width: 100%; opacity: 1; }
+  }
+
+  /* HERO ステージング reveal */
+  @keyframes hero-rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes hero-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .hero__eyebrow { animation: hero-rise 1.0s 0.35s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+  .hero__topics  { animation: hero-rise 1.0s 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+  .hero__title   { animation: hero-rise 1.2s 0.85s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+  .hero__lead    { animation: hero-rise 1.0s 1.15s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+  .btn-row       { animation: hero-rise 0.9s 1.45s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+  .hero__chrome > * { animation: hero-fade 1.4s 1.7s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+  .scroll-hint   { animation: hero-fade 1.4s 1.9s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__eyebrow, .hero__topics, .hero__title, .hero__lead,
+    .btn-row, .hero__chrome > *, .scroll-hint { animation: none; }
+    .hero__title .accent::after { animation: none; width: 100%; }
+  }
   .nav {
     position: relative; z-index: 3;
     display: flex; align-items: center;
@@ -252,20 +352,32 @@
   .btn--ghost:hover { background: #FBF7EE; color: #1A1614; }
 
   .scroll-hint {
-    position: absolute; right: 28px; bottom: 110px; z-index: 3;
+    position: absolute; right: 28px; bottom: 96px; z-index: 3;
     writing-mode: vertical-rl;
     text-orientation: mixed;
     font-family: var(--label);
     font-size: 10.5px;
     letter-spacing: .42em;
-    color: var(--text-primary);
-    opacity: .82;
+    color: rgba(251, 247, 238, 0.78);
   }
   .scroll-hint::after {
     content: ""; display: block;
-    width: 1px; height: 64px; background: var(--text-primary);
+    width: 1px; height: 72px;
     margin: 16px auto 0;
-    opacity: .55;
+    background: linear-gradient(to bottom,
+      rgba(251, 247, 238, 0) 0%,
+      rgba(251, 247, 238, 0.78) 35%,
+      rgba(251, 247, 238, 0.78) 65%,
+      rgba(251, 247, 238, 0) 100%);
+    background-size: 100% 280%;
+    animation: scroll-pulse 2.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+  @keyframes scroll-pulse {
+    0%   { background-position: 0% -100%; }
+    100% { background-position: 0%  100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-hint::after { animation: none; background: rgba(251, 247, 238, 0.55); }
   }
 
   /* TWO LANES */
@@ -360,6 +472,265 @@
   .fw__icon { width: 48px; height: 48px; border: 1px solid var(--hairline); display: grid; place-items: center; color: var(--text-secondary); align-self: start; justify-self: end; }
   .fw__icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.2; }
 
+  /* PROCESS — 茶会の手順書 */
+  .process {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    position: relative;
+    overflow: hidden;
+  }
+  .process::before {
+    content: "順";
+    position: absolute;
+    right: -60px;
+    top: 40px;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(220px, 32vw, 420px);
+    line-height: 0.85;
+    color: var(--text-primary);
+    opacity: 0.04;
+    pointer-events: none;
+    user-select: none;
+  }
+  .process .wrap { position: relative; z-index: 1; }
+  .process__title {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(24px, 3.4vw, 38px);
+    line-height: 1.55; letter-spacing: .04em;
+    margin: 0 auto 18px; text-align: center;
+  }
+  .process__title .accent { color: var(--accent-red); }
+  .process__lead {
+    font-family: var(--sans); font-size: 14px;
+    color: var(--text-primary);
+    margin: 0 auto 72px; max-width: 720px;
+    line-height: 2; text-align: center;
+  }
+  .process__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    padding-bottom: 72px;
+  }
+  .step {
+    padding: 0 24px 0 0;
+    position: relative;
+    display: flex; flex-direction: column;
+  }
+  .step + .step { padding-left: 24px; border-left: 1px solid var(--hairline); }
+  .step__num {
+    font-family: var(--didone);
+    font-weight: 400;
+    font-size: clamp(72px, 8vw, 104px);
+    line-height: 0.9;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+    margin: 0 0 6px;
+    transition: color .35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .step__rail {
+    position: relative;
+    height: 1px;
+    background: var(--hairline);
+    margin: 14px 0 22px;
+  }
+  .step__rail::before {
+    content: "";
+    position: absolute; top: 50%; left: 0;
+    width: 28px; height: 1px;
+    background: var(--accent-red);
+    transform: translateY(-50%);
+    transition: width .55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .step__rail::after {
+    content: "";
+    position: absolute; top: 50%; left: 28px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--accent-red);
+    transform: translate(-50%, -50%);
+    transition: left .55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .step:hover .step__num { color: var(--accent-red); }
+  .step:hover .step__rail::before { width: calc(100% - 9px); }
+  .step:hover .step__rail::after { left: calc(100% - 4px); }
+  .step__lab {
+    font-family: var(--label);
+    font-size: 10px;
+    letter-spacing: .34em;
+    color: var(--accent-red);
+    margin-bottom: 12px;
+  }
+  .step__h {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: .05em;
+    margin: 0 0 14px;
+    color: var(--text-primary);
+  }
+  .step__p {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    line-height: 2;
+    color: var(--text-primary);
+    margin: 0 0 22px;
+  }
+  .step__time {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px dashed var(--hairline);
+    font-family: var(--label);
+    font-size: 10.5px;
+    letter-spacing: .24em;
+    color: var(--text-secondary);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .step__time::before {
+    content: "";
+    display: inline-block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent-red);
+    opacity: .6;
+  }
+
+  /* FAQ — 対話文集 */
+  .faq {
+    background: var(--bg-primary);
+    position: relative;
+    overflow: hidden;
+  }
+  .faq::before {
+    content: "問";
+    position: absolute;
+    left: -50px;
+    top: 80px;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(220px, 30vw, 400px);
+    line-height: 0.85;
+    color: var(--text-primary);
+    opacity: 0.035;
+    pointer-events: none;
+    user-select: none;
+  }
+  .faq .wrap { position: relative; z-index: 1; }
+  .faq__title {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(24px, 3.4vw, 38px);
+    line-height: 1.55; letter-spacing: .04em;
+    margin: 0 auto 18px; text-align: center;
+  }
+  .faq__title .accent { color: var(--accent-red); }
+  .faq__lead {
+    font-family: var(--sans); font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0 auto 56px; max-width: 720px;
+    line-height: 2; text-align: center;
+  }
+  .faq__list {
+    max-width: 920px;
+    margin: 0 auto 72px;
+    border-top: 1px solid var(--hairline);
+  }
+  .faq__item {
+    border-bottom: 1px solid var(--hairline);
+    transition: background .45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .faq__item[open] { background: rgba(184, 69, 47, 0.022); }
+  .faq__item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 26px 4px 26px 4px;
+    display: grid;
+    grid-template-columns: 56px 1fr 36px;
+    gap: 22px;
+    align-items: baseline;
+    transition: padding .35s ease;
+  }
+  .faq__item summary::-webkit-details-marker { display: none; }
+  .faq__item summary::-moz-list-bullet { list-style: none; }
+  .faq__num {
+    font-family: var(--didone);
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--accent-red);
+    letter-spacing: .04em;
+    align-self: baseline;
+    transition: color .3s, letter-spacing .35s;
+  }
+  .faq__q {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.7;
+    letter-spacing: .04em;
+    color: var(--text-primary);
+    transition: color .3s;
+  }
+  .faq__icon {
+    width: 30px; height: 30px;
+    border: 1px solid var(--hairline);
+    border-radius: 50%;
+    position: relative;
+    align-self: center;
+    justify-self: end;
+    transition: border-color .35s, background .35s;
+  }
+  .faq__icon::before, .faq__icon::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    background: var(--text-secondary);
+    transition: background .35s, transform .4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .faq__icon::before { width: 11px; height: 1px; transform: translate(-50%, -50%); }
+  .faq__icon::after  { width: 1px; height: 11px; transform: translate(-50%, -50%); }
+  .faq__item summary:hover .faq__q { color: var(--accent-red); }
+  .faq__item summary:hover .faq__icon { border-color: var(--accent-red); }
+  .faq__item summary:hover .faq__icon::before,
+  .faq__item summary:hover .faq__icon::after { background: var(--accent-red); }
+  .faq__item[open] .faq__icon {
+    border-color: var(--accent-red);
+    background: var(--accent-red);
+  }
+  .faq__item[open] .faq__icon::before,
+  .faq__item[open] .faq__icon::after { background: #FBF7EE; }
+  .faq__item[open] .faq__icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .faq__item[open] .faq__num { letter-spacing: .14em; }
+  .faq__body {
+    padding: 4px 56px 32px 78px;
+    position: relative;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    line-height: 2.1;
+    color: var(--text-primary);
+  }
+  .faq__body::before {
+    content: "A";
+    position: absolute;
+    left: 33px; top: -2px;
+    font-family: var(--didone);
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--accent-red);
+    letter-spacing: .04em;
+    line-height: 1;
+  }
+  .faq__body::after {
+    content: "";
+    position: absolute;
+    left: 41px; top: 28px;
+    bottom: 36px;
+    width: 1px;
+    background: var(--accent-red);
+    opacity: 0.28;
+  }
+  .faq__body strong { font-weight: 600; color: var(--accent-red); }
+
   /* CTA dark */
   .cta-dark { background: var(--bg-dark); color: #EAE2D2; padding: 72px 0 64px; }
   .cta-dark__head { display: flex; align-items: baseline; gap: 18px; font-family: var(--label); font-size: 11px; letter-spacing: .22em; color: rgba(234,226,210,.55); justify-content: center; margin-bottom: 22px; }
@@ -413,6 +784,10 @@
     .advisory__img { min-height: 280px; }
     .plans__grid { grid-template-columns: 1fr; }
     .fw-grid { grid-template-columns: repeat(2, 1fr); }
+    .process__grid { grid-template-columns: repeat(2, 1fr); row-gap: 56px; }
+    .step + .step { padding-left: 0; border-left: 0; }
+    .step:nth-child(2n) { padding-left: 24px; border-left: 1px solid var(--hairline); }
+    .step__num { font-size: 84px; }
   }
   @media (max-width: 640px) {
     .nav__toggle { display: block; }
@@ -441,8 +816,25 @@
     .hero__inner { padding: 24px var(--gutter); }
     .hero__topics { font-size: 13px; line-height: 1.95; margin-bottom: 24px; max-width: 100%; }
     .hero__topics-sep { margin: 0 7px; }
+    .hero__chrome-tr, .hero__chrome-bl { display: none; }
+    .hero__chrome-tl { top: 76px; font-size: 9.5px; letter-spacing: .2em; gap: 10px; }
+    .hero__chrome-tl .hero__chrome-num { font-size: 13px; }
+    .hero__chrome-tl .hero__chrome-rule { width: 18px; }
+    .hero__eyebrow { font-size: 10.5px; letter-spacing: .22em; gap: 10px; margin-bottom: 18px; }
+    .hero__eyebrow::before, .hero__eyebrow::after { width: 18px; }
     .scroll-hint { display: none; }
     .fw-grid { grid-template-columns: 1fr; }
+    .process__grid { grid-template-columns: 1fr; row-gap: 48px; }
+    .step + .step,
+    .step:nth-child(2n) { padding-left: 0; border-left: 0; padding-top: 24px; border-top: 1px solid var(--hairline); }
+    .step__num { font-size: 76px; }
+    .faq__item summary { grid-template-columns: 44px 1fr 28px; gap: 14px; padding: 22px 2px; }
+    .faq__num { font-size: 16px; }
+    .faq__q { font-size: 14.5px; }
+    .faq__icon { width: 26px; height: 26px; }
+    .faq__body { padding: 0 12px 26px 60px; font-size: 13px; }
+    .faq__body::before { left: 22px; font-size: 20px; }
+    .faq__body::after { left: 29px; }
     .foot__top { grid-template-columns: 1fr; gap: 28px; }
     .foot__nav { flex-direction: row; flex-wrap: wrap; gap: 18px 24px; }
     .foot__bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
@@ -463,6 +855,7 @@
 <header class="hero" data-screen-label="01 Hero">
   <div class="hero__img" aria-hidden="true"></div>
   <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__grain" aria-hidden="true"></div>
 
   <nav class="nav">
     <a href="/" class="brand">PROPS LAB</a>
@@ -478,7 +871,23 @@
     </div>
   </nav>
 
+  <div class="hero__chrome" aria-hidden="true">
+    <div class="hero__chrome-tl">
+      <span class="hero__chrome-num">N° 01</span>
+      <span class="hero__chrome-rule"></span>
+      <span>EDITION&nbsp;2026 ／ 春</span>
+    </div>
+    <div class="hero__chrome-tr">
+      BEPPU <span class="hero__chrome-dot"></span> OITA <span class="hero__chrome-dot"></span> JAPAN
+    </div>
+    <div class="hero__chrome-bl">
+      33°16′N · 131°22′E ／ 別府
+    </div>
+  </div>
+
   <div class="hero__inner">
+    <span class="hero__eyebrow">Established in Beppu — N°&nbsp;01</span>
+
     <p class="hero__topics">
       <span class="hero__topics-label">扱い分野</span><span class="hero__topics-sep">—</span><span class="np">月額 IT顧問</span><span class="hero__topics-sep">／</span><span class="np">業務改善・AI活用</span><span class="hero__topics-sep">／</span><span class="np">ホームページ制作</span><span class="hero__topics-sep">／</span><span class="np">制作後の月額保守</span>
     </p>
@@ -675,7 +1084,62 @@
   </div>
 </section>
 
-<section class="forwhom" id="forwhom" data-screen-label="05 For Whom">
+<section class="process" id="process" data-screen-label="05 Process">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">05 / 08</span>
+      <span class="sec-jp">導入の流れ</span>
+      <span class="sec-en">— PROCESS</span>
+      <span class="sec-sep"></span>
+    </div>
+
+    <h2 class="process__title"><span class="np">ご相談から月次稼働まで</span><span class="np"><span class="accent">四つの段</span>を踏むだけ</span></h2>
+    <p class="process__lead">
+      初回相談は無料。話してみてご縁がなければ、そこで終わって構いません。<br/>
+      契約までを急かすことはしません。
+    </p>
+
+    <div class="process__grid">
+      <article class="step">
+        <div class="step__num">01</div>
+        <div class="step__rail" aria-hidden="true"></div>
+        <div class="step__lab">FIRST CONTACT</div>
+        <h3 class="step__h">お問い合わせ</h3>
+        <p class="step__p">フォームまたはメールで現状をお知らせください。サイト・予約・AI活用・補助金など、ざっくりで構いません。</p>
+        <div class="step__time">所要 約5分</div>
+      </article>
+
+      <article class="step">
+        <div class="step__num">02</div>
+        <div class="step__rail" aria-hidden="true"></div>
+        <div class="step__lab">HEARING</div>
+        <h3 class="step__h">ヒアリング</h3>
+        <p class="step__p">対面（別府・大分・由布）またはオンラインで、事業の状況・困りごと・優先度をじっくり伺います。</p>
+        <div class="step__time">60〜90分 / 無料</div>
+      </article>
+
+      <article class="step">
+        <div class="step__num">03</div>
+        <div class="step__rail" aria-hidden="true"></div>
+        <div class="step__lab">PROPOSAL</div>
+        <h3 class="step__h">ご提案・契約</h3>
+        <p class="step__p">最適なプラン（LIGHT / MONITOR / STANDARD）と対応範囲を擦り合わせ、書面でお取り交わします。</p>
+        <div class="step__time">数日〜1週間</div>
+      </article>
+
+      <article class="step">
+        <div class="step__num">04</div>
+        <div class="step__rail" aria-hidden="true"></div>
+        <div class="step__lab">MONTHLY</div>
+        <h3 class="step__h">月次稼働</h3>
+        <p class="step__p">月1回の定例ミーティングとチャット相談で伴走。日々の更新・改善・AI活用支援まで月額の中で対応します。</p>
+        <div class="step__time">毎月 / 継続前提</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="forwhom" id="forwhom" data-screen-label="06 For Whom">
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-num">04 / 06</span>
@@ -751,10 +1215,92 @@
   </div>
 </section>
 
-<section class="cta-dark" id="contact" data-screen-label="06 Contact">
+<section class="faq" id="faq" data-screen-label="07 FAQ">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">07 / 08</span>
+      <span class="sec-jp">よくある質問</span>
+      <span class="sec-en">— FAQ</span>
+      <span class="sec-sep"></span>
+    </div>
+
+    <h2 class="faq__title"><span class="np">ご相談の前に</span><span class="np">気になる<span class="accent">疑問</span>へ</span></h2>
+    <p class="faq__lead">他にご不明な点があれば、お気軽にお問い合わせください。一つずつお答えします。</p>
+
+    <div class="faq__list">
+      <details class="faq__item">
+        <summary>
+          <span class="faq__num">Q.01</span>
+          <span class="faq__q">契約期間に最低縛りはありますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          <strong>LIGHT</strong> は契約期間の定めなく、いつでも解約可能です。<strong>MONITOR</strong>（モニター価格）は <strong>6ヶ月限定</strong>の運用で、契約期間で満了します。<strong>STANDARD</strong> は6ヶ月以上のお付き合いを推奨していますが、途中解約は30日前のご予告でお受けします。
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          <span class="faq__num">Q.02</span>
+          <span class="faq__q">対応エリアはどこまでですか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          対面の定例ミーティングは <strong>別府市・大分市・由布市</strong> を基本エリアとしています。それ以外の地域でも、オンラインでの月次定例＋チャット相談での運用は全国対応可能です。出張が必要な場合は別途ご相談ください。
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          <span class="faq__num">Q.03</span>
+          <span class="faq__q">既存のホームページがありますが、IT顧問だけ依頼できますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          はい、可能です。既存サイトの保守・改善を月額顧問の中で承れます。新規HP制作とIT顧問はセットでご依頼いただかなくて構いません。<strong>顧問だけ・HP制作だけ、どちらの依頼も歓迎です。</strong>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          <span class="faq__num">Q.04</span>
+          <span class="faq__q">他のIT会社・制作会社と何が違いますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          単発の納品で終わらず、<strong>月額で「社外IT担当」として継続伴走</strong>するのが特徴です。サイト保守・AI活用・補助金活用・日々のIT相談まで、雇用ほど重くなく外注ほど距離のない関係を目指しています。地場の宿泊・飲食・観光事業者さま向けに最適化しています。
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          <span class="faq__num">Q.05</span>
+          <span class="faq__q">AI活用や業務改善は具体的に何ができますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          メール返信・資料作成・予約管理・SNS運用などを ChatGPT・Claude・各種自動化ツールで効率化する支援を行います。<strong>「何から始めればいいか分からない」段階からの壁打ち</strong>も歓迎です。導入による業務時間の削減を一緒に検証していきます。
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          <span class="faq__num">Q.06</span>
+          <span class="faq__q">相談だけで終わってもいいですか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          もちろんです。<strong>初回ヒアリングは無料</strong>で、その場でご契約を決めていただく必要はありません。話してみてご縁がなさそうと感じられれば、そこで終了で構いません。
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-dark" id="contact" data-screen-label="08 Contact">
   <div class="wrap">
     <div class="cta-dark__head">
-      <span class="num">06 / 06</span>
+      <span class="num">08 / 08</span>
       <span style="color:#EAE2D2; letter-spacing:.18em;">お問い合わせ</span>
     </div>
     <h2 class="cta-dark__title"><span class="np">現状を<span class="accent">お聞かせください</span></span></h2>
