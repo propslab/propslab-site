@@ -352,6 +352,53 @@
   .nav__toggle.is-open span:nth-child(2) { opacity: 0; }
   .nav__toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+  /* TOP ANNOUNCEMENT — Props Voice 公開バー */
+  .topnotice {
+    background: var(--bg-dark);
+    color: #FBF7EE;
+    font-family: var(--label);
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-align: center;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(251, 247, 238, .12);
+    position: relative;
+    z-index: 100;
+  }
+  .topnotice a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: inherit;
+    transition: color .2s ease;
+  }
+  .topnotice a:hover { color: var(--accent-red); }
+  .topnotice__badge {
+    background: var(--accent-red);
+    color: #FBF7EE;
+    padding: 2px 7px;
+    font-size: 9px;
+    letter-spacing: .18em;
+    font-weight: 700;
+    border-radius: 2px;
+  }
+  .topnotice__arrow { transition: transform .2s ease; }
+  .topnotice a:hover .topnotice__arrow { transform: translateX(3px); }
+  @media (max-width: 640px) {
+    .topnotice { font-size: 11px; padding: 8px 14px; }
+  }
+
+  /* nav の外部リンク矢印 */
+  .nav__ext {
+    font-size: 8px;
+    margin-left: 3px;
+    letter-spacing: 0;
+    vertical-align: super;
+    opacity: .7;
+  }
+
   .hero__inner {
     position: relative; z-index: 2;
     flex: 1;
@@ -922,6 +969,14 @@
 </head>
 <body>
 
+<div class="topnotice" role="region" aria-label="お知らせ">
+  <a href="https://voice.props-lab.com" target="_blank" rel="noopener noreferrer">
+    <span class="topnotice__badge">NEW</span>
+    <span class="topnotice__text">無料公開：Props Voice — お客様の一言を Google レビューに整える</span>
+    <span class="topnotice__arrow">→</span>
+  </a>
+</div>
+
 <header class="hero" data-screen-label="01 Hero">
   <div class="hero__img" aria-hidden="true"></div>
   <div class="hero__veil" aria-hidden="true"></div>
@@ -936,6 +991,7 @@
       <a href="/" class="is-active">HOME</a>
       <a href="/about">ABOUT</a>
       <a href="/service">SERVICE</a>
+      <a href="https://voice.props-lab.com" target="_blank" rel="noopener noreferrer">VOICE<sup class="nav__ext">↗</sup></a>
       <a href="/pricing">PRICING</a>
       <a href="/contact">CONTACT</a>
     </div>
